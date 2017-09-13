@@ -1,0 +1,46 @@
+<h1><%= @orders[0].first_name %> <%= @orders[0].last_name %>'s Orders</h1>
+
+<%= link_to("<< Back to Customer List", {:action => 'index'}, :class => 'back-link') %>
+
+
+<ul>
+  
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Purchase Date</th>
+    </tr>
+    <% @orders.each do |order| %>
+    <tr>
+    <td><%= order.title %></td>
+    <td><%= order.created_at %></td>
+    <td><%= link_to("Edit", {:action => 'edit', :id => order.id}, :class => 'action edit') %></td>
+    <td><%= link_to("Delete", {:action => 'delete', :id => order.id}, :class => 'action delete') %></td>
+    </tr>
+    <% end %>
+  </table>
+
+</ul>
+
+
+
+
+<h2>Add Doujinshi Title to Customer Library</h2>
+
+<div>
+  <%= form_for(:order, :url => {:action => 'create'}) do |f| %>
+  <table>
+    <tr>
+     <%= f.hidden_field :first_name, value: @orders[0].first_name %>
+     <%= f.hidden_field :last_name, value: @orders[0].last_name %>
+     <%= f.hidden_field :email,  value: @orders[0].email %>
+      <td><%= f.label(:title, "Title") %></td>
+      <td><%= f.select :title, Doujinshi.all.collect {|x| [ x.title ] }, { :include_blank => true } %><td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><%= submit_tag("Submit") %></td>
+    </tr>
+  </table>
+  <% end %> 
+</div>

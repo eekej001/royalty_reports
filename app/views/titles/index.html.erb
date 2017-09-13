@@ -1,0 +1,41 @@
+<h1>Doujinshi Titles</h1>
+
+<%= link_to("<< Back to Main Menu", {:controller => 'home', :action => 'index'}, :class => 'back-link') %>
+
+<ul>
+  
+  <table>
+    <tr>
+      <th>Title</th>
+    </tr>
+    <% @doujinshis.each do |doujinshi| %>
+    <tr>
+    <td><%= doujinshi.title %></td>
+    <td><%= link_to("Edit", {:action => 'edit', :id => doujinshi.id}, :class => 'action edit') %></td>
+    <td><%= link_to("Delete", {:action => 'delete', :id => doujinshi.id}, :class => 'action delete') %></td>
+    </tr>
+    <% end %>
+  </table>
+
+</ul>
+
+</br>
+</br>
+</br>
+
+<h2>Add a Doujinshi Title</h2>
+
+<div>
+  <%= form_for(:doujinshi, :url => {:action => 'create'}) do |f| %>
+  <table>
+    <tr>
+      <td><%= f.label(:title, "Title") %></td>
+      <td><%= f.text_field(:title) %></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><%= submit_tag("Submit") %></td>
+    </tr>
+  </table>
+  <% end %> 
+</div>

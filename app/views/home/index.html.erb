@@ -1,0 +1,19 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({
+        title: "Home",
+        icon: "<%= asset_path('favicon.ico') %>"
+      });
+    });
+  </script>
+<% end %>
+
+<%= link_to("Manage Doujinshi Titles", {:controller => 'titles', :action => 'index'}, :class => 'home-nav') %>
+</br>
+<%= link_to(" Manage Customers", {:controller => 'customers', :action => 'index'}, :class => 'home-nav') %>
+</br>
+<%= link_to(" Manage Orders", {:controller => 'orders', :action => 'index'}, :class => 'home-nav') %>
+
+
+</br></br></br></br>

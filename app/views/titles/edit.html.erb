@@ -1,0 +1,17 @@
+<%= link_to("<< Back to Title List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="titles edit">
+  <h2>Update Doujinishi Title</h2>
+
+  <%= form_for(:doujinshi, :url => {:action => 'update', :id => @doujinshi.id}) do |f| %>
+		<table summary="Doujinshi Form Fields">
+		  <tr>
+		    <th><%= f.label(:title, "Title") %></th>
+		    <td><%= f.text_field(:title) %></td>
+		  </tr>		  
+		</table>
+    <div class="form-buttons">
+      <%= submit_tag("Update Title") %>
+    </div>
+  <% end %>
+</div>   

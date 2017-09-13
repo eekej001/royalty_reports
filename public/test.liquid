@@ -1,0 +1,514 @@
+<div id="appContent">
+{% if customer %}
+</br></br>
+<div id="spinnerCatch"></div>
+
+<div id='custE' style='display:none'>{{ customer.email }}</div>
+<script type='text/javascript'>
+   // alert('This is before the jQuery');
+    $(document).ready(function() {
+    //alert('This is the beginning');
+    
+   window.ondragstart = function() { return false; } 
+    $('.productSection').hide();
+   // $('img').on('dragstart', function(event) { event.preventDefault(); });
+    var custE = document.getElementById("custE").innerHTML;
+    var formData = new FormData();
+    formData.append('user', custE);
+   // formData.append('username', 'Test');
+    //var formData = {'username': $('input[name=IT3]').val()};
+    //var formData = {'username': 'IT3'};
+    var spinner = {
+        spinBox: $('<div />', { class: 'spinner'}),
+        //container: $('#appContent')
+        container: $('#spinnerCatch')
+    }
+
+      
+     var douj_array;
+     
+
+     $.ajax({
+          type: 'POST',
+          url: 'https://region-lock.herokuapp.com/proxy/doujinshi_list',  
+          data: formData, 
+          dataType: 'json',
+          processData: false,
+		  contentType: false,
+          encode: true
+        }).done(function(data, status, error){ 
+            douj_array = data;
+           
+      }).error(function(errorData){
+        
+      }); 
+
+
+
+
+
+      $.ajax({
+          type: 'POST',
+          url: 'https://region-lock.herokuapp.com/proxy/query', 
+          data: formData, 
+          dataType: 'json',
+          processData: false,
+		  contentType: false,
+          encode: true,
+          beforeSend: function() {
+             spinner.container.append(spinner.spinBox);
+          },
+        }).done(function(data, status, error){ 
+            spinner.container.find(spinner.spinBox).remove();
+            console.log(data);
+            console.log(status);
+            console.log(error);
+           //alert('Ajax worked');
+           //var data_string = JSON.parse(data);
+          
+           //document.getElementById("responseContainer").innerHTML = data[3].last_name;
+           //document.getElementById("liquidResponseContainer").innerHTML = 'hey';
+           for(i=0; i<data.length; i++) {
+           //alert("Customer Email: " + custE + " Data Email: " + data[i].email);
+           //console.log("Data Length: " + data.length);
+             //var ln = data[i].last_name;
+             // var c_email = data[i].email;
+              var title_purch = data[i].title;
+             //var allP = $('p.tempMarker');
+             var allT = $('p.pTitle');
+             //console.log("Ajax Last Name: " + data[i].last_name);
+               //console.log("Temp Marker P Length: " + data.length);
+               //for(m=0; m<allP.length; m++) {
+               for(m=0; m<allT.length; m++) {  
+               //  var markN = $('p.tempMarker')[m].innerHTML;
+               var markN = $('p.pTitle')[m].innerHTML;
+                 //console.log("Inner Html Marker Number: " + markN);
+            /*      if (allP[m].innerHTML == ln) {
+                     allP[m].parent().css( "background-color", "red" );
+                     //console.log("Marker Match" + markN);
+                  };
+             
+            */
+
+                   var is_douj = false;
+
+                   for (z=0; z < douj_array.length; z++) {
+                      if ($('p.pTitle')[m].innerHTML == douj_array[z]) {
+                          is_douj = true;
+                      }
+
+                   };
+
+                   // if ($('p.tempMarker')[m].innerHTML == ln) {
+                   if ($('p.pTitle')[m].innerHTML == title_purch  && is_douj) {  
+                   // var thisP = $('p.tempMarker')[m];
+                   var thisP = $('p.pTitle')[m];
+                    // $(thisP).parent().css( "background-color", "red" );
+                    $(thisP).parent().show();
+                    $(thisP).parent().addClass('ordered');
+                    //alert("Has class " + m);
+                   // alert("Marker Match" + markN);
+                     console.log("Marker Match" + markN);
+                  };
+            
+               };
+                 
+            };  
+           /* var allD = $('div.productSection');
+               for(n=0; n<allD.length; n++) {
+                  var thisD = $('div.productSection')[n];
+                  if (!$(thisD).hasClass('ordered')) {
+                    $(thisD).remove();
+                   //$(thisD).css( "background-color", "red" );
+                  };
+                }; 
+          */
+         
+         var pOrder = $('div.ordered');
+      //alert(pOrder.length);
+        for(o=0; o< pOrder.length; o++) {
+            var pOrderI = $('div.ordered')[o];
+            $(pOrderI).removeClass('no-view');
+            //$(pOrderI).parent().css('width', '75px');
+        };
+       // alert('finished displaying ordered');
+      //$('.ordered').removeClass('no-view');
+      $('.ordered').css( "display", "inline-block" );
+     // $('.productSection').css( "background-color", "red" );
+     	  $('div.no-view').remove();
+          // var nvD = $('div.no-view');
+           //var nvDL = nvD.length;
+           //alert(nvD.length);
+          // setInterval(function(){
+       /*    alert("Removing no views");
+               for(n=0; n<nvDL; n++) {
+                  var thisD = $('div.no-view')[n];
+                   $(thisD).remove();
+                  // alert('removing no-view ' + n);
+               };
+  */               
+         //   }, 5000);
+      }).error(function(errorData){
+         //alert("It didn't work");
+        spinner.container.find(spinner.spinBox).remove();
+      	document.getElementById("responseContainer").innerHTML = "Something went wrong. Don't worry, we're working on it!";
+        //Something went wrong with the ajax call. It'll be dealt with here
+      });
+  /* $.get("https://region-lock.herokuapp.com/proxy/image_test", function(data, status){
+        $("#dog").attr("src","data:image/jpg;base64," + data);
+    });
+  */
+     
+  //This is the working version but I'm going to try out using Blob'
+/*
+     $.ajax({
+            url: 'https://region-lock.herokuapp.com/proxy/image_test'
+          //url: 'https://region-lock.herokuapp.com/proxy/image_test', 
+          //dataType: 'jsonp'
+        }).done(function(data, status, error){ 
+            alert(data);
+            $("#dog").attr("src","data:image/jpg;base64," + data);
+            //document.getElementById("catchDog").innerHTML = data;
+            console.log(data);
+            console.log(status);
+            console.log(error);
+           
+      }).error(function(errorData){
+        alert("It didn't work");
+      });
+*/
+/*
+    var dImage = $('#catchDog');
+    var dImage = new Image;
+	var request = new XMLHttpRequest();
+	request.responseType = "blob";
+	request.onload = function() {
+	  dImage.src = URL.createObjectURL(this.response);
+	  document.getElementById("catchDog").appendChild(dImage);
+	  var srcCap = dImage.src;
+	  $('#catchDog').css('background-image', 'url(' + srcCap + ')' );
+	}
+	request.open("GET", "https://region-lock.herokuapp.com/proxy/image_test");
+	request.send();
+*/
+/*  POST METHOD ATTEMPT AT RETRIEVING PICTURE
+      $.ajax({
+          type: 'POST',
+          url: 'https://region-lock.herokuapp.com/proxy/image_test', 
+          data: formData, 
+          dataType: 'json',
+          processData: false,
+		  contentType: false,
+          encode: true
+        }).done(function(data, status, error){ 
+            alert('POST Version Worked! ' + data )
+            console.log(data);
+            console.log(status);
+            console.log(error);
+           
+      }).error(function(errorData){
+        alert('no such luck');
+      
+      	document.getElementById("responseContainer").innerHTML = "Something went wrong. Don't worry, we're working on it!";
+      });
+*/
+  $('.roBut').click( function (event) {
+    //var replaceContainer = $('#appContent');
+    var nImage = new Image;
+	var request = new XMLHttpRequest();
+	var dir = event.target.id;
+	//var counter;
+	//request.responseType = "blob";
+	//request.responseType = "json";
+	request.responseType = "text";
+	request.onload = function() {
+      //$('#appContent').empty();
+      $('body').empty();
+      var backB = document.createElement('a');
+      var backBtext = document.createTextNode('Back to Library');
+      backB.appendChild(backBtext);
+      backB.title = "Back to Library";
+      backB.href = "https://projecthentai.com/apps/streaming";
+      backB.setAttribute('class', 'backB');
+      document.body.appendChild(backB);
+      $('.backB').css({"color": "red", "font-size": "14px", "font-family": "Open Sans" });
+   
+    $(function () {
+      $('<script>')
+      .attr('type', 'text/javascript')
+      .text("$(document).ready(function(){ $('img').on('dragstart', function(event) { event.preventDefault(); }); });")
+      //.text("$(document).ready(function(){ alert('Hi')});")
+      //.text("alert('Hi')")
+      .appendTo('head');
+   })
+         
+      
+    var spinnerS = {
+      spinBox: $('<div />', { class: 'spinnerS'}),
+      container: $('body')
+    }
+    spinnerS.container.append(spinnerS.spinBox);
+    $('.spinnerS').css({"background-image": "url('http://i1269.photobucket.com/albums/jj591/aditya9172/loaing2.gif')", "background-repeat": "no-repeat", "background-position": "50%", "position": "absolute", "left": "35%", "width": "30%", "height": "30%"});
+      $('body').css({"background-color": "black", "margin-left": "4%"});
+      document.addEventListener('contextmenu', event => event.preventDefault());
+      console.log(this.response);
+      var counter = this.response;
+      //alert("Response: " + this.response);
+      
+      //tempRuler = this.response;
+      //tempRulerL = tempRuler.toString().length;
+      //tempRulerL = tempRuler.length;
+      //response = this.response.toJSON();
+       
+      // alert('Response Length = ' + tempRulerL);
+      /*  for(i=0; i<2; i++) {
+		  //nImage.src = URL.createObjectURL(this.response.[i]);
+		  //alert(this.response[0]);
+		  alert("Response dot 0 " + this.response[0]);
+		  alert("Response dot 1 " + this.response[1]);
+		  console.log(this.response.i);
+		  document.getElementById("appContent").innerHTML(this.response[0]);
+	    };
+     */
+    /*  for(i=0; i<2; i++) {
+          console.log(response[i]);
+		  nImage.src = URL.createObjectURL(response[i]);
+		  document.getElementById("appContent").appendChild(nImage);
+	    };
+	*/    
+     /* for(i=0; i<tempRulerL; i++) {
+		  nImage.src = URL.createObjectURL(this.response[i]);
+		  document.getElementById("appContent").appendChild(nImage);
+	    };
+	 */ 
+    //alert("Counter: " + counter);
+    //var D = document.createElement("DIV");
+    //$("#appContent").append(D);
+	var i = 0;
+	  
+	  function iStream () {
+		var params = new FormData();
+        params.append('pID', i);
+        params.append('dir', dir);
+        var iWidth = screen.width * .9;
+        var nImage = new Image();
+		var request = new XMLHttpRequest();
+		request.responseType = "blob";
+		request.open("POST", "https://region-lock.herokuapp.com/proxy/dropbox_pull");
+	    request.send(params);
+		request.onload = function() {
+		if( i == 0) {
+		   spinnerS.container.find(spinnerS.spinBox).remove();
+		}
+          nImage.src = URL.createObjectURL(this.response);
+          nImage.onload = function () {
+          //alert("Height: " + this.height);
+          //alert("Width: " + this.width);	
+          nWidth = this.width;
+          nHeight = this.height;
+          nRatio = nHeight/nWidth;
+          nImage.width = iWidth;
+          nImage.height = iWidth * nRatio;
+          
+          }
+          
+          //nImage.width = iWidth;
+          //$("#appContent").append(nImage);
+          $("body").append(nImage);	
+          
+          i++;	
+          if(i > 0 && i < counter) {
+		   iStream();
+	      }	  
+	    }
+	   
+	   
+	 
+	 }
+	
+	  iStream();
+	}
+	//request.open("GET", "https://region-lock.herokuapp.com/proxy/dropbox");
+	request.open("GET", "https://region-lock.herokuapp.com/proxy/dropbox_count");
+	request.send();
+	
+  });
+       /* DELETE AFTER EVERYTHING IS WORKING WITH DOUJINSHI_LIST ACTION////////////////////////////////////////////////////////////
+         $.ajax({
+          type: 'POST',
+          url: 'https://region-lock.herokuapp.com/proxy/doujinshi_list',  
+          data: formData, 
+          dataType: 'json',
+          processData: false,
+		  contentType: false,
+          encode: true
+        }).done(function(data, status, error){ 
+            console.log(data);
+            console.log(status);
+            console.log(error);
+            for(i=0; i<data.length; i++) {
+              alert(data[i]);
+            }
+           
+      }).error(function(errorData){
+        alert("It didn't work");
+      });
+
+
+     */
+
+
+
+      
+  });
+  
+  
+</script>
+
+{% comment %}
+
+{{ shop.name }} has {{ shop.products_count }} {{ shop.products_count | pluralize: 'product', 'products' }}. </br></br>
+List of products in the store: </br></br>
+{% for product in collections['vanilla'].products %} 
+   {% if product.title contains 'Sister' %}
+     - {{ product.title }}</br>
+   {% endif %} 
+
+   {% if product.handle == 'bust-to-bust' %}
+     {% for image in product.images %}
+       {% if forloop.first == true %}
+         <img src="{{ image.src | product_img_url: 'medium' }}"></br>
+       {% endif %}
+     {% endfor %}
+   {% endif %} 
+
+{% endfor %}
+{% endcomment %} 
+
+{% paginate collections.all.products by 190 %}
+
+{% comment %}
+	{% for product in collections.all.products %}
+	     {{ product.title }}</br>
+	{% endfor %}    
+{% endcomment %} 
+
+
+
+
+
+      {% assign marker = 4 %}
+      {% for product in collections.all.products %}
+          <div class='productSection no-view'>
+             <p class='tempMarker'>{{ marker}}</p></br>
+             <p class='pHandle'>{{ product.handle}}</p></br>
+             <p class='pTitle'>{{ product.title}}</p></br>
+                  <div class='dImage'> 
+                   {% for image in product.images %}
+				       {% if forloop.first == true %}
+				         <img class='pImage' src="{{ image.src | product_img_url: 'medium' }}"></br>
+				       {% endif %}
+				     {% endfor %}
+				     <div class='dboxOverlay'></div> 
+				  </div>   
+			  <button id='{{product.handle}}' class='roBut'>READ ONLINE</button>	
+			      
+          </div> 
+       {% assign marker = marker | plus: 1 %}   
+      {% endfor %}
+
+{% endpaginate %}
+
+
+{% else %}
+</br></br>
+   Please login to access your streaming purchases.
+
+{% endif %}
+
+
+
+
+<div id='responseContainer'></div></br>
+<div id='liquidResponseContainer'></div>
+<img id='dog' src='' />
+<div id='catchDog'></div>
+
+</div>
+
+<style>
+   .appContent {
+     position: relative;
+     left: 25%;
+   }
+   .dImage {
+     position: relative;
+   }
+   .dboxOverlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: black;
+     opacity: 0.4;
+   }
+   .dboxOverlay:hover {
+     opacity: 0;
+   }
+   .tempMarker {
+     display: none;
+   }
+   .pHandle {
+     display:none;
+   }
+   .pTitle {
+     width: 170px;
+     font-weight: bold;
+     text-align: center;
+     margin-top: -20%;
+     margin-bottom: -13%;
+   }
+   .pImage {
+     width: 170px;
+     height: 240px;
+   }
+   <!--.pImage:hover {
+     opacity: 0.7;
+   }   -->
+   .ordered {
+     margin-right: 1%;
+   }
+   .roBut {
+     background-color: white; 
+     color: black; 
+     border: 2px solid #f44336;
+     padding: 7px 16px;
+     text-decoration: none;
+     text-align: center;
+     width: 170px;  
+   }
+   .roBut:hover {
+     background-color: #f44336;
+     color: white;
+   }
+   .no-view {
+     display: none;
+   }
+   #appcontent {
+     position: relative;
+   }
+   .spinner {
+     position: absolute;
+     top: -4%;
+     left: 35%;
+     width: 30%;
+     height: 30%;
+       
+     background: url('http://i1269.photobucket.com/albums/jj591/aditya9172/loaing2.gif') no-repeat 50%;
+   
+   }
+   .backB {
+     font-color: red;
+   }
+</style>
