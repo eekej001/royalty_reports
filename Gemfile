@@ -11,6 +11,10 @@ gem 'shopify_cli'
 gem 'dropbox-sdk','~> 1.6.4'
 # Use mysql as the database for Active Record
 
+gem 'rubyzip', '= 1.0.0'
+gem 'axlsx', '= 2.0.1'
+gem 'axlsx_rails'
+
 group :production do
   #gem 'pg'
   gem 'mysql2', '>= 0.3.13', '< 0.5'
