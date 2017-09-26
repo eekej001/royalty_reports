@@ -86,8 +86,9 @@ def webhook
         t_name = t[0].e_title
         puts "Artist Name:  #{a_name}"
         puts  "Title Name: #{t_name}"
+=end          
          sale_array.push(artist_id, title_id, a["variant_id"], a["price"])
-=end         
+       
       else
         puts "Artist ID: #{artist_id}"
         puts "Title ID: #{title_id}"
