@@ -61,9 +61,9 @@ def webhook
     
     for a in line_items do
       for b in @artists do
-          if a["vendor"] == b["e_name"]    
+         # if a["vendor"] == b["e_name"]    
             artist_id = b["id"]
-         end
+         #end
       end  #artist loop
 
       for c in @titles do
