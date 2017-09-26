@@ -49,7 +49,7 @@ def webhook
 
      @artists = Artist.all
      @titles = Title.all
-     sale_array = []
+     
     
      webhook_json = JSON.parse request.body.read
      fn = webhook_json["billing_address"]["first_name"]
@@ -62,7 +62,8 @@ def webhook
 
      artist_id = nil
      title_id = nil
-
+     sale_array = []
+     
       for b in @artists do
           if a["vendor"] == b["e_name"]    
             artist_id = b["id"]
