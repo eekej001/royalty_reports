@@ -56,14 +56,17 @@ def webhook
      ln = webhook_json["billing_address"]["last_name"]
      email = webhook_json["email"]
      line_items = webhook_json["line_items"]
-     artist_id = nil
-     title_id = nil
+     
     
     for a in line_items do
+
+     artist_id = nil
+     title_id = nil
+
       for b in @artists do
-         # if a["vendor"] == b["e_name"]    
+          if a["vendor"] == b["e_name"]    
             artist_id = b["id"]
-         #end
+         end
       end  #artist loop
 
       for c in @titles do
