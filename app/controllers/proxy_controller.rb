@@ -84,6 +84,10 @@ def webhook
         puts "Artist Name:  #{a_name}"
         puts  "Title Name: #{t_name}"
          sale_array.push(artist_id, title_id, a["variant_id"], a["price"])
+      else
+        puts "Artist ID: #{artist_id}"
+        puts "Title ID: #{title_id}"
+        puts "This sale item does not belong to one of the Doujinshi Artists."   
       end
     end #line_items loop
 
@@ -104,6 +108,7 @@ def webhook
     end  
   
 
+   redirect_to(:action => 'index') 
 
   end 
 
