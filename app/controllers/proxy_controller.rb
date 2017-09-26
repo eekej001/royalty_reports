@@ -74,8 +74,10 @@ def webhook
 
       #if artist_id & title_id not nil,
       if (artist_id.present? && title_id.present?)
-        a_name = Artist.where("id = #{artist_id}").e_name
-        t_name = Title.where("id = #{title_id}").e_title
+        a = Artist.where("id = #{artist_id}")
+        a_name = a[0].e_name
+        t = Title.where("id = #{title_id}")
+        t_name = t[0].e_title
         puts "Artist Name:  #{a_name}"
         puts  "Title Name: #{t_name}"
          sale_array.push(artist_id, title_id, a["variant_id"], a["price"])
