@@ -92,8 +92,12 @@ def webhook
          puts "Title ID: #{title_id}"
          puts "Variant ID: #{a['variant_id']}"
          puts "Price: #{a['price']}"
-         sale_array.push(artist_id, title_id, a["variant_id"], a["price"])
 
+         if (a["variant_id"].present?)
+          sale_array.push(artist_id, title_id, a["variant_id"], a["price"])
+         else
+          sale_array.push(artist_id, title_id, "No Format", a["price"]) 
+         end
          puts "Sale Array: #{sale_array}"
        
       else
@@ -101,6 +105,7 @@ def webhook
         puts "Title ID: #{title_id}"
         puts "This sale item does not belong to one of the Doujinshi Artists."   
       end
+
 
       Sale.create(:artist_id => sale_array[0], :title_id => sale_array[1], :first_name => "#{fn}", :last_name => "#{ln}", :email => "#{email}", :format => sale_array[2], :price => sale_array[3])
     end #line_items loop
