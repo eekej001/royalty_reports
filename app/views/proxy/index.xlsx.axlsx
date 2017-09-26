@@ -1,0 +1,69 @@
+wb = xlsx_package.workbook
+final_royalty = 0
+#current_date = Datetime.now
+
+current_date = Time.now.to_s
+current_date = DateTime.parse(current_date).strftime("%m/%Y")
+prev_date = DateTime.parse(current_date) << 3
+prev_date = DateTime.parse(prev_date.to_s).strftime("%m/%Y")
+
+title_name = @titles.find(1).artist.j_name + '(' + @titles.find(1).artist.e_name + ')'
+
+wb.styles do |style|
+  highlight_cell = style.add_style(bg_color: "EFC376")
+  currency = wb.styles.add_style :num_fmt => 5
+  two_dec = style.add_style :format_code => "#,##0.00"
+  green_cell = style.add_style(bg_color: "AFF2A4")
+  green_row = style.add_style :border => { :style => :thick, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, bg_color: "AFF2A4", :sz => 14, :alignment => { :horizontal=> :center, :vertical => :center, :wrap_text => true }
+
+  basic_row = style.add_style :border => { :style => :thick, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, :alignment => { :horizontal=> :center, :vertical => :center, :wrap_text => true }
+
+  basic_cell = style.add_style :border => { :style => :thin, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, :alignment => { :horizontal=> :center, :vertical => :center, :wrap_text => true }, :sz => 16
+
+  money_cell = style.add_style :border => { :style => :thin, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, :sz => 16, :alignment => { :horizontal=> :center, :vertical => :center, :wrap_text => true, }, :num_fmt => 5, :format_code => "$#,##0.00"
+
+  pink_cell = style.add_style :border => { :style => :thick, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, bg_color: "F983D4", :sz => 14, :alignment => { :horizontal=> :center, :vertical => :center, :wrap_text => true, }, :num_fmt => 5, :format_code => "$#,##0.00"
+
+  first_cell = style.add_style :sz => 22, :style => :thick, :border => { :style => :thick, :color =>"000000", :edges => [:bottom] }
+  small_cell = style.add_style :sz => 12, :style => :thick, :border => { :style => :thick, :color =>"000000", :edges => [:bottom] }, :alignment => { :horizontal=> :right, :vertical => :center, :wrap_text => true, }
+  underline = style.add_style :style => :thick, :border => { :style => :thick, :color =>"000000", :edges => [:bottom] }
+  red_text = style.add_style :fg_color =>"F40D0D", :sz => 14
+
+  red_text_mid = style.add_style :fg_color =>"F40D0D", :sz => 14, :alignment => { :horizontal=> :center, :vertical => :center, :wrap_text => true, }
+
+	wb.add_worksheet(name: "Royalty Report") do |sheet|
+	  # this is the head row of your spreadsheet
+	  # sheet.add_row %w(first_name last_name email  title)
+	  
+	 # sheet.add_row %w(Title Author English_Title Download SRP Total_Sales Dist_&_Rate_Fee Amount_Received Rate Royalty_Due), style: [green_cell, green_cell, green_cell, green_cell, green_cell, green_cell, green_cell, green_cell, green_cell, green_cell]
+
+      
+      sheet.add_row ['サークル名:', title_name, nil, nil, nil, nil, nil, nil, 'デジタル配信' ], style: [first_cell, first_cell, underline, underline, underline, underline, underline, underline, small_cell]
+      sheet.add_row ['デジタル配信 本払'], style: red_text
+      sheet.add_row [prev_date, '-', current_date], style: [red_text, red_text_mid, red_text]
+
+      
+
+
+      sheet.add_row ['日本語作品名', '英語タイトル', 'ダウンロード', '定価', '合計売上', '手数料（ 合計）', '金額', '著作権使用料', '今回東支払う著作権使用料'], style: green_row
+  
+	  sheet.add_row ['Title', 'English Title', 'Downloads', 'SRP', 'Gross Sales', 'Dist. & Rate Fee', 'Net Sales', 'Rate', 'Royalty Due'], style: green_row
+	  
+	  # each user is a row on your spreadsheet
+	  @titles.each do |title|
+	    total_sales = title.sales.count * title.srp
+	    dist_fee = total_sales * 0.3
+	    amount_rec = total_sales - dist_fee
+	    rate_dec = 0.2
+	    rate = '20%'
+	    royalty_due = amount_rec * rate_dec
+	    final_royalty = final_royalty + royalty_due
+	    #sheet.add_row [customer.first_name, customer.last_name, customer.email, customer.title ], style: [nil, nil, nil, highlight_cell]
+
+	    sheet.add_row [title.j_title, title.e_title, title.sales.count, title.srp, total_sales, dist_fee, amount_rec, rate, royalty_due], style: [basic_cell, basic_cell, basic_cell, basic_cell, money_cell, money_cell, money_cell, money_cell, basic_cell, money_cell]
+	  end
+
+	    sheet.add_row [nil, nil, nil, nil, nil, nil, nil, '支払金額 (Total)', final_royalty], style: [nil, nil, nil, nil, nil, nil, nil, pink_cell, pink_cell]
+	end
+end	
+

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :proxy, only: [:index]
   match ':controller(/:action(/:id))', :via => [:get, :post]
   root :to => 'home#index'
   mount ShopifyApp::Engine, at: '/'

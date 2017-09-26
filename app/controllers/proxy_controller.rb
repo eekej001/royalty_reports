@@ -1,13 +1,144 @@
 class ProxyController < ApplicationController
  skip_before_action :verify_authenticity_token
   def index
+=begin 
+    @customers = Order.all
 
-  	#if params[:id]
-    #	redirect_to "https://www.emanga.com"
-   # else	
-   		 #@products = ShopifyAPI::Product.find(:all, params: { limit: 10 })
-  #	end
+
+  respond_to do |format|
+    format.html
+    format.xlsx
+   
   end
+
+  @email = 'ebenezer@emanga.com'
+
+  RoyaltyMail.sample_email(@customers).deliver	
+  #RoyaltyMail.sample_email(@email).deliver
+
+
+  #write a for loop here.  for each artist, generate pass down artists.sales and send email
+=end 
+
+   @titles = Artist.find(1).titles
+    respond_to do |format|
+      format.html
+      format.xlsx
+     
+    end
+
+    @email = 'ebenezer@emanga.com'
+
+   # RoyaltyMail.sample_email(@titles).deliver   
+
+  @sample_array = []
+
+  @sample_array.push([1,2,3,4])
+  @sample_array.push([5,6,7,8])
+  @a= [[1,2],[3,4]]
+  puts @sample_array[0][0]
+  #puts @a[0][1]
+
+
+  end
+
+
+def webhook
+
+     
+
+     @artists = Artist.all
+     @titles = Title.all
+     sale_array = []
+    
+     webhook_json = JSON.parse request.body.read
+     fn = webhook_json["billing_address"]["first_name"]
+     ln = webhook_json["billing_address"]["last_name"]
+     email = webhook_json["email"]
+     line_items = webhook_json["line_items"]
+     artist_id = nil
+     title_id = nil
+    
+    for a in line_items do
+      for b in @artists do
+          if a["vendor"] == b["e_name"]    
+            artist_id = b["id"]
+         end
+      end  #artist loop
+
+      for c in @titles do
+          if a["title"] == c["e_title"]    
+            title_id = c["id"]
+         end
+      end #titles loop
+
+      #if artist_id & title_id not nil,
+      sale_array.push(artist_id, title_id, a["variant_id"], a["price"])
+
+    end #line_items loop
+
+
+      
+
+      puts "Begin Sale Array Output"
+      for d in sale_array do
+        puts d
+      end 
+
+      puts "End Sale Array Output"
+      
+
+    for e in sale_array do 
+      puts "Order does not exist. Time to create."
+      Sale.create(:artist_id => e[0], :title_id => e[1], :first_name => "#{fn}", :last_name => "#{ln}", :email => "#{email}", :format => e[2], :title_id => e[3],)
+    end  
+  
+
+
+  end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   def create
@@ -226,16 +357,8 @@ class ProxyController < ApplicationController
 
   end	
 
-
+=begin
   def webhook
-=begin	
-  	webhook_json = JSON.parse request.body.read
-  	fn = webhook_json["billing_address"]["first_name"]
-  	ln = webhook_json["billing_address"]["last_name"]
-  	Form.create(:first_name => "#{fn}", :last_name => "#{ln}")
-=end
-
-
      @douj_titles = Doujinshi.all
      title_array = []
     
@@ -294,7 +417,7 @@ class ProxyController < ApplicationController
 	  end  
        puts "Ending Order History Check"
   end	
-
+=end
 
   def proxy
     redirect_to "https://www.projecthentai.com"

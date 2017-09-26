@@ -18,3 +18,36 @@
   </table>
   <% end %> 
 </div> 
+
+
+
+
+<h2> Sample Array </h2>
+  <p><% @sample_array %></p>
+  <p><% @a %></p>
+ 
+ 
+<table style="width:100%">
+    <tr>
+      <th>Japanese Title</th>
+      <th>Artist Name</th>
+      <th>English Title</th>
+      <th>Download</th>
+      <th>SRP</th>
+
+    </tr>
+    <% @titles.each do |title| %>
+        <tr style="text-align:center">
+          <td><%= title.j_title %></td>
+          <td><%= title.artist.e_name %></td>
+          <td><%= title.e_title %></td>
+          <td><%= title.sales.count %></td>
+          <td><%= title.srp %></td>
+        </tr>
+   <% end %>
+</table> 
+ 
+
+
+
+<%= link_to "Export users as spreadsheet", proxy_index_path(format: "xlsx") %>
