@@ -66,6 +66,8 @@ def webhook
       for b in @artists do
           if a["vendor"] == b["e_name"]    
             artist_id = b["id"]
+          else
+            artist_id = 2  
          end
       end  #artist loop
 
