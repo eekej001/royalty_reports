@@ -87,6 +87,8 @@ def webhook
         puts "Artist Name:  #{a_name}"
         puts  "Title Name: #{t_name}"
 =end          
+         puts "Artist ID: #{artist_id}"
+         puts "Title ID: #{title_id}"
          sale_array.push(artist_id, title_id, a["variant_id"], a["price"])
        
       else
@@ -98,7 +100,7 @@ def webhook
 
 
       
-
+=begin
       puts "Begin Sale Array Output"
       for d in sale_array do
         puts d
@@ -106,9 +108,14 @@ def webhook
 
       puts "End Sale Array Output"
       
-
+=end
     for e in sale_array do 
       puts "Order does not exist. Time to create."
+      puts "Begin Sale_Array Output"
+      puts e[0]
+      puts e[1]
+      puts e[2]
+      puts e[3]
       Sale.create(:artist_id => e[0], :title_id => e[1], :first_name => "#{fn}", :last_name => "#{ln}", :email => "#{email}", :format => e[2], :price => e[3])
     end  
   
