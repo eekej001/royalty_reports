@@ -73,8 +73,9 @@ def webhook
       end #titles loop
 
       #if artist_id & title_id not nil,
-      sale_array.push(artist_id, title_id, a["variant_id"], a["price"])
-
+      if (artist_id.present? && title_id.present?)
+         sale_array.push(artist_id, title_id, a["variant_id"], a["price"])
+      end
     end #line_items loop
 
 
