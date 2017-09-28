@@ -7,7 +7,8 @@ current_date = DateTime.parse(current_date).strftime("%m/%Y")
 prev_date = DateTime.parse(current_date) << 3
 prev_date = DateTime.parse(prev_date.to_s).strftime("%m/%Y")
 
-title_name = @titles.find(1).artist.j_name + '(' + @titles.find(1).artist.e_name + ')'
+#title_name = @titles.find(1).artist.j_name + '(' + @titles.find(1).artist.e_name + ')'
+title_name = @artist_j_name + '(' + @artist_e_name + ')'
 
 wb.styles do |style|
   highlight_cell = style.add_style(bg_color: "EFC376")
@@ -37,10 +38,11 @@ wb.styles do |style|
 	  
 	 # sheet.add_row %w(Title Author English_Title Download SRP Total_Sales Dist_&_Rate_Fee Amount_Received Rate Royalty_Due), style: [green_cell, green_cell, green_cell, green_cell, green_cell, green_cell, green_cell, green_cell, green_cell, green_cell]
 
-      
-      sheet.add_row ['サークル名:', title_name, nil, nil, nil, nil, nil, nil, 'デジタル配信' ], style: [first_cell, first_cell, underline, underline, underline, underline, underline, underline, small_cell]
+      #sheet.add_row ['サークル名:', title_name, nil, nil, nil, nil, nil, nil, 'デジタル配信' ], style: [first_cell, first_cell, underline, underline, underline, underline, underline, underline, small_cell]
+      sheet.add_row ["サークル名: #{title_name}", nil, nil, nil, nil, nil, nil, nil, 'デジタル配信' ], style: [first_cell, underline, underline, underline, underline, underline, underline, underline, small_cell]
       sheet.add_row ['デジタル配信 本払'], style: red_text
-      sheet.add_row [prev_date, '-', current_date], style: [red_text, red_text_mid, red_text]
+      sheet.add_row ["#{prev_date} - #{current_date}"], style: [red_text]
+      #sheet.add_row [prev_date, '-', current_date], style: [red_text, red_text_mid, red_text]
 
       
 
@@ -51,7 +53,13 @@ wb.styles do |style|
 	  
 	  # each user is a row on your spreadsheet
 	  @titles.each do |title|
-	    total_sales = title.sales.count * title.srp
+
+	  curr_date = Time.now
+	  prev_date = curr_date - 3.month
+
+	   sales_count = title.sales.where(:created_at => prev_date.beginning_of_day..curr_date.end_of_day).count
+	   total_sales = sales_count * title.srp
+	    #total_sales = title.sales.count * title.srp
 	    dist_fee = total_sales * 0.3
 	    amount_rec = total_sales - dist_fee
 	    rate_dec = 0.2
@@ -60,7 +68,7 @@ wb.styles do |style|
 	    final_royalty = final_royalty + royalty_due
 	    #sheet.add_row [customer.first_name, customer.last_name, customer.email, customer.title ], style: [nil, nil, nil, highlight_cell]
 
-	    sheet.add_row [title.j_title, title.e_title, title.sales.count, title.srp, total_sales, dist_fee, amount_rec, rate, royalty_due], style: [basic_cell, basic_cell, basic_cell, basic_cell, money_cell, money_cell, money_cell, money_cell, basic_cell, money_cell]
+	    sheet.add_row [title.j_title, title.e_title, sales_count, title.srp, total_sales, dist_fee, amount_rec, rate, royalty_due], style: [basic_cell, basic_cell, basic_cell, money_cell, money_cell, money_cell, money_cell, basic_cell, money_cell]
 	  end
 
 	    sheet.add_row [nil, nil, nil, nil, nil, nil, nil, '支払金額 (Total)', final_royalty], style: [nil, nil, nil, nil, nil, nil, nil, pink_cell, pink_cell]

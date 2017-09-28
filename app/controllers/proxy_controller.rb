@@ -28,9 +28,14 @@ class ProxyController < ApplicationController
     end
 
     @email = 'ebenezer@emanga.com'
+    @artists = Artist.all
 
-   # RoyaltyMail.sample_email(@titles).deliver   
+    @artists.each_with_index do |artist, index|
+      RoyaltyMail.royalty_report(index).deliver
+    end  
 
+    #RoyaltyMail.sample_email(@titles).deliver   
+=begin
   @sample_array = []
 
   @sample_array.push([1,2,3,4])
@@ -38,7 +43,7 @@ class ProxyController < ApplicationController
   @a= [[1,2],[3,4]]
   puts @sample_array[0][0]
   #puts @a[0][1]
-
+=end
 
   end
 
@@ -135,7 +140,7 @@ def webhook
     end  
 =end  
 
-   redirect_to(:action => 'index') 
+   #redirect_to(:action => 'index') 
 
   end 
 

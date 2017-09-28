@@ -21,8 +21,12 @@ end
 
 =end
 
+##############################################################################################
+                                   # MAIN DATABASE SEED #
 
+##############################################################################################
 
+=begin
 artist_list = [
   [ "Mizuryu Kei", "合計売上", "miz@gmail.com"],
   [ "Kishi", "合計売上", "kishi@gmail.com"],
@@ -290,4 +294,21 @@ end
 
 a4t4_list.each do | first_name, last_name, email, format, price |
 	Sale.create( artist_id: 4, title_id: 16, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+end
+
+
+=end
+
+
+a4t4_list = [
+  [ "Garry", "Alleck", "garrya@gmail.com", "PDF", 7.95],
+  [ "Malcolm", "Rush", "malcolmr@gmail.com", "MOBI", 7.95],
+  [ "Chansey", "Day", "chanseyd@gmail.com", "CBZ", 7.95],
+  [ "Karen", "Black", "karenb@gmail.com", "PRC", 7.95],
+  [ "Riley", "Freedman", "rileyf@gmail.com", "PRC", 7.95]
+]
+
+
+a4t4_list.each do | first_name, last_name, email, format, price |
+	Sale.create( artist_id: 1, title_id: 6, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
