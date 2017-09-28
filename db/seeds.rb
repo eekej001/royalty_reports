@@ -26,7 +26,7 @@ end
 
 ##############################################################################################
 
-=begin
+
 artist_list = [
   [ "Mizuryu Kei", "合計売上", "miz@gmail.com"],
   [ "Kishi", "合計売上", "kishi@gmail.com"],
@@ -297,8 +297,9 @@ a4t4_list.each do | first_name, last_name, email, format, price |
 end
 
 
-=end
 
+
+=begin
 
 a4t4_list = [
   [ "Garry", "Alleck", "garrya@gmail.com", "PDF", 7.95],
@@ -312,3 +313,5 @@ a4t4_list = [
 a4t4_list.each do | first_name, last_name, email, format, price |
 	Sale.create( artist_id: 1, title_id: 6, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
+
+=end
