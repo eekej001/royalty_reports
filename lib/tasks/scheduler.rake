@@ -5,7 +5,7 @@
 	 #if Time.now.month == 9 and Time.now.date == 29 || Time.now.month == 3 and Time.now.date == 1 || Time.now.month == 6 and Time.now.date = 1 || Time.now.month == 9 and Time.now.date == 1 || Time.now.month == 12 and Time.now.date == 1	
 
 	 #if Time.now.day == 29
-	 if Time.now.month == 9
+	 if Time.now.month == 9 && Time.now.day == 29
 		  puts "Emailing royalty reports..."
 		  #session = ActionDispatch::Integration::Session.new(Rails.application)
 		  #session.get "/proxy/index"
