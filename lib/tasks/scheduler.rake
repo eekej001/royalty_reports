@@ -5,8 +5,13 @@
 	 #if Time.now.month == 9 and Time.now.date == 29 || Time.now.month == 3 and Time.now.date == 1 || Time.now.month == 6 and Time.now.date = 1 || Time.now.month == 9 and Time.now.date == 1 || Time.now.month == 12 and Time.now.date == 1	
 
 	 #if Time.now.day == 29
-	 if (Time.now.month == 9 && Time.now.day == 28) || 
-	 	(Time.now.month == 9 && Time.now.day == 29)
+	 if (Time.now.month == 1 && Time.now.day == 1) || 
+	 	(Time.now.month == 3 && Time.now.day == 1) ||
+	 	(Time.now.month == 6 && Time.now.day == 1) ||
+	 	(Time.now.month == 9 && Time.now.day == 1) ||
+	 	(Time.now.month == 12 && Time.now.day == 1) ||
+	 	(Time.now.month == 9 && Time.now.day == 28) 
+
 		  puts "Emailing royalty reports..."
 		  #session = ActionDispatch::Integration::Session.new(Rails.application)
 		  #session.get "/proxy/index"
