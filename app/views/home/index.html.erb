@@ -9,11 +9,23 @@
   </script>
 <% end %>
 
-<%= link_to("Manage Doujinshi Titles", {:controller => 'titles', :action => 'index'}, :class => 'home-nav') %>
+<head>
+  <%= stylesheet_link_tag 'bootstrap.min' %>
+
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether" %>
+</head>
+
+<h1>Royalty Reports</h1>
+
+<%= link_to("Manage Artists", {:controller => 'titles', :action => 'index'}, :class => 'home-nav') %>
 </br>
-<%= link_to(" Manage Customers", {:controller => 'customers', :action => 'index'}, :class => 'home-nav') %>
+
 </br>
-<%= link_to(" Manage Orders", {:controller => 'orders', :action => 'index'}, :class => 'home-nav') %>
+<%= link_to("View Sales", {:controller => 'orders', :action => 'index'}, :class => 'home-nav') %>
+
+</br>
+
+<div class="bg-info"><p>Blue Background Here!</p></div>
 
 
 </br></br></br></br>

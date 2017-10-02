@@ -9,8 +9,7 @@
 	 	(Time.now.month == 3 && Time.now.day == 1) ||
 	 	(Time.now.month == 6 && Time.now.day == 1) ||
 	 	(Time.now.month == 9 && Time.now.day == 1) ||
-	 	(Time.now.month == 12 && Time.now.day == 1) ||
-	 	(Time.now.month == 9 && Time.now.day == 29) 
+	 	(Time.now.month == 12 && Time.now.day == 1)
 
 		  puts "Emailing royalty reports..."
 		  #session = ActionDispatch::Integration::Session.new(Rails.application)
@@ -18,7 +17,7 @@
 		  Artist.royalty_report
 		  puts "Done."
 	  else
-	     puts "Not the 1st day of a quarter.  Reports not sent"	  
+	     puts "Not the 1st day of a quarter. Reports not sent."	  
 	  end
 
 	end
