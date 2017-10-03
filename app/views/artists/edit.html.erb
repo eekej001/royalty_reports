@@ -1,7 +1,7 @@
 <head>
   <%= stylesheet_link_tag 'bootstrap.min' %>
 
-  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether" %>
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
 <%= link_to("<< Back to Artist List", {:action => 'index'}, :class => 'back-link') %>
@@ -21,7 +21,7 @@
 		  </tr>
 		  <tr>
 		    <th><%= f.label(:email, "Email") %></th>
-		    <td><%= f.text_field(:mail) %></td>
+		    <td><%= f.text_field(:email) %></td>
 		  </tr>			  
 		</table>
     <div class="form-buttons">

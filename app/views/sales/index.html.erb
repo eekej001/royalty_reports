@@ -1,7 +1,7 @@
 <head>
   <%= stylesheet_link_tag 'bootstrap.min' %>
 
-  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether" %>
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
 
@@ -29,6 +29,8 @@
     <td><%= sale.email %></td>
     <td><%= sale.artist.e_name %></td>
     <td><%= sale.title.e_title %></td>
+    <td><%= sale.format %></td>
+    <td><%= sale.price %></td>
     <td><%= sale.created_at %></td>
     </tr>
     <% end %>
