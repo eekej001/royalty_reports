@@ -1,5 +1,5 @@
 <head>
-  <%= stylesheet_link_tag 'bootstrap.min' %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
 
   <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
@@ -25,6 +25,6 @@
 
 </br>
 
-<%= link_to("View Titles", {:action => 'titles_display', :id => artist.id}, :class => 'action show') %>
-<%= link_to("View Sales", {:action => 'sales_display', :id => artist.id}, :class => 'action show') %>
+<%= link_to("View Titles", {:action => 'titles_display', :id => @artist.id}, :class => 'action show') %>
+<%= link_to("View Sales", {:action => 'sales_display', :id => @artist.id}, :class => 'action show') %>
 
