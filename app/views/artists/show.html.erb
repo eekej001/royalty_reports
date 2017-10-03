@@ -4,7 +4,9 @@
   <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
-<h1>@artist.e_name</h1>
+<h1><%= @artist.e_name %></h1>
+
+<%= link_to("<< Back to Artist List", {:controller => 'artists', :action => 'index'}, :class => 'back-link') %>
 
 <div>
   <table>
