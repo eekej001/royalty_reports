@@ -4,6 +4,13 @@
   <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
+<style>
+  th {
+    text-align: center;
+  }
+
+</style>
+
 <h1>Artists</h1>
 
 <%= link_to("<< Back to Main Menu", {:controller => 'home', :action => 'index'}, :class => 'back-link') %>
@@ -20,7 +27,7 @@
     </tr>
     <% @artists.each_with_index do |artist, index| %>
     <tr>
-    <td><%= index %></td>
+    <td><%= index + 1 %></td>
     <td><%= link_to(artist.e_name, {:action => 'show', :id => artist.id}, :class => 'action show') %></td>
     <td><%= artist.j_name %></td>
     <td><%= artist.email %></td>

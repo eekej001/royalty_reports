@@ -13,13 +13,15 @@
   
   <table>
     <tr>
+      <th>#</th>
       <th>English Title</th>
       <th>Japanese Title</th>
       <th>Author</th>
       <th>SRP</th>
     </tr>
-    <% @titles.each do |title| %>
+    <% @titles.each_with_index do |title, index| %>
     <tr>
+    <td><%= index + 1 %></td>
     <td><%= title.e_title %></td>
     <td><%= title.j_title %></td>
     <td><%= title.artist.e_name %></td>
