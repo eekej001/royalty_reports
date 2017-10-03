@@ -8,13 +8,13 @@
 <%= link_to("<< Back to Title List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="titles edit">
-  <h2>Update Title</h2>
+  <h2>Update <%= @title.e_name %></h2>
 
   <%= form_for(:title, :url => {:action => 'update', :id => @title.id}) do |f| %>
 	<table>
 	    <tr>
 	      <td><%= f.label(:artist_id, "Artist") %></td>
-	      <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_title, x.id ] }, { :include_blank => true }, :selected => @title.artist.e_name %><td>
+	      <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true }, :selected => @title.artist.e_name %><td>
 	    </tr>
 
 
