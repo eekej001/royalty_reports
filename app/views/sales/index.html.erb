@@ -13,6 +13,7 @@
   
   <table>
     <tr>
+      <th>#</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
@@ -22,8 +23,9 @@
       <th>Price</th>
       <th>Order Date</th>
     </tr>
-    <% @sales.each do |sale| %>
+    <% @sales.each_with_index do |sale, index| %>
     <tr>
+    <td><%= index %></td>
     <td><%= sale.first_name %></td>
     <td><%= sale.last_name %></td>
     <td><%= sale.email %></td>

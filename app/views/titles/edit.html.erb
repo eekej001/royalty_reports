@@ -8,7 +8,7 @@
 <%= link_to("<< Back to Title List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="titles edit">
-  <h2>Update <%= @title.e_name %></h2>
+  <h2>Update <%= @title.e_title %></h2>
 
   <%= form_for(:title, :url => {:action => 'update', :id => @title.id}) do |f| %>
 	<table>

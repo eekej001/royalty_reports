@@ -12,18 +12,21 @@
   
   <table>
     <tr>
+      <th>#</th>
       <th>English Title</th>
       <th>Japanese Title</th>
       <th>SRP</th>
 
     </tr>
-    <% @titles.each do |title| %>
+    <% @titles.each_with_index do |title, index| %>
     <tr>
-    <td><%= link_to(title.e_title, {:action => 'show', :id => title.id}, :class => 'action show') %></td>
-    <td><%= title.j_title %></td>
-    <td><%= title.srp %></td>
-    <td><%= link_to("Edit", {:controller => 'titles', :action => 'edit', :id => title.id}, :class => 'action edit') %></td>
-    <td><%= link_to("Delete", {:controller => 'titles', :action => 'delete', :id => title.id}, :class => 'action delete') %></td>
+      <td><%= index %></td>
+      <td><%= link_to(title.e_title, {:action => 'show', :id => title.id}, :class => 'action show') %></td>
+      <td><%= link_to(title.e_title, {:action => 'show', :id => title.id}, :class => 'action show') %></td>
+      <td><%= title.j_title %></td>
+      <td><%= title.srp %></td>
+      <td><%= link_to("Edit", {:controller => 'titles', :action => 'edit', :id => title.id}, :class => 'action edit') %></td>
+      <td><%= link_to("Delete", {:controller => 'titles', :action => 'delete', :id => title.id}, :class => 'action delete') %></td>
     </tr>
     <% end %>
   </table>
