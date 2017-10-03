@@ -43,7 +43,7 @@
       
     <tr>
       <td><%= f.label(:artist_id, "Artist") %></td>
-      <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_title, x.id ] }, { :include_blank => true } %><td>
+      <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %><td>
     </tr>
 
 
