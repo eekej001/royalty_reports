@@ -1,0 +1,38 @@
+<head>
+  <%= stylesheet_link_tag 'bootstrap.min' %>
+
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether" %>
+</head>
+
+
+<h1>Sales</h1>
+
+<%= link_to("<< Back to Main Menu", {:controller => 'home', :action => 'index'}, :class => 'back-link') %>
+
+<ul>
+  
+  <table>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Artist</th>
+      <th>Title</th>
+      <th>Format</th>
+      <th>Price</th>
+      <th>Order Date</th>
+    </tr>
+    <% @sales.each do |sale| %>
+    <tr>
+    <td><%= sale.first_name %></td>
+    <td><%= sale.last_name %></td>
+    <td><%= sale.email %></td>
+    <td><%= sale.artist.e_name %></td>
+    <td><%= sale.title.e_title %></td>
+    <td><%= sale.created_at %></td>
+    </tr>
+    <% end %>
+  </table>
+
+</ul>
+

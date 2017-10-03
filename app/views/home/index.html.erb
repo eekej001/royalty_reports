@@ -17,15 +17,16 @@
 
 <h1>Royalty Reports</h1>
 
+</br>
 <div class="container">
-   <div class="col-10 col-offset-1 bg-info">
-	<%= link_to("Manage Artists", {:controller => 'titles', :action => 'index'}, :class => 'home-nav') %>
+   <div class="col-10 col-offset-1">
+	<%= link_to("Manage Artists", {:controller => 'artists', :action => 'index'}, :class => 'home-nav') %>
 	</br>
-
-	<%= link_to("View Sales", {:controller => 'orders', :action => 'index'}, :class => 'home-nav') %>
+    <%= link_to("View Titles", {:controller => 'titles', :action => 'index'}, :class => 'home-nav') %>
+    </br>
+	<%= link_to("View Sales", {:controller => 'sales', :action => 'index'}, :class => 'home-nav') %>
 
 	</br>
    </div>	
 </div><!--container-->
 
-</br></br></br></br>

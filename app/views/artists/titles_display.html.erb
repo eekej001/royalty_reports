@@ -1,0 +1,67 @@
+<head>
+  <%= stylesheet_link_tag 'bootstrap.min' %>
+
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether" %>
+</head>
+
+<%= link_to("<< Back to Artist", {:controller => 'artists', :action => 'show', :id => @artist.id}, :class => 'back-link') %>
+
+<h1>@artist.e_name Titles</h1>
+
+<ul>
+  
+  <table>
+    <tr>
+      <th>English Title</th>
+      <th>Japanese Title</th>
+      <th>SRP</th>
+
+    </tr>
+    <% @titles.each do |title| %>
+    <tr>
+    <td><%= link_to(title.e_title, {:action => 'show', :id => title.id}, :class => 'action show') %></td>
+    <td><%= title.j_title %></td>
+    <td><%= title.srp %></td>
+    <td><%= link_to("Edit", {:controller => 'titles', :action => 'edit', :id => title.id}, :class => 'action edit') %></td>
+    <td><%= link_to("Delete", {:controller => 'titles', :action => 'delete', :id => title.id}, :class => 'action delete') %></td>
+    </tr>
+    <% end %>
+  </table>
+
+</ul>
+
+
+</br>
+
+<h2>Add a Title</h2>
+
+<div>
+  <%= form_for(:title, :url => {:action => 'create'}) do |f| %>
+  <table>
+    
+    <%= f.hidden_field :artist_id, :value => artist.id %>
+
+
+   <tr>
+      <td><%= f.label(:e_name, "English Title") %></td>
+      <td><%= f.text_field(:e_name) %></td>
+   </tr>
+
+
+   <tr>
+      <td><%= f.label(:j_name, "Japanese Title") %></td>
+      <td><%= f.text_field(:j_title) %></td>
+   </tr>
+
+   <tr>
+      <td><%= f.label(:srp, "SRP") %></td>
+      <td><%= f.text_field(:srp) %></td>
+   </tr>
+
+    <tr>
+      <td>&nbsp;</td>
+      <td><%= submit_tag("Submit") %></td>
+    </tr>
+  </table>
+  <% end %> 
+</div>

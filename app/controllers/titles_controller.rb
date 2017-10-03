@@ -1,30 +1,30 @@
-class TitlesController < ApplicationController
+class TitlesController < ShopifyApp::AuthenticatedController
 
  def index
-      @doujinshis = Doujinshi.sorted
+      @titles = Title.sorted
  end
 
 
  def create
-    @douj = Doujinshi.new(douj_params)
-    if @douj.save
-      flash[:notice] = "Doujinshi Title Added"
+    @title = Title.new(title_params)
+    if @title.save
+      flash[:notice] = "Title Successfully Added"
       redirect_to(:action => 'index')
     else
-      flash[:notice] = "Doujinshi Title Was Not Added"
+      flash[:notice] = "Title Was Not Added"
       redirect_to(:action => 'index')   
     end  
 
   end
 
  def edit
-    @doujinshi = Doujinshi.find(params[:id])
+    @title = Title.find(params[:id])
  end
 
 
  def update
-    @doujinshi = Doujinshi.find(params[:id])
-    if @doujinshi.update_attributes(title_params)
+    @title = Title.find(params[:id])
+    if @title.update_attributes(title_params)
       flash[:notice] = "Title updated successfully."
       redirect_to(:action => 'index')
     else  
@@ -33,19 +33,19 @@ class TitlesController < ApplicationController
   end 
 
 def delete
-    @doujinshi = Doujinshi.find(params[:id])
+    @title = Title.find(params[:id])
  end
 
  def destroy
-    doujinshi = Doujinshi.find(params[:id]).destroy
-    flash[:notice] = "The title '#{doujinshi.title}' has been successfully deleted."
+    title = Title.find(params[:id]).destroy
+    flash[:notice] = "The title '#{title.title}' has been successfully deleted."
     redirect_to(:action => 'index')
   end
 
   private 
 
     def title_params
-      params.require(:doujinshi).permit(:title) 
+      params.require(:title).permit(:artist_id, :j_title, :e_title, :srp ) 
     end 
 
  

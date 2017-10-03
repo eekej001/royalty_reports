@@ -1,0 +1,31 @@
+<head>
+  <%= stylesheet_link_tag 'bootstrap.min' %>
+
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether" %>
+</head>
+
+<%= link_to("<< Back to Artist List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="artists edit">
+  <h2>Update @artist.e_name Information</h2>
+
+  <%= form_for(:artist, :url => {:action => 'update', :id => @artist.id}) do |f| %>
+		<table summary="Artist Form Fields">
+		  <tr>
+		    <th><%= f.label(:e_name, "English Name") %></th>
+		    <td><%= f.text_field(:e_name) %></td>
+		  </tr>	
+		  <tr>
+		    <th><%= f.label(:j_name, "Japanese Name") %></th>
+		    <td><%= f.text_field(:j_name) %></td>
+		  </tr>
+		  <tr>
+		    <th><%= f.label(:email, "Email") %></th>
+		    <td><%= f.text_field(:mail) %></td>
+		  </tr>			  
+		</table>
+    <div class="form-buttons">
+      <%= submit_tag("Update Artist") %>
+    </div>
+  <% end %>
+</div>   

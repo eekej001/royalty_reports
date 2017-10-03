@@ -1,0 +1,19 @@
+<%= error_messages_for(@doujinshi) %>
+
+<!-- FORM PARTIAL DOESN'T WORK WITH EMBEDDED SHOPIFY APP -->
+
+<table summary="Artist Form Fields">
+  <tr>
+    <th><%= f.label(:e_name, "English Name") %></th>
+    <td><%= f.text_field(:e_name) %></td>
+  </tr>	
+  <tr>
+    <th><%= f.label(:j_name, "Japanese Name") %></th>
+    <td><%= f.text_field(:j_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:email, "Email") %></th>
+    <td><%= f.text_field(:mail) %></td>
+  </tr>
+  
+</table>

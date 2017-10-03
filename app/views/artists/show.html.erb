@@ -1,0 +1,30 @@
+<head>
+  <%= stylesheet_link_tag 'bootstrap.min' %>
+
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether" %>
+</head>
+
+<h1>@artist.e_name</h1>
+
+<div>
+  <table>
+    <tr>
+      <td>English Name</td>
+      <td>@artist.e_name</td>
+    </tr>
+    <tr>
+     <td>Japanese Name</td>
+      <td>@artist.j_name</td>
+    </tr>
+    <tr>
+     <td>Email</td>
+      <td>@artist.email</td>
+    </tr>
+  </table>
+</div> 
+
+</br>
+
+<%= link_to("View Titles", {:action => 'titles_display', :id => artist.id}, :class => 'action show') %>
+<%= link_to("View Sales", {:action => 'sales_display', :id => artist.id}, :class => 'action show') %>
+

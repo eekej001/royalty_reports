@@ -1,4 +1,11 @@
-<h1>Doujinshi Titles</h1>
+<head>
+  <%= stylesheet_link_tag 'bootstrap.min' %>
+
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether" %>
+</head>
+
+
+<h1>Titles</h1>
 
 <%= link_to("<< Back to Main Menu", {:controller => 'home', :action => 'index'}, :class => 'back-link') %>
 
@@ -6,13 +13,19 @@
   
   <table>
     <tr>
-      <th>Title</th>
+      <th>English Title</th>
+      <th>Japanese Title</th>
+      <th>Author</th>
+      <th>SRP</th>
     </tr>
-    <% @doujinshis.each do |doujinshi| %>
+    <% @titles.each do |title| %>
     <tr>
-    <td><%= doujinshi.title %></td>
-    <td><%= link_to("Edit", {:action => 'edit', :id => doujinshi.id}, :class => 'action edit') %></td>
-    <td><%= link_to("Delete", {:action => 'delete', :id => doujinshi.id}, :class => 'action delete') %></td>
+    <td><%= title.e_title %></td>
+    <td><%= title.j_title %></td>
+    <td><%= title.artist.e_name %></td>
+    <td><%= title.srp %></td>
+    <td><%= link_to("Edit", {:action => 'edit', :id => title.id}, :class => 'action edit') %></td>
+    <td><%= link_to("Delete", {:action => 'delete', :id => title.id}, :class => 'action delete') %></td>
     </tr>
     <% end %>
   </table>
@@ -20,18 +33,35 @@
 </ul>
 
 </br>
-</br>
-</br>
 
-<h2>Add a Doujinshi Title</h2>
+
+<h2>Add a Title</h2>
 
 <div>
-  <%= form_for(:doujinshi, :url => {:action => 'create'}) do |f| %>
+  <%= form_for(:title, :url => {:action => 'create'}) do |f| %>
   <table>
+      
     <tr>
-      <td><%= f.label(:title, "Title") %></td>
-      <td><%= f.text_field(:title) %></td>
+      <td><%= f.label(:artist_id, "Artist") %></td>
+      <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_title, x.id ] }, { :include_blank => true } %><td>
     </tr>
+
+
+    <tr>
+      <td><%= f.label(:e_title, "English Title") %></td>
+      <td><%= f.text_field(:e_title) %></td>
+    </tr>
+
+     <tr>
+      <td><%= f.label(:j_title, "Japanese Title") %></td>
+      <td><%= f.text_field(:j_title) %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label(:srp, "SRP") %></td>
+      <td><%= f.text_field(:srp) %></td>
+    </tr>
+
     <tr>
       <td>&nbsp;</td>
       <td><%= submit_tag("Submit") %></td>
