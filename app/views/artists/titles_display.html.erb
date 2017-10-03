@@ -22,7 +22,6 @@
     <tr>
       <td><%= index + 1 %></td>
       <td><%= link_to(title.e_title, {:action => 'show', :id => title.id}, :class => 'action show') %></td>
-      <td><%= link_to(title.e_title, {:action => 'show', :id => title.id}, :class => 'action show') %></td>
       <td><%= title.j_title %></td>
       <td><%= title.srp %></td>
       <td><%= link_to("Edit", {:controller => 'titles', :action => 'edit', :id => title.id}, :class => 'action edit') %></td>
@@ -42,7 +41,7 @@
   <%= form_for(:title, :url => {:action => 'create'}) do |f| %>
   <table>
     
-    <%= f.hidden_field :artist_id, :value => artist.id %>
+    <%= f.hidden_field :artist_id, :value => @artist.id %>
 
 
    <tr>
