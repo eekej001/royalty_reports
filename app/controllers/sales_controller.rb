@@ -1,4 +1,4 @@
-class salesController < ApplicationController
+class SalesController < ShopifyApp::AuthenticatedController
 
  def index
  	@sales = Sale.all
