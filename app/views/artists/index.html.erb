@@ -12,13 +12,15 @@
   
   <table>
     <tr>
+      <th>#</th>
       <th>English Name</th>
       <th>Japanese Name</th>
       <th>Email</th>
 
     </tr>
-    <% @artists.each do |artist| %>
+    <% @artists.each_with_index do |artist, index| %>
     <tr>
+    <td><%= index %></td>
     <td><%= link_to(artist.e_name, {:action => 'show', :id => artist.id}, :class => 'action show') %></td>
     <td><%= artist.j_name %></td>
     <td><%= artist.email %></td>
