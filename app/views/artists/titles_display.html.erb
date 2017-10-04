@@ -21,9 +21,9 @@
     <% @titles.each_with_index do |title, index| %>
     <tr>
       <td><%= index + 1 %></td>
-      <td><%= link_to(title.e_title, {:action => 'show', :id => title.id}, :class => 'action show') %></td>
+      <td><%= link_to(title.e_title, {:controller => 'titles', :action => 'show', :id => title.id}, :class => 'action show') %></td>
       <td><%= title.j_title %></td>
-      <td><%= title.srp %></td>
+      <td>$<%= title.srp %></td>
       <td><%= link_to("Edit", {:controller => 'titles', :action => 'edit', :id => title.id}, :class => 'action edit') %></td>
       <td><%= link_to("Delete", {:controller => 'titles', :action => 'delete', :id => title.id}, :class => 'action delete') %></td>
     </tr>
