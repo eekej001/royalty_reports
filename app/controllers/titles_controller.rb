@@ -9,6 +9,10 @@ class TitlesController < ShopifyApp::AuthenticatedController
     @title = Title.new(title_params)
     if @title.save
       flash[:notice] = "Title Successfully Added"
+      c = request.path_parameters[:controller]
+      a = request.path_parameters[:action]
+
+      flash[:notice] = "The controller was #{c} and the action was #{a}."
 
       if ((request.path_parameters[:controller] == "artists") && (request.path_parameters[:action] == "titles_display"))
         @artist = Artist.find(params[:id])
