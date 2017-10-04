@@ -23,12 +23,12 @@
       <td><%= @artist.email %></td>
     </tr>
     <tr>
-     <td><%= link_to("Titles", {:action => 'titles_display', :id => @artist.id}, :class => 'action show') %></td>
-      <td><%= @artist.titles.count %></td>
+     <td>Titles</td>
+      <td><%= link_to(@artist.titles.count, {:action => 'titles_display', :id => @artist.id}, :class => 'action show') %></td>
     </tr>
     <tr>
      <td><%= link_to("Sales", {:action => 'sales_display', :id => @artist.id}, :class => 'action show') %></td>
-      <td><%= @artist.sales.count %></td>
+      <td><%= link_to(@artist.sales.count, {:action => 'titles_display', :id => @artist.id}, :class => 'action show') %></td>
     </tr>
   </table>
 </div> 
