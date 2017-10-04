@@ -11,21 +11,22 @@
 
 <ul>
   
-  <table class="table table-responsive table-striped">
+  <table class="table table-responsive table-striped table-hover">
+   <thead class="thead-inverse">
     <tr>
-      <th>#</th>
-      <th>Title</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Format</th>
-      <th>Price</th>
-      <th>Date</th>
-
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Format</th>
+      <th scope="col">Price</th>
+      <th scope="col">Date</th>
     </tr>
+   </thead>
     <% @sales.each_with_index do |sale, index| %>
     <tr>
-    <td><%= index + 1 %></td>
+    <th scope="row"><%= index + 1 %></th>
     <td><%= sale.title.e_title %></td>
     <td><%= sale.first_name %></td>
     <td><%= sale.last_name %></td>

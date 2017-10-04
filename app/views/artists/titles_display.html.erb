@@ -10,17 +10,18 @@
 
 <ul>
   
-  <table class="table table-responsive table-striped">
+  <table class="table table-responsive table-striped table-hover">
+   <thead class="thead-inverse">
     <tr>
-      <th>#</th>
-      <th>English Title</th>
-      <th>Japanese Title</th>
-      <th>SRP</th>
-
+      <th scope="col">#</th>
+      <th scope="col">English Title</th>
+      <th scope="col">Japanese Title</th>
+      <th scope="col">SRP</th>
     </tr>
+   </thead>
     <% @titles.each_with_index do |title, index| %>
     <tr>
-      <td><%= index + 1 %></td>
+      <th scope="row"><%= index + 1 %></td>
       <td><%= link_to(title.e_title, {:controller => 'titles', :action => 'show', :id => title.id}, :class => 'action show') %></td>
       <td><%= title.j_title %></td>
       <td>$<%= title.srp %></td>
