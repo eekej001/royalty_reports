@@ -27,7 +27,7 @@
    </thead> 
     <% @sales.each_with_index do |sale, index| %>
     <tr>
-    <th scope="row"><td><%= index + 1 %></td></th>
+    <th scope="row"><%= index + 1 %></th>
     <td><%= sale.first_name %></td>
     <td><%= sale.last_name %></td>
     <td><%= sale.email %></td>
