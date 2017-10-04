@@ -4,7 +4,7 @@
   <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
-<%= link_to("<< Back to Artist List", {:action => 'index'}, :class => 'back-link') %>
+<button type ="button" class="btn btn-info"><%= link_to("<< Back to Artist List", {:action => 'index'}) %></button>
 
 <div class="artists edit">
   <h2>Update <%= @artist.e_name %>'s Information</h2>

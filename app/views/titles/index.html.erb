@@ -7,9 +7,9 @@
 
 <h1>Titles</h1>
 
-<%= link_to("<< Back to Main Menu", {:controller => 'home', :action => 'index'}, :class => 'back-link') %>
+<button type ="button" class="btn btn-info"><%= link_to("Back to Main Menu", {:controller => 'home', :action => 'index'}) %><button>
 
-<ul>
+
   
   <table class="table table-responsive table-striped table-hover">
    <thead class="table-info">
@@ -36,10 +36,11 @@
     <% end %>
   </table>
 
-</ul>
+  <p><%= @titles.count %> Results</p> 
 
 </br>
-
+</br>
+</br>
 
 <h2>Add a Title</h2>
 

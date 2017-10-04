@@ -6,7 +6,7 @@
 
 <h1><%= @artist.e_name %></h1>
 
-<%= link_to("<< Back to Artist List", {:controller => 'artists', :action => 'index'}, :class => 'back-link') %>
+<button type ="button" class="btn btn-info"><%= link_to("<< Back to Artist List", {:controller => 'artists', :action => 'index'}) %></button>
 
 <div>
   <table class="table table-responsive">

@@ -5,7 +5,7 @@
 </head>
 
 
-<%= link_to("<< Back to Title List", {:action => 'index'}, :class => 'back-link') %>
+<button type ="button" class="btn btn-info"><%= link_to("<< Back to Title List", {:action => 'index'}) %></button>
 
 <div class="titles edit">
   <h2>Update <%= @title.e_title %></h2>

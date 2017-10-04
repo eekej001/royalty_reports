@@ -4,11 +4,11 @@
   <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
-<%= link_to("<< Back to Artist", {:controller => 'artists', :action => 'show', :id => @artist.id}, :class => 'back-link') %>
+<button type ="button" class="btn btn-info"><%= link_to("<< Back to Artist", {:controller => 'artists', :action => 'show', :id => @artist.id}) %></button>
 
 <h1><%= @artist.e_name %>'s Titles</h1>
 
-<ul>
+
   
   <table class="table table-responsive table-striped table-hover">
    <thead class="thead-inverse">
@@ -33,9 +33,11 @@
     <% end %>
   </table>
 
-</ul>
+ <p><%= @titles.count %> Results</p> 
 
 
+</br>
+</br>
 </br>
 
 <h2>Add a Title</h2>

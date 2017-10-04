@@ -10,10 +10,10 @@
 
 <h1>Artists</h1>
 
-<%= link_to("<< Back to Main Menu", {:controller => 'home', :action => 'index'}, :class => 'back-link') %>
+<button type ="button" class="btn btn-info"><%= link_to("<< Back to Main Menu", {:controller => 'home', :action => 'index'}) %></button>
 
-<ul>
-  
+ 
+ <p><%= @artists.count %> Results</p> 
   <table class="table table-responsive table-striped table-hover">
    <thead class="table-info">
     <tr>
@@ -41,9 +41,11 @@
     <% end %>
   </table>
 
-</ul>
 
+ <p><%= @artists.count %> Results</p> 
 
+</br>
+</br>
 </br>
 
 <h2>Add An artist</h2>

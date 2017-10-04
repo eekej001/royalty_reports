@@ -5,7 +5,7 @@
 </head>
 
 
-<%= link_to("<< Back to Artist", {:controller => 'artists', :action => 'show', :id => @artist.id}, :class => 'back-link') %>
+<button type ="button" class="btn btn-info"><%= link_to("<< Back to Artist", {:controller => 'artists', :action => 'show', :id => @artist.id}) %></button>
 
 <h1><%= @artist.e_name %>'s Sales</h1>
 
