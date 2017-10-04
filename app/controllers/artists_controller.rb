@@ -8,7 +8,7 @@ class ArtistsController < ShopifyApp::AuthenticatedController
 def create
     @artist = Artist.new(artist_params)
     if @artist.save
-      flash[:notice] = "Artist Created"
+      flash[:notice] = "Artist (#{@artist.e_name}) Created"
       redirect_to(action: 'index')
      # redirect_to(action: 'artists', email: params[:email])
     else
@@ -41,7 +41,7 @@ def edit
   def update
     @artist = Artist.find(params[:id])
     if @artist.update_attributes(artist_params)
-      flash[:notice] = "#{@artist.name}'s information has been successfully updated."
+      flash[:notice] = "#{@artist.e_name}'s information has been successfully updated."
       redirect_to(:action => 'index')
     else  
       render('edit')
@@ -55,7 +55,7 @@ def delete
 
  def destroy
     artist = Artist.find(params[:id]).destroy
-    flash[:notice] = "The Artist has been successfully deleted."
+    flash[:notice] = "#{artist.e_name} has been successfully deleted."
     redirect_to(action: 'index')
   end
 

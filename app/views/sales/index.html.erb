@@ -33,7 +33,7 @@
     <td><%= sale.title.e_title %></td>
     <td><%= sale.format %></td>
     <td><%= sale.price %></td>
-    <td><%= sale.created_at %></td>
+    <td><%= sale.created_at.strftime(" %m/%d/%Y %I:%M%p") %></td>
     </tr>
     <% end %>
   </table>
