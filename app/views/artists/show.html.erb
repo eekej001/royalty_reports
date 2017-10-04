@@ -9,7 +9,7 @@
 <%= link_to("<< Back to Artist List", {:controller => 'artists', :action => 'index'}, :class => 'back-link') %>
 
 <div>
-  <table>
+  <table class="table table-responsive table-striped">
     <tr>
       <td>English Name</td>
       <td><%= @artist.e_name %></td>
