@@ -21,6 +21,10 @@ class TitlesController < ShopifyApp::AuthenticatedController
     @title = Title.find(params[:id])
  end
 
+ def show
+    @title = Title.find(params[:id])
+ end
+
 
  def update
     @title = Title.find(params[:id])

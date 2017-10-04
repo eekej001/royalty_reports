@@ -1,0 +1,35 @@
+<head>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
+</head>
+
+<h1><%= @title.e_title %></h1>
+
+<%= link_to("<< Back to Title List", {:controller => 'titles', :action => 'index'}, :class => 'back-link') %>
+
+<div>
+  <table>
+    <tr>
+      <td>English Title</td>
+      <td><%= @title.e_title %></td>
+    </tr>
+    <tr>
+     <td>Japanese Title</td>
+      <td><%= @title.j_title %></td>
+    </tr>
+    <tr>
+     <td>SRP</td>
+      <td><%= @title.srp %></td>
+    </tr>
+  </table>
+</div> 
+
+</br>
+
+
+<%= link_to("Edit", {:action => 'edit', :id => title.id}, :class => 'action edit') %>
+</br>
+<%= link_to("Delete", {:action => 'delete', :id => title.id}, :class => 'action delete') %>
+
+
