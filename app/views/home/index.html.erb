@@ -20,14 +20,10 @@
 </br>
 <nav class="navbar navbar-inverse navbar-toggleable-sm bg-danger">
 	<div class="container">
-	   <div class="navbar-nav">
+	   <div class="navbar-nav mx-auto">
 		<%= link_to("Manage Artists", {:controller => 'artists', :action => 'index'}, :class => 'nav-item nav-link') %>
-		</br>
 	    <%= link_to("View Titles", {:controller => 'titles', :action => 'index'}, :class => 'nav-item nav-link') %>
-	    </br>
 		<%= link_to("View Sales", {:controller => 'sales', :action => 'index'}, :class => 'nav-item nav-link') %>
-
-		</br>
 	   </div>	
 	 </div><!-- navbar-nav -->
 	</div><!--container-->
