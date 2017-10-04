@@ -9,10 +9,24 @@ class TitlesController < ShopifyApp::AuthenticatedController
     @title = Title.new(title_params)
     if @title.save
       flash[:notice] = "Title Successfully Added"
-      redirect_to(:action => 'index')
+
+      if ((request.path_parameters[:controller] == "artists") && (request.path_parameters[:action] == "titles_display"))
+        @artist = Artist.find(params[:id])
+        redirect_to(:controller => 'artists', :action => 'titles_display') 
+      else  
+        redirect_to(:action => 'index')
+      end   
+
+
     else
       flash[:notice] = "Title Was Not Added"
-      redirect_to(:action => 'index')   
+      if ((request.path_parameters[:controller] == "artists") && (request.path_parameters[:action] == "titles_display"))
+        @artist = Artist.find(params[:id])
+        redirect_to(:controller => 'artists', :action => 'titles_display') 
+      else  
+        redirect_to(:action => 'index')
+      end 
+      
     end  
 
   end
