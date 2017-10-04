@@ -30,6 +30,7 @@ def edit
  def titles_display
     @artist = Artist.find(params[:id])
     @titles = @artist.titles
+    @path_marker = "titles_display" 
  end
 
  def sales_display

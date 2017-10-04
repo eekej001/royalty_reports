@@ -12,9 +12,8 @@ class TitlesController < ShopifyApp::AuthenticatedController
       c = request.path_parameters[:controller]
       a = request.path_parameters[:action]
 
-      flash[:notice] = "The controller was #{c} and the action was #{a}."
-
-      if ((request.path_parameters[:controller] == "artists") && (request.path_parameters[:action] == "titles_display"))
+      #if ((request.path_parameters[:controller] == "artists") && (request.path_parameters[:action] == "titles_display"))
+      if params[:path_marker] == "titles_display"
         @artist = Artist.find(params[:id])
         redirect_to(:controller => 'artists', :action => 'titles_display') 
       else  
@@ -24,7 +23,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
 
     else
       flash[:notice] = "Title Was Not Added"
-      if ((request.path_parameters[:controller] == "artists") && (request.path_parameters[:action] == "titles_display"))
+      if params[:path_marker] == "titles_display"
         @artist = Artist.find(params[:id])
         redirect_to(:controller => 'artists', :action => 'titles_display') 
       else  
