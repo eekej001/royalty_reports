@@ -20,6 +20,9 @@
       <th>English Name</th>
       <th>Japanese Name</th>
       <th>Email</th>
+      <th>Titles</th>
+      <th>Sales</th>
+
 
     </tr>
     <% @artists.each_with_index do |artist, index| %>
@@ -28,6 +31,8 @@
     <td><%= link_to(artist.e_name, {:action => 'show', :id => artist.id}, :class => 'action show') %></td>
     <td><%= artist.j_name %></td>
     <td><%= artist.email %></td>
+    <td><%= artist.titles.count %></td>
+    <td><%= artist.sales.count %></td>
     <td><%= link_to("Edit", {:action => 'edit', :id => artist.id}, :class => 'action edit') %></td>
     <td><%= link_to("Delete", {:action => 'delete', :id => artist.id}, :class => 'action delete') %></td>
     </tr>
