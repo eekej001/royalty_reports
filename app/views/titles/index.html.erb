@@ -32,7 +32,7 @@
     <td><%= title.j_title %></td>
     <td><%= title.artist.e_name %></td>
     <td>$<%= title.srp %></td>
-    <td>$<%= title.sales.count %></td>
+    <td><%= title.sales.count %></td>
     <td><%= link_to("Edit", {:action => 'edit', :id => title.id}, :class => 'action edit') %></td>
     <td><%= link_to("Delete", {:action => 'delete', :id => title.id}, :class => 'action delete') %></td>
     </tr>
