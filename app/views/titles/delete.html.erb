@@ -14,7 +14,7 @@
   <%= form_for(:title, :url => {:action => 'destroy', :id => @title.id}) do |f| %>
 
     <p>Are you sure you want to permanently delete this title?</p>
-    <p class="reference-name"><%= @title.e_title %></p>
+    <p class="reference-name text-danger"><%= @title.e_title %></p>
     
     <div class="form-buttons">
       <%= submit_tag("Delete Title") %>

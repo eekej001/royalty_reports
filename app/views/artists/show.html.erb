@@ -4,11 +4,12 @@
   <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
-<h1><%= @artist.e_name %></h1>
 
 <%= link_to :controller => 'artists', :action => 'index' do %>
   <button type="button" class="btn btn-info">Back to Artist List</button>
 <% end %>
+
+<h1><%= @artist.e_name %></h1>
 
 <div>
   <table class="table table-responsive">

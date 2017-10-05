@@ -4,11 +4,12 @@
   <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
-<h1><%= @title.e_title %></h1>
 
 <%= link_to :controller => 'titles', :action => 'index' do %>
   <button type="button" class="btn btn-info">Back to Title List</button>
 <% end %>
+
+<h1><%= @title.e_title %></h1>
 
 <div>
   <table>

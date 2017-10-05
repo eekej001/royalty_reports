@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="artists edit">
-  <h2>Update <%= @artist.e_name %>'s Information</h2>
+  <h2>Update <span style="font-weight:bold"><%= @artist.e_name %>'s</span> Information</h2>
 
   <%= form_for(:artist, :url => {:action => 'update', :id => @artist.id}) do |f| %>
 		<table summary="Artist Form Fields">
