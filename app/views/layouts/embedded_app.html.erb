@@ -17,15 +17,15 @@
               <div class="container">
                  <div class="navbar-nav mx-auto">
 
-                <%= link_to 'artists/index', :class => 'nav-item nav-link' do %>
+                <%= link_to :controller => 'artists', :action => 'index', :class => 'nav-item nav-link' do %>
                      <button type="button" class="btn btn-outline-info btn-lg">Manage Artists</button>
                     <% end %>
 
-                    <%= link_to 'titles/index', :class => 'nav-item nav-link' do %>
+                    <%= link_to :controller => 'titles', :action => 'index', :class => 'nav-item nav-link' do %>
                      <button type="button" class="btn btn-outline-info btn-lg">View Titles</button>
                     <% end %>
 
-                    <%= link_to 'sales/index', :class => 'nav-item nav-link' do %>
+                    <%= link_to :controller => 'sales', :action => 'index', :class => 'nav-item nav-link' do %>
                      <button type="button" class="btn btn-outline-info btn-lg">View Sales</button>
                     <% end %>
 
