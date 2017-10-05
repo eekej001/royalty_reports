@@ -4,7 +4,9 @@
   <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
-<button type ="button" class="btn btn-info"><%= link_to("<< Back to Title List", {:action => 'index'}) %></button>
+<%= link_to 'titles/index' do %>
+  <button type="button" class="btn btn-info">Back to Title List</button>
+<% end %>
 
 <div class="titles delete">
   <h2>Delete Title</h2>
