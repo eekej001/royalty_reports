@@ -33,8 +33,14 @@
     <td><%= title.artist.e_name %></td>
     <td>$<%= title.srp %></td>
     <td><%= title.sales.count %></td>
-    <td><%= link_to("Edit", {:action => 'edit', :id => title.id}, :class => 'action edit') %></td>
-    <td><%= link_to("Delete", {:action => 'delete', :id => title.id}, :class => 'action delete') %></td>
+    <td><%= link_to :action => 'edit', :title => 'Edit', :id => title.id do %>
+            <span class="glyphicon glyphicon-edit text-warning"></span>
+        <% end %>
+    </td>
+    <td><%= link_to :action => 'delete', :title => 'Delete', :id => title.id do %>
+            <span class="glyphicon glyphicon-edit text-danger"></span>
+        <% end %>
+    </td>
     </tr>
     <% end %>
   </table>

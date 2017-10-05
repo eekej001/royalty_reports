@@ -6,8 +6,8 @@ class TitlesController < ShopifyApp::AuthenticatedController
 
 
  def create
-    @title = Title.new(title_params)
-    if @title.save
+    @title = Title.new(title_params)save
+    if @title.
       flash[:notice] = "Title Successfully Added"
       c = request.path_parameters[:controller]
       a = request.path_parameters[:action]
@@ -40,6 +40,11 @@ class TitlesController < ShopifyApp::AuthenticatedController
 
  def show
     @title = Title.find(params[:id])
+ end
+
+ def sales_display
+    @title = Title.find(params[:id])
+    @sales = @title.sales
  end
 
 

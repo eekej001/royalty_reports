@@ -36,8 +36,14 @@
     <td><%= artist.email %></td>
     <td><%= artist.titles.count %></td>
     <td><%= artist.sales.count %></td>
-    <td><%= link_to("Edit", {:action => 'edit', :id => artist.id}, :class => 'action edit') %></td>
-    <td><%= link_to("Delete", {:action => 'delete', :id => artist.id}, :class => 'action delete') %></td>
+    <td><%= link_to :action => 'edit', :title => 'Edit', :id => artist.id do %>
+            <span class="glyphicon glyphicon-edit text-warning"></span>
+        <% end %>
+    </td>
+    <td><%= link_to :action => 'delete', :title => 'Delete', :id => artist.id do %>
+            <span class="glyphicon glyphicon-edit text-danger"></span>
+        <% end %>
+    </td>
     </tr>
     <% end %>
   </table>
