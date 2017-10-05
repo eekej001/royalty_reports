@@ -11,9 +11,8 @@
 
 <h1><%= @artist.e_name %>'s Sales</h1>
 
-<ul>
-  
-  <table class="table table-responsive table-striped table-hover">
+ <div class="container"> 
+  <table class="table table-responsive table-striped table-hover mx-auto">
    <thead class="table-primary">
     <tr>
       <th scope="col">#</th>
@@ -39,9 +38,6 @@
     </tr>
     <% end %>
   </table>
-
-</ul>
-
-
-</br>
+  <p><%= @sales.count %> Results</p>
+</div>
 
