@@ -4,7 +4,7 @@
   <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
-<%= link_to 'artists/index' do %>
+<%= link_to :controller => 'artists', :action => 'index' do %>
   <button type="button" class="btn btn-info">Back to Artist List</button>
 <% end %>
 

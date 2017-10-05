@@ -6,7 +6,7 @@
 
 <h1><%= @artist.e_name %></h1>
 
-<%= link_to 'artists/index' do %>
+<%= link_to :controller => 'artists', :action => 'index' do %>
   <button type="button" class="btn btn-info">Back to Artist List</button>
 <% end %>
 
