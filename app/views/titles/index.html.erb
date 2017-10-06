@@ -33,12 +33,12 @@
     <td><%= title.artist.e_name %></td>
     <td>$<%= title.srp %></td>
     <td><%= title.sales.count %></td>
-    <td><%= link_to :action => 'edit', :title => 'Edit', :id => title.id do %>
-            <span class="glyphicon glyphicon-edit text-warning"></span>
+    <td><%= link_to :action => "edit", :title => "Edit", :id => title.id do %>
+            <%= image_tag("edit.png", :size => "50x50", :alt => "Edit") %>
         <% end %>
     </td>
-    <td><%= link_to :action => 'delete', :title => 'Delete', :id => title.id do %>
-            <span class="glyphicon glyphicon-edit text-danger"></span>
+    <td><%= link_to :action => "delete", :title => "Delete", :id => title.id do %>
+            <%= image_tag("delete.png", :size => "50x50", :alt => "Delete") %>
         <% end %>
     </td>
     </tr>
