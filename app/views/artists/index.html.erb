@@ -36,12 +36,12 @@
     <td><%= artist.email %></td>
     <td><%= artist.titles.count %></td>
     <td><%= artist.sales.count %></td>
-    <td><%= link_to :action => "edit", :title => "Edit", :id => artist.id do %>
-            <%= image_tag("edit.png", :size => "50x50", :alt => "Edit") %>
+    <td><%= link_to :action => "edit", :id => artist.id do %>
+            <%= image_tag("edit.png", :size => "25x25", :title => "Edit", :alt => "Edit") %>
         <% end %>
     </td>
-    <td><%= link_to :action => "delete", :title => "Delete", :id => artist.id do %>
-            <%= image_tag("delete.png", :size => "50x50", :alt => "Delete") %>
+    <td><%= link_to :action => "delete", :id => artist.id do %>
+            <%= image_tag("delete.png", :size => "25x25", :title => "Delete", :alt => "Delete") %>
         <% end %>
     </td>
     </tr>
