@@ -58,7 +58,7 @@
 
   </br>
 
-   <div id='paginate-load' style="display:inline; margin-left:35%">
+   <div id='paginate-load' style="display:inline; margin-left:42%; position:relative; z-index:-100; top:-18%">
       <%= image_tag("load.gif", :size => "150x150", :title => "Load", :alt => "Load") %>
    </div>
 
@@ -69,6 +69,33 @@
 
 
 <script type="text/javascript">
+  $( document ).ready(function() {
+
+  // hide spinner
+  $("#paginate-load").hide();
+
+
+  // show spinner on AJAX start
+  $(document).ajaxStart(function(){
+    $("#paginate-load").show();
+  });
+
+  // hide spinner on AJAX stop
+  $(document).ajaxStop(function(){
+    $("#paginate-load").hide();
+  });
+
+});
+
+
+
+
+
+
+
+
+
+
 $('#will_paginate_id').bind('click', function(event){
 
   //window.scrollTo(0,0);
