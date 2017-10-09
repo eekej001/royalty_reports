@@ -11,6 +11,11 @@
 <% end %>
 
 <h1>Titles</h1>
+
+<% if @titles.count == 0 %>
+  <p>No results found.</p>
+<% else %>  
+
  <div class="container"> 
   <table class="table table-responsive table-striped table-hover mx-auto">
    <thead class="table-info">
@@ -47,6 +52,8 @@
 
   <p><%= @titles.count %> Results</p> 
 </div>
+<% end %>
+
 </br>
 </br>
 </br>

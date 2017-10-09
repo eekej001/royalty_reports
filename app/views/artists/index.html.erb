@@ -14,6 +14,11 @@
 <% end %>
 
 <h1>Artists</h1>
+
+<% if @artists.count == 0 %>
+  <p>No results found.</p>
+<% else %>  
+
 <div class="container">
   <table class="table table-responsive table-striped table-hover mx-auto">
    <thead class="table-info">
@@ -83,3 +88,5 @@
   </table>
   <% end %> 
 </div>
+
+<% end %>

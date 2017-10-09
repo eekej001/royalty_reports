@@ -12,6 +12,17 @@
 <% end %>
 
 <h1>Sales</h1>
+
+   
+   <%= will_paginate @sales2 %>
+
+
+
+
+<% if @sales.count == 0 %>
+  <p>No results found.</p>
+<% else %>  
+
  <div class="container"> 
   <table class="table table-responsive table-striped table-hover mx-auto">
    <thead class="thead-inverse">
@@ -44,3 +55,4 @@
   <p><%= @sales.count %> Results</p> 
 </div>
 
+<% end %>

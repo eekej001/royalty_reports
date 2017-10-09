@@ -10,6 +10,9 @@
 
 <h1><%= @artist.e_name %>'s Titles</h1>
 
+<% if @artist.titles.count == 0 %>
+  <p>No results found.</p>
+<% else %>  
 
  <div class="container"> 
   <table class="table table-responsive table-striped table-hover mx-auto">
@@ -37,6 +40,8 @@
 
  <p><%= @titles.count %> Results</p> 
  </div>
+
+ <% end %>
 
 </br>
 </br>

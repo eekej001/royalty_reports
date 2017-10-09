@@ -2,6 +2,7 @@ class SalesController < ShopifyApp::AuthenticatedController
 
  def index
  	@sales = Sale.all
+  @sales2 = Sale.paginate(:page => params[:page], :per_page => 20)
  end	
 
 

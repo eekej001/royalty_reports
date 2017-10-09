@@ -14,6 +14,7 @@ gem 'dropbox-sdk','~> 1.6.4'
 gem 'rubyzip', '= 1.0.0'
 gem 'axlsx', '= 2.0.1'
 gem 'axlsx_rails'
+gem 'will_paginate'
 gem 'figaro'
 
 group :production do
