@@ -75,6 +75,21 @@
   $("#paginate-load").hide();
 
 
+
+
+   $('#will_paginate_id').bind('click', function(event){
+
+  //window.scrollTo(0,0);
+
+  // Some code to show loader on screen
+
+  $("#paginate-load").show();
+
+  //$('#paginate-load').html('Loading');
+   });
+
+
+
   // show spinner on AJAX start
   $(document).ajaxStart(function(){
     $("#paginate-load").show();
@@ -84,6 +99,11 @@
   $(document).ajaxStop(function(){
     $("#paginate-load").hide();
   });
+
+
+
+
+
 
 });
 
