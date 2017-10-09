@@ -14,7 +14,7 @@
 <h1>Sales</h1>
 
 
-    <div class="container"> 
+<div class="container"> 
   <table class="table table-responsive table-striped table-hover mx-auto">
    <thead class="thead-inverse">
     <tr>
@@ -31,7 +31,7 @@
    </thead> 
     <% @sales2.each_with_index do |sale, index| %>
     <tr>
-    <th scope="row"><%= index + 1 %></th>
+    <th scope="row"><%= sale.id %></th>
     <td><%= sale.first_name %></td>
     <td><%= sale.last_name %></td>
     <td><%= sale.email %></td>
@@ -49,7 +49,9 @@
     <div class="page_info">
       <%= page_entries_info @sales2 %>
     </div>
-   <%= will_paginate @sales2 %>
+    <div class="mx-auto">
+      <%= will_paginate @sales2 %>
+    </div>  
 </div>
 
 </div> <!---container---->
