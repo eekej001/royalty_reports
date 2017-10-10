@@ -1,7 +1,7 @@
 <head>
  <%= stylesheet_link_tag "application", :media => "all" %>
 
-  <%= javascript_include_tag  "jquery.slim.min", "bootstrap.min", "tether.min" %>
+  <%= javascript_include_tag  "jquery.slim.min", "tether.min", "bootstrap.min" %>
 </head>
 
 
@@ -44,9 +44,10 @@ $(function() {
  // $(".sort_paginate_ajax th a, .sort_paginate_ajax .pagination a").on("click", function(){
   $(".sort_paginate_ajax").on("click", ".pagination a", function(){
     $.getScript(this.href);
-    return false;
     alert("Performing Ajax From Within The View");
     console.log("Sales index logging here");
+    return false;
+    
   });
 });
 
