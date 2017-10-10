@@ -17,3 +17,11 @@
 //= require modals
 //= require_tree .
  require checkout
+
+
+$(function() {
+  $(".sort_paginate_ajax th a, .sort_paginate_ajax .pagination a").on("click", function(){
+    $.getScript(this.href);
+    return false;
+  });
+});
