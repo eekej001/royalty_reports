@@ -2,7 +2,6 @@
   <table class="table table-responsive table-striped table-hover mx-auto">
    <thead class="thead-inverse">
     <tr>
-      <th scope="col">#</th>
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
       <th scope="col">Email</th>
@@ -15,8 +14,7 @@
    </thead> 
     <% @sales2.each_with_index do |sale, index| %>
     <tr>
-    <th scope="row"><%= sale.id %></th>
-    <td><%= sale.first_name %></td>
+    <th scope="row"><%= sale.first_name %></th>
     <td><%= sale.last_name %></td>
     <td><%= sale.email %></td>
     <td><%= sale.artist.e_name %></td>
