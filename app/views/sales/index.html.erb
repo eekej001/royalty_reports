@@ -27,7 +27,7 @@
 
   $("#paginate-load").hide();
 
-  
+  /*
 
   $(document).on("page:fetch", function(){
   $("#paginate-load").show();
@@ -37,31 +37,28 @@ $(document).on("page:receive", function(){
   $("#paginate-load").hide();
 });
 
+*/
 
+
+$(function() {
+ // $(".sort_paginate_ajax th a, .sort_paginate_ajax .pagination a").on("click", function(){
+  $(".sort_paginate_ajax").on("click", ".pagination a", function(){
+    $.getScript(this.href);
+    return false;
+    alert("Performing Ajax From Within The View");
+    console.log("Sales index logging here");
+  });
+});
 
 
    $(".pagination a").on("click", function(){
 
-  //window.scrollTo(0,0);
+      $("#filler-space").hide();
+      $("#paginate-load").show();
 
-  // Some code to show loader on screen
-  $("#filler-space").hide();
-  $("#paginate-load").show();
-
-  //$('#paginate-load').html('Loading');
    });
 
 
-
-  // show spinner on AJAX start
-  $(document).ajaxStart(function(){
-    $("#paginate-load").show();
-  });
-
-  // hide spinner on AJAX stop
-  $(document).ajaxStop(function(){
-    $("#paginate-load").hide();
-  });
 
 
 
@@ -78,7 +75,7 @@ $(document).on("page:receive", function(){
 
 
 
-
+/*
 $('#will_paginate_id').bind('click', function(event){
 
   //window.scrollTo(0,0);
@@ -87,6 +84,8 @@ $('#will_paginate_id').bind('click', function(event){
 
   $('#paginate-load').html('Loading');
 });
+
+*/
 
 
 </script>

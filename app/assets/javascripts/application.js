@@ -25,5 +25,6 @@ $(function() {
     $.getScript(this.href);
     return false;
     alert("Performing Ajax");
+    console.log("Application.js logging here");
   });
 });
