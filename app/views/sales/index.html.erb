@@ -57,10 +57,15 @@
   </div>  
 
   </br>
+   
+  <div id='filler-space' style="display:inline; margin-left:42%; position:relative; z-index:-100; top:-18%; height:150px;width:150px">
+   </div>
 
    <div id='paginate-load' style="display:inline; margin-left:42%; position:relative; z-index:-100; top:-18%">
       <%= image_tag("load.gif", :size => "150x150", :title => "Load", :alt => "Load") %>
    </div>
+
+
 
 </div> <!---container---->
 <p> ---------------------------------------------------------------------------</p>
@@ -93,7 +98,7 @@ $(document).on("page:receive", function(){
   //window.scrollTo(0,0);
 
   // Some code to show loader on screen
-
+  $("#filler-space").hide();
   $("#paginate-load").show();
 
   //$('#paginate-load').html('Loading');
