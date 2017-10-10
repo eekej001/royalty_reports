@@ -39,7 +39,7 @@
     <td><%= sale.title.e_title %></td>
     <td><%= sale.format %></td>
     <td>$<%= sale.price %></td>
-    <td><%= sale.created_at.strftime(" %m/%d/%Y %I:%M%p") %></td>
+    <td><%= sale.created_at.strftime("%m/%d/%Y %I:%M%p") %></td>
     </tr>
     <% end %>
   </table>
@@ -51,7 +51,7 @@
           <%= page_entries_info @sales2 %>
         </div>
         <div style="margin-left:50%">
-          <%= will_paginate @sales2 %>
+          <%= js_will_paginate @sales2 %>
         </div>  
     </div>
   </div>  
@@ -65,10 +65,10 @@
       <%= image_tag("load.gif", :size => "150x150", :title => "Load", :alt => "Load") %>
    </div> -->
 
-   <div id='filler-space' style="display:inline; margin-left:40%; position:relative; z-index:-100; height:200px; width:200px">
+   <div id='filler-space' style="display:inline; margin-left:38%; position:relative; z-index:-100; height:200px; width:200px">
    </div>
 
-   <div id='paginate-load' style="display:inline; margin-left:40%; position:relative; z-index:-100;">
+   <div id='paginate-load' style="display:inline; margin-left:38%; position:relative; z-index:-100;">
       <%= image_tag("batflick.gif", :size => "200x200", :title => "Load", :alt => "Load") %>
    </div>
 
