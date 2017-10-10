@@ -17,13 +17,64 @@
 
 
 <div class="sort_paginate_ajax"><%= render 'sales' %></div>
+
+
 <p> ---------------------------------------------------------------------------</p>
 
 
 
 
+
+
+
+
+
+
+
+
+<% if @sales.count == 0 %>
+  <p>No results found.</p>
+<% else %>  
+
+ <div class="container"> 
+  <table class="table table-responsive table-striped table-hover mx-auto">
+   <thead class="thead-inverse">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Artist</th>
+      <th scope="col">Title</th>
+      <th scope="col">Format</th>
+      <th scope="col">Price</th>
+      <th scope="col">Order Date</th>
+    </tr>
+   </thead> 
+    <% @sales.each_with_index do |sale, index| %>
+    <tr>
+    <th scope="row"><%= index + 1 %></th>
+    <td><%= sale.first_name %></td>
+    <td><%= sale.last_name %></td>
+    <td><%= sale.email %></td>
+    <td><%= sale.artist.e_name %></td>
+    <td><%= sale.title.e_title %></td>
+    <td><%= sale.format %></td>
+    <td>$<%= sale.price %></td>
+    <td><%= sale.created_at.strftime(" %m/%d/%Y %I:%M%p") %></td>
+    </tr>
+    <% end %>
+  </table>
+  <p><%= @sales.count %> Results</p> 
+</div>
+
+<% end %>
+
+
+
+
 <script type="text/javascript">
-  $( document ).ready(function() {
+  $(document).ready(function() {
 
   // hide spinner
 
@@ -87,65 +138,3 @@ $('#will_paginate_id').bind('click', function(event){
 
 
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<% if @sales.count == 0 %>
-  <p>No results found.</p>
-<% else %>  
-
- <div class="container"> 
-  <table class="table table-responsive table-striped table-hover mx-auto">
-   <thead class="thead-inverse">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Artist</th>
-      <th scope="col">Title</th>
-      <th scope="col">Format</th>
-      <th scope="col">Price</th>
-      <th scope="col">Order Date</th>
-    </tr>
-   </thead> 
-    <% @sales.each_with_index do |sale, index| %>
-    <tr>
-    <th scope="row"><%= index + 1 %></th>
-    <td><%= sale.first_name %></td>
-    <td><%= sale.last_name %></td>
-    <td><%= sale.email %></td>
-    <td><%= sale.artist.e_name %></td>
-    <td><%= sale.title.e_title %></td>
-    <td><%= sale.format %></td>
-    <td>$<%= sale.price %></td>
-    <td><%= sale.created_at.strftime(" %m/%d/%Y %I:%M%p") %></td>
-    </tr>
-    <% end %>
-  </table>
-  <p><%= @sales.count %> Results</p> 
-</div>
-
-<% end %>
