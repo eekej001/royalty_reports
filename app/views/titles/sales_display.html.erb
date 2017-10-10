@@ -20,7 +20,6 @@
   <table class="table table-responsive table-striped table-hover mx-auto">
    <thead class="table-primary">
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Title</th>
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
@@ -32,8 +31,7 @@
    </thead>
     <% @sales.each_with_index do |sale, index| %>
     <tr>
-    <th scope="row"><%= index + 1 %></th>
-    <td><%= sale.title.e_title %></td>
+    <th scope="row"><%= sale.title.e_title %></th>
     <td><%= sale.first_name %></td>
     <td><%= sale.last_name %></td>
     <td><%= sale.email %></td>
