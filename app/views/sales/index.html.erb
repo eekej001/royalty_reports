@@ -72,7 +72,18 @@
   $( document ).ready(function() {
 
   // hide spinner
+
   $("#paginate-load").hide();
+
+  
+
+  $(document).on("page:fetch", function(){
+  $("#paginate-load").show();
+});
+
+$(document).on("page:receive", function(){
+  $("#paginate-load").hide();
+});
 
 
 
