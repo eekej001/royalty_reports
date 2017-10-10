@@ -45,22 +45,16 @@ $(document).on("page:receive", function(){
 $(function() {
  // $(".sort_paginate_ajax th a, .sort_paginate_ajax .pagination a").on("click", function(){
   $(".sort_paginate_ajax").on("click", ".pagination a", function(){
+    $("#filler-space").hide();
+    $("#paginate-load").show();
     $.getScript(this.href);
-    alert("Performing Ajax From Within The View");
-    console.log("Sales index logging here");
+    //alert("Performing Ajax From Within The View");
+    //console.log("Sales index logging here");
     return false;
     
   });
 });
 
-
-   $(".pagination a").on("click", function(){
-
-      $("#filler-space").hide();
-      $("#paginate-load").show();
-      console.log("Batflick is in actiooon!");
-
-   });
 
 
 
