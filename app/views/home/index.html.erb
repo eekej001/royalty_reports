@@ -12,8 +12,56 @@
 <head>
   <%= stylesheet_link_tag "application", :media => "all" %>
 
-  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
+  <%= javascript_include_tag "jquery.slim.min", "tether.min", "bootstrap.min" %>
 </head>
+    
+    <div class="container">
+
+      <div class="carousel slide" id="featured" data-ride="carousel">
+        <ol class="carousel-indicators">
+           <li data-target="#featured" data-slide-to="0" class="active">
+           <li data-target="#featured" data-slide-to="1">
+           <li data-target="#featured" data-slide-to="2">
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+	          <%= image_tag("artist.jpg", :class => "d-block img-fluid", :size => "550x350", :title => "Artist", :alt => "Artist") %>
+	          <div class="carousel-caption">
+	             <h3>Artists</h3>
+	             <p>Add artists to the database.</p>
+	          </div>
+	        </div> <!--carousel-item-->
+	        <div class="carousel-item">
+	           <%= image_tag("titles.jpg", :class => "d-block img-fluid", :size => "550x350", :title => "Titles", :alt => "Titles") %>
+	           <div class="carousel-caption">
+	             <h3>Titles</h3>
+	             <p>Add titles for each artist.</p>
+	          </div>
+	        </div> <!--carousel-item-->  
+	        <div class="carousel-item">
+	           <%= image_tag("sales.jpg", :class => "d-block img-fluid", :size => "550x350", :title => "Sales", :alt => "Sales") %>
+	           <div class="carousel-caption">
+	             <h3>Sales</h3>
+	             <p>View sales based on artist or title.</p>
+	          </div>
+	        </div> <!--carousel-item-->  
+        </div> <!--carousel-inner-->
+        <a class="carousel-control-prev" href="#featured" role="button" data-slide="prev">
+           <span class="carousel-control-prev-icon" aria-hidden="true">
+           	   <span class="sr-only">Previous</span>
+           </span>
+        </a>
+        <a class="carousel-control-next" href="#featured" role="button" data-slide="next">
+           <span class="carousel-control-next-icon" aria-hidden="true">
+           	   <span class="sr-only">Next</span>
+           </span>
+        </a>
+
+      </div>  <!--carousel-->
+
+    	
+
+    </div>
 
 </br>
 
