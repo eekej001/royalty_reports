@@ -14,6 +14,14 @@
 
   <%= javascript_include_tag "jquery.slim.min", "tether.min", "bootstrap.min" %>
 </head>
+
+<style>
+   #featured .carousel-item img {
+   	  width: 100%;
+   	  height: 100%;
+   }
+
+</style>
     
     <div class="container">
 
@@ -25,21 +33,21 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-	          <%= image_tag("artist.jpg", :class => "d-block img-fluid", :size => "550x350", :title => "Artist", :alt => "Artist") %>
+	          <%= image_tag("artist.jpg", :class => "d-block img-fluid", :title => "Artist", :alt => "Artist") %>
 	          <div class="carousel-caption">
 	             <h3>Artists</h3>
 	             <p>Add artists to the database.</p>
 	          </div>
 	        </div> <!--carousel-item-->
 	        <div class="carousel-item">
-	           <%= image_tag("titles.jpg", :class => "d-block img-fluid", :size => "550x350", :title => "Titles", :alt => "Titles") %>
+	           <%= image_tag("titles.jpg", :class => "d-block img-fluid", :title => "Titles", :alt => "Titles") %>
 	           <div class="carousel-caption">
 	             <h3>Titles</h3>
 	             <p>Add titles for each artist.</p>
 	          </div>
 	        </div> <!--carousel-item-->  
 	        <div class="carousel-item">
-	           <%= image_tag("sales.jpg", :class => "d-block img-fluid", :size => "550x350", :title => "Sales", :alt => "Sales") %>
+	           <%= image_tag("sales.jpg", :class => "d-block img-fluid", :title => "Sales", :alt => "Sales") %>
 	           <div class="carousel-caption">
 	             <h3>Sales</h3>
 	             <p>View sales based on artist or title.</p>
