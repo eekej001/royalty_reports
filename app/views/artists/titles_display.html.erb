@@ -1,7 +1,7 @@
 <head>
   <%= stylesheet_link_tag "application", :media => "all" %>
 
-  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
+  <%= javascript_include_tag  "jquery.slim.min", "tether.min", "bootstrap.min", "pagination" %>
 </head>
 
 <%= link_to :controller => 'artists', :action => 'show', :id => @artist.id do %>
@@ -10,42 +10,8 @@
 
 <h1><%= @artist.e_name %>'s Titles</h1>
 
-<% if @artist.titles.count == 0 %>
-  <p>No results found.</p>
-<% else %>  
+<div class="sort_paginate_ajax"><%= render 'titles_display' %></div>
 
- <div class="container"> 
-  <table class="table table-responsive table-striped table-hover mx-auto">
-   <thead class="thead-inverse">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">English Title</th>
-      <th scope="col">Japanese Title</th>
-      <th scope="col">SRP</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-   </thead>
-    <% @titles.each_with_index do |title, index| %>
-    <tr>
-      <th scope="row"><%= index + 1 %></th>
-      <td><%= link_to(title.e_title, {:controller => 'titles', :action => 'show', :id => title.id}, :class => 'action show') %></td>
-      <td><%= title.j_title %></td>
-      <td>$<%= title.srp %></td>
-      <td><%= link_to("Edit", {:controller => 'titles', :action => 'edit', :id => title.id}, :class => 'action edit') %></td>
-      <td><%= link_to("Delete", {:controller => 'titles', :action => 'delete', :id => title.id}, :class => 'action delete') %></td>
-    </tr>
-    <% end %>
-  </table>
-
- <p><%= @titles.count %> Results</p> 
- </div>
-
- <% end %>
-
-</br>
-</br>
-</br>
 
 <h2>Add a Title</h2>
 

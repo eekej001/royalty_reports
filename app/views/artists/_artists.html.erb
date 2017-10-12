@@ -1,68 +1,66 @@
-<% if @titles.count == 0 %>
+<% if @artists.count == 0 %>
   <p>No results found.</p>
 <% else %>  
 
- <div class="container"> 
+<div class="container">
 
-    <div class="row">
+  <div class="row">
     <div class="col-offset-6">
         <div class="digg_pagination">
             <div class="page_info" style="margin-left:45%">
-              <%= page_entries_info @titles %>
+              <%= page_entries_info @artists %>
             </div>
             <div style="margin-left:50%">
-              <%= will_paginate @titles %>
+              <%= will_paginate @artists %>
             </div>  
         </div> 
     </div> 
   </div>
 
-
   <table class="table table-responsive table-striped table-hover mx-auto">
    <thead class="table-info">
     <tr>
-      <th scope="col">English Title</th>
-      <th scope="col">Japanese Title</th>
-      <th scope="col">Author</th>
-      <th scope="col">SRP</th>
+      <th scope="col">English Name</th>
+      <th scope="col">Japanese Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Titles</th>
       <th scope="col">Sales</th>
       <th scope="col"></th>
       <th scope="col"></th>
     </tr>
    </thead> 
-    <% @titles.each_with_index do |title, index| %>
+    <% @artists.each_with_index do |artist, index| %>
     <tr>
-    <th scope="row"><%= title.e_title %></th>
-    <td><%= title.j_title %></td>
-    <td><%= title.artist.e_name %></td>
-    <td>$<%= title.srp %></td>
-    <td><%= link_to(title.sales.count, {:action => 'sales_display', :id => title.id}, :class => 'action show') %></td>
-    <td><%= link_to :action => "edit", :id => title.id do %>
+    <th scope="row"><%= link_to(artist.e_name, {:action => 'show', :id => artist.id}, :class => 'action show') %></th>
+    <td><%= artist.j_name %></td>
+    <td><%= artist.email %></td>
+    <td><%= artist.titles.count %></td>
+    <td><%= artist.sales.count %></td>
+    <td><%= link_to :action => "edit", :id => artist.id do %>
             <%= image_tag("edit.png", :size => "25x25", :title => "Edit", :alt => "Edit") %>
         <% end %>
     </td>
-    <td><%= link_to :action => "delete", :id => title.id do %>
+    <td><%= link_to :action => "delete", :id => artist.id do %>
             <%= image_tag("delete.png", :size => "25x25", :title => "Delete", :alt => "Delete") %>
         <% end %>
     </td>
     </tr>
-    <% end %>
-  </table>
-     
 
-      <div class="row">
+  </table>
+
+  <div class="row">
     <div class="col-offset-6">
         <div class="digg_pagination">
             <div class="page_info" style="margin-left:45%">
-              <%= page_entries_info @titles %>
+              <%= page_entries_info @artists %>
             </div>
             <div style="margin-left:50%">
-              <%= will_paginate @titles %>
+              <%= will_paginate @artists %>
             </div>  
         </div> 
     </div> 
-  </div> 
-  
+  </div>
+
   <div id='filler-space' style="margin-left:38%; position:relative; z-index:-100; height:200px; width:200px">
    </div>
 
@@ -70,9 +68,4 @@
       <%= image_tag("batflick.gif", :size => "200x200", :title => "Load", :alt => "Load") %>
    </div>
 
-
-
-
-
-</div>
 <% end %>

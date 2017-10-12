@@ -1,7 +1,7 @@
 <head>
   <%= stylesheet_link_tag "application", :media => "all" %>
 
-  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
+  <%= javascript_include_tag  "jquery.slim.min", "tether.min", "bootstrap.min", "pagination" %>
 </head>
 
 
@@ -11,37 +11,4 @@
 
 <h1><%= @title.e_title %> Sales</h1>
 
-<% if @title.sales.count == 0 %>
-  <p>No results found.</p>
-<% else %>  
-
-
- <div class="container"> 
-  <table class="table table-responsive table-striped table-hover mx-auto">
-   <thead class="table-primary">
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Format</th>
-      <th scope="col">Price</th>
-      <th scope="col">Date</th>
-    </tr>
-   </thead>
-    <% @sales.each_with_index do |sale, index| %>
-    <tr>
-    <th scope="row"><%= sale.title.e_title %></th>
-    <td><%= sale.first_name %></td>
-    <td><%= sale.last_name %></td>
-    <td><%= sale.email %></td>
-    <td><%= sale.format %></td>
-    <td>$<%= sale.price %></td>
-    <td><%= sale.created_at.strftime(" %m/%d/%Y %I:%M%p") %></td>
-    </tr>
-    <% end %>
-  </table>
-  <p><%= @sales.count %> Results</p>
-</div>
-
-<% end %>
+<div class="sort_paginate_ajax"><%= render 'sales_display' %></div>

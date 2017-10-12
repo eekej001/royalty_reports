@@ -1,4 +1,9 @@
-<div class="container"> 
+<% if @title.sales.count == 0 %>
+  <p>No results found.</p>
+<% else %>  
+
+
+ <div class="container"> 
 
   <div class="row">
     <div class="col-offset-6">
@@ -12,30 +17,28 @@
         </div> 
     </div> 
   </div> 
-  
+
   <table class="table table-responsive table-striped table-hover mx-auto">
-   <thead class="thead-inverse">
+   <thead class="table-primary">
     <tr>
+      <th scope="col">Title</th>
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
       <th scope="col">Email</th>
-      <th scope="col">Artist</th>
-      <th scope="col">Title</th>
       <th scope="col">Format</th>
       <th scope="col">Price</th>
-      <th scope="col">Order Date</th>
+      <th scope="col">Date</th>
     </tr>
-   </thead> 
+   </thead>
     <% @sales.each_with_index do |sale, index| %>
     <tr>
-    <th scope="row"><%= sale.first_name %></th>
+    <th scope="row"><%= sale.title.e_title %></th>
+    <td><%= sale.first_name %></td>
     <td><%= sale.last_name %></td>
     <td><%= sale.email %></td>
-    <td><%= sale.artist.e_name %></td>
-    <td><%= sale.title.e_title %></td>
     <td><%= sale.format %></td>
     <td>$<%= sale.price %></td>
-    <td><%= sale.created_at.strftime("%m/%d/%Y %I:%M%p") %></td>
+    <td><%= sale.created_at.strftime(" %m/%d/%Y %I:%M%p") %></td>
     </tr>
     <% end %>
   </table>
@@ -52,7 +55,7 @@
         </div> 
     </div> 
   </div> 
-  
+
   <div id='filler-space' style="margin-left:38%; position:relative; z-index:-100; height:200px; width:200px">
    </div>
 
@@ -60,5 +63,6 @@
       <%= image_tag("batflick.gif", :size => "200x200", :title => "Load", :alt => "Load") %>
    </div>
 
+</div>
 
-</div> 
+<% end %>
