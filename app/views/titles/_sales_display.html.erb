@@ -9,7 +9,7 @@
     <div class="col-offset-6">
         <div class="digg_pagination">
             <div class="page_info" style="margin-left:45%">
-              <%= page_entries_info @sales %>
+              <%= page_entries_info @sales, :model => 'sale' %>
             </div>
             <div style="margin-left:50%">
               <%= will_paginate @sales %>
@@ -47,7 +47,7 @@
     <div class="col-offset-6">
         <div class="digg_pagination">
             <div class="page_info" style="margin-left:45%">
-              <%= page_entries_info @sales %>
+              <%= page_entries_info @sales, :model => 'sale' %>
             </div>
             <div style="margin-left:50%">
               <%= will_paginate @sales %>
