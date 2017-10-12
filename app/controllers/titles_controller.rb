@@ -1,7 +1,7 @@
 class TitlesController < ShopifyApp::AuthenticatedController
 
  def index
-      @titles = Title.sorted
+      @titles = Title.paginate(:page => params[:page], :per_page => 20)
  end
 
 

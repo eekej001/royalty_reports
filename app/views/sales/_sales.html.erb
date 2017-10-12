@@ -12,7 +12,7 @@
       <th scope="col">Order Date</th>
     </tr>
    </thead> 
-    <% @sales2.each_with_index do |sale, index| %>
+    <% @sales.each_with_index do |sale, index| %>
     <tr>
     <th scope="row"><%= sale.first_name %></th>
     <td><%= sale.last_name %></td>
@@ -30,10 +30,10 @@
     <div class="col-offset-6">
         <div class="digg_pagination">
             <div class="page_info" style="margin-left:45%">
-              <%= page_entries_info @sales2 %>
+              <%= page_entries_info @sales %>
             </div>
             <div style="margin-left:50%">
-              <%= will_paginate @sales2 %>
+              <%= will_paginate @sales %>
             </div>  
         </div> 
     </div> 
