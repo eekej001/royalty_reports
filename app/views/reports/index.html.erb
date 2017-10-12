@@ -5,7 +5,33 @@
 
 <p>Select Artist</p>
 
+<div>
+  <%= form_for(:title, :url => {:action => 'report'}) do |f| %>
+  <table>
+      <p>Select Artist</p>
+    <tr>
+      <td><%= f.label(:artist_id, "Artist") %></td>
+      <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %><td>
+    </tr>
 
-<p>Select Start Date</p>
+      <p>Select Start Date</p>
+    <tr>
+      <td><%= f.label(:start_date, "Start Date") %></td>
+      <td><%= f.text_field :start_date, "data-provide" => 'datepicker' %></td>
+    </tr>
 
-<p>Select End Date</p>
+      <p>Select End Date</p>
+     <tr>
+      <td><%= f.label(:end_date, "End Date") %></td>
+      <td><%= f.text_field :start_date, "data-provide" => 'datepicker' %></td>
+    </tr>
+
+   
+
+    <tr>
+      <td>&nbsp;</td>
+      <td><%= submit_tag("Submit") %></td>
+    </tr>
+  </table>
+  <% end %> 
+</div>

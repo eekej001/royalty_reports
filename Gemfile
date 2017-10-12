@@ -16,6 +16,7 @@ gem 'axlsx', '= 2.0.1'
 gem 'axlsx_rails'
 gem 'will_paginate'
 gem 'figaro'
+gem 'bootstrap-datepicker-rails'
 
 group :production do
   #gem 'pg'

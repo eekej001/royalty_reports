@@ -1,2 +1,2 @@
-class ReportsController < ApplicationController
+class ReportsController < ShopifyApp::AuthenticatedController
 end

@@ -54,21 +54,27 @@
             <div class="carousel-item active">
 	          <%= image_tag("artist.jpg", :class => "d-block img-fluid", :title => "Artist", :alt => "Artist") %>
 	          <div class="carousel-caption">
-	             <h3 class="text-info">Artists</h3>
+	             <%= link_to :controller => 'artists', :action => 'index' do %>
+                     <h3 class="text-info">Artists</h3>
+                    <% end %>
 	             <p class="text-info">Add artists to the database.</p>
 	          </div>
 	        </div> <!--carousel-item-->
 	        <div class="carousel-item">
 	           <%= image_tag("titles.jpg", :class => "d-block img-fluid", :title => "Titles", :alt => "Titles") %>
 	           <div class="carousel-caption">
-	             <h3 class="text-danger">Titles</h3>
+	             <%= link_to :controller => 'titles', :action => 'index' do %>
+                     <h3 class="text-danger">Titles</h3>
+                    <% end %>
 	             <p class="text-danger">Add titles for each artist.</p>
 	          </div>
 	        </div> <!--carousel-item-->  
 	        <div class="carousel-item">
 	           <%= image_tag("sales.jpg", :class => "d-block img-fluid", :title => "Sales", :alt => "Sales") %>
 	           <div class="carousel-caption">
-	             <h3 class="text-success">Sales</h3>
+	             <%= link_to :controller => 'sales', :action => 'index' do %>
+                     <h3 class="text-success">Sales</h3>
+                    <% end %>
 	             <p class="text-success">View sales based on artist or title.</p>
 	          </div>
 	        </div> <!--carousel-item-->  

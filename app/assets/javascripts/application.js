@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require modals
 //= require_tree .
+//= require bootstrap
+//= require bootstrap-datepicker
  require checkout
 
 
