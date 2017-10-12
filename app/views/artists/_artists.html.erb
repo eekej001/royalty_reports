@@ -8,7 +8,7 @@
     <div class="col-offset-6">
         <div class="digg_pagination">
             <div class="page_info" style="margin-left:45%">
-              <%= page_entries_info @artists %>
+              <%= page_entries_info @artists, :model => 'artist' %>
             </div>
             <div style="margin-left:50%">
               <%= will_paginate @artists %>
