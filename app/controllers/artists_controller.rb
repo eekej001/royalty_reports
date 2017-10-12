@@ -1,7 +1,7 @@
 class ArtistsController < ShopifyApp::AuthenticatedController
 
  def index
- 	@artists = Artist.all
+ 	@artists = Artist.paginate(:page => params[:page], :per_page => 20)
  end	
 
 
@@ -29,13 +29,13 @@ def edit
 
  def titles_display
     @artist = Artist.find(params[:id])
-    @titles = @artist.titles
+    @titles = @artist.titles.paginate(:page => params[:page], :per_page => 20)
     @path_marker = "titles_display" 
  end
 
  def sales_display
     @artist = Artist.find(params[:id])
-    @sales = @artist.sales
+    @sales = @artist.sales.paginate(:page => params[:page], :per_page => 20)
  end
 
 

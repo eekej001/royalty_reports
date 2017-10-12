@@ -44,7 +44,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
 
  def sales_display
     @title = Title.find(params[:id])
-    @sales = @title.sales
+    @sales = @title.sales.paginate(:page => params[:page], :per_page => 20)
  end
 
 
