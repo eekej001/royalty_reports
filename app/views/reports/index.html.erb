@@ -30,7 +30,7 @@ button:focus {
   <table>
     <tr>
       <td><%= f.label(:artist_id, "Select Artist") %></td>
-      <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %><td>
+      <td><%= f.radio_button :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %><td>
     </tr>
 
     <tr>
@@ -58,17 +58,6 @@ button:focus {
     </tr>
 
     <tr>
-
-    
-
-    <div class="input-group input-append date" id="dateRangePicker3">
-                        <input type="text" data-provide="datepicker" class="form-control" name="date" id="kalib_dato" disabled readonly />
-                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-                    </div>
-<button type="button" class="btn btn-default" id="enable">Enable</button>
-<button type="button" class="btn btn-default" id="disable">Disable</button>
-
-
 
       <td>&nbsp;</td>
       <td class="mt-5"><%= submit_tag("Submit") %></td>
@@ -118,11 +107,11 @@ button:focus {
 
 
     //$('#enable').click(function(){
- $('#dateRangePicker1, #dateRangePicker2, #dateRangePicker3')
+ $('#dateRangePicker1, #dateRangePicker2')
         .datepicker({
             format: 'dd/mm/yyyy',
-            startDate: '01/01/2010',
-            endDate: '12/30/2020',
+            startDate: '01/01/2016',
+            endDate: '12/30/2025',
 			autoclose: true,
 			enableOnReadonly: false
         });
