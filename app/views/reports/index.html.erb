@@ -95,9 +95,10 @@ body {
 	    <span class="placeholder">Choose Artist</span>
 		<% Artist.all.each do |a| %>
 		  <%= f.radio_button :id, a.id %>
-		<span class="title animated fadeIn"><i class="icon icon-fire"></i><%= f.label :e_name, :class => 'option', a.e_name %></span>
+		<span class="title animated fadeIn"><i class="icon icon-fire"></i><%= f.label :e_name, a.e_name %></span>
 		<% end %>
 </div>
+
 
 
   <table>
@@ -144,6 +145,8 @@ body {
   $(document).ready(function(){
 
   	$('input.form-control').attr("data-provide", "datepicker");
+
+  	$(".aoyue-select > span > label").attr("class", "option");
 
   /*	$(document).off('.datepicker.data-api');
 
