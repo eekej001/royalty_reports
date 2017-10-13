@@ -36,7 +36,7 @@ button:focus {
     <tr>
       <td><%= f.label(:start_date, "Start Date") %>
       <td>
-        <div class="input-group date" id="dateRangePicker" >
+        <div class="input-group input-append date" id="dateRangePicker2" >
           <%= f.text_field :start_date, :class => "form-control", :readonly => 'readonly', :disabled => "disabled" %>
           <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
@@ -117,7 +117,7 @@ button:focus {
 
 
     $('#enable').click(function(){
- $('#dateRangePicker')
+ $('#dateRangePicker, #dateRangePicker2')
         .datepicker({
             format: 'dd/mm/yyyy',
             startDate: '01/01/2010',
