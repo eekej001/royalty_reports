@@ -60,6 +60,12 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
+
+  	$('h1').on('click', function(e){
+    	alert("H1");
+        e.preventDefault();
+        return false;
+     })
     
     $('.form-control').on('keydown', function(e){
     	alert("Pressed");
