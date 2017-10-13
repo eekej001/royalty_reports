@@ -72,16 +72,6 @@ body {
     </label>
 </div>
 
-<div class="aoyue-select animated zoomIn">
-  <input type="radio" name="option">
-    <i class="toggle icon icon-arrow-down"></i>
-    <i class="toggle icon icon-arrow-up"></i>
-	<% Artist.all.each do |a| %>
-	  <%= f.radio_button :id, a.id %>
-	  <%= f.label :e_name, a.e_name %>
-	<% end %>
-	<span class="title animated fadeIn"><i class="icon icon-fire"></i>Fire</span>
-</div>
 
 
 
@@ -97,6 +87,24 @@ body {
 
 <div class="mt-5">
   <%= form_for(:title, :url => {:action => 'report'}) do |f| %>
+
+     <div class="aoyue-select animated zoomIn">
+	  <input type="radio" name="option">
+	    <i class="toggle icon icon-arrow-down"></i>
+	    <i class="toggle icon icon-arrow-up"></i>
+		<% Artist.all.each do |a| %>
+		  <%= f.radio_button :id, a.id %>
+		  <%= f.label :e_name, a.e_name %>
+		<% end %>
+		<span class="title animated fadeIn"><i class="icon icon-fire"></i>Fire</span>
+</div>
+
+
+
+
+
+
+
   <table>
     <tr>
       <td><%= f.label(:artist_id, "Select Artist") %></td>
