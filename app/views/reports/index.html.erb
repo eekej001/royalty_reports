@@ -34,7 +34,7 @@ button:focus {
       <td><%= f.label(:start_date, "Start Date") %>
       <td>
         <div class="input-group date" data-provide="datepicker">
-          <%= f.text_field :start_date, :class => "form-control notype", :readonly => 'readonly' %>
+          <%= f.text_field :start_date, :class => "form-control notype", :readonly => 'readonly',  :onclick => "alert('button clicked'); return false;" %>
           <span class="input-group-addon">
              <i class="glyphicon glyphicon-th"></i>
            </span>  
@@ -80,7 +80,7 @@ button:focus {
      })
 
     $('.datepicker').datepicker({
-    	ignoreReadonly: true
+    	//ignoreReadonly: true
     });
 
 
