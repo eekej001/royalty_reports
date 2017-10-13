@@ -12,7 +12,7 @@
 <h1>Generate Royalty Report</h1>
 
 
-<div>
+<div class="mt-5">
   <%= form_for(:title, :url => {:action => 'report'}) do |f| %>
   <table>
     <tr>
@@ -22,13 +22,7 @@
 
     <tr>
       <td><%= f.label(:start_date, "Start Date") %>
-      <!--<td><%= f.text_field :start_date, "data-provide" => 'datepicker' %></td>  -->
-      <div class="input-group date">
-    <input type="text" class="form-control" value="12-02-2012">
-    <div class="input-group-addon">
-        <span class="glyphicon glyphicon-th"></span>
-    </div>
-</div>
+      <td><%= f.text_field :start_date, "data-provide" => 'datepicker' %></td>  
 </td>
 
     </tr>
