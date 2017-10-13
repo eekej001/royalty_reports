@@ -53,9 +53,19 @@ button:focus {
       </td>
     </tr>
 
-
-
     <tr>
+
+    
+
+    <div class="input-group input-append date" id="dateRangePicker">
+                        <input type="text" data-provide="datepicker" class="form-control" name="date" id="kalib_dato" disabled readonly />
+                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+<button type="button" class="btn btn-default" id="enable">Enable</button>
+<button type="button" class="btn btn-default" id="disable">Disable</button>
+
+
+
       <td>&nbsp;</td>
       <td class="mt-5"><%= submit_tag("Submit") %></td>
     </tr>
@@ -69,16 +79,13 @@ button:focus {
 
   	//$(document).off('.datepicker.data-api');
 
-  	$('i').on('click', function(e){
-    	/*alert("H1");
-        e.preventDefault();
-        return false;
-        */
+ /* 	$('i').on('click', function(e){
+
         $('.datepicker').datepicker({
          console.log("Clicked");
     	//ignoreReadonly: true
     });
-     })
+     }) */
     
   /*  $('div').on('click', function(e){
     	//alert("Pressed");
@@ -89,6 +96,28 @@ button:focus {
    /* $('.datepicker').datepicker({
     	//ignoreReadonly: true
     });  */
+
+
+
+
+
+
+
+    $('#enable').click(function(){
+ $('#dateRangePicker')
+        .datepicker({
+            format: 'dd/mm/yyyy',
+            startDate: '01/01/2010',
+            endDate: '12/30/2020',
+			autoclose: true,
+	    	language: 'da',
+			enableOnReadonly: false
+        });
+	});
+    });
+
+$('#disable').click(function(){
+ $(document).off('.datepicker.data-api');
 
 
 
