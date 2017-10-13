@@ -24,11 +24,10 @@
       <td><%= f.label(:start_date, "Start Date") %>
       <td>
         <div class="input-group date">
-          <%= f.text_field :start_date, "data-provide" => 'datepicker' %>
-          <div class="input-group-addon">
-             <span class="glyphicon glyphicon-th"></span>
-             <i class="icon-calender"></i>
-           </div>  
+          <%= f.text_field :start_date, "data-provide" => 'datepicker', :class => "form-control" %>
+          <span class="input-group-addon">
+             <i class="glyphicon glyphicon-th"></i>
+           </span>  
         </div>
       </td>  
 </td>
