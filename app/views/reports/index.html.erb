@@ -21,7 +21,7 @@
     </tr>
 
     <tr>
-      <td><%= f.label(:start_date, "Start Date") %>
+      <td><%= f.label(:start_date, "Select Start Date") %>
       <td>
         <div class="input-group date" data-provide="datepicker">
           <%= f.text_field :start_date, :class => "form-control" %>
@@ -35,8 +35,14 @@
     </tr>
 
      <tr>
-      <td><%= f.label(:end_date, "End Date") %></td>
-      <td><%= f.text_field :start_date, "data-provide" => 'datepicker' %></td>
+      <td><%= f.label(:end_date, "Select End Date") %></td>
+      <td><div class="input-group date" data-provide="datepicker">
+          <%= f.text_field :end_date, :class => "form-control" %>
+          <span class="input-group-addon">
+             <i class="glyphicon glyphicon-th"></i>
+           </span>  
+        </div>
+      </td>
     </tr>
 
    
