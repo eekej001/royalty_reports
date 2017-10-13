@@ -24,7 +24,7 @@
       <td><%= f.label(:start_date, "Start Date") %>
       <td>
         <div class="input-group date" data-provide="datepicker">
-          <%= f.text_field :start_date, :id => "disabledTextInput", :class => "form-control" %>
+          <%= f.text_field :start_date, :disabled, :class => "form-control" %>
           <span class="input-group-addon">
              <i class="glyphicon glyphicon-th"></i>
            </span>  
@@ -32,10 +32,10 @@
       </td>  
 </td>
 
-
+     <td><p>-</p></td>
       <td><%= f.label(:end_date, "End Date") %></td>
       <td><div class="input-group date" data-provide="datepicker">
-          <%= f.text_field :end_date, :id => "disabledTextInput", :class => "form-control" %>
+          <%= f.text_field :end_date, :disabled, :class => "form-control" %>
           <span class="input-group-addon">
              <i class="glyphicon glyphicon-th"></i>
            </span>  
