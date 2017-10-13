@@ -60,10 +60,8 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-  	alert("Load");
     
-   // $('.notype').on('keydown', function(e){
-   	$('input').on('keydown', ".notype", function(e){
+    $('.form-control').on('keydown', function(e){
     	alert("Pressed");
         e.preventDefault();
         return false;
