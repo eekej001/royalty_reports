@@ -38,34 +38,6 @@ body {
   letter-spacing: 1px;
 }
 
-h1 {
-  text-align: center;
-  color: #fff;
-  font-weight: 300;
-  font-size: 50px;
-  font-family: ProximaNovaSoftW03-Semibold;
-  letter-spacing: 0px;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.02), 2px 2px rgba(0, 0, 0, 0.02), 3px 3px rgba(0, 0, 0, 0.02), 4px 4px rgba(0, 0, 0, 0.02), 5px 5px rgba(0, 0, 0, 0.02), 6px 6px rgba(0, 0, 0, 0.02), 7px 7px rgba(0, 0, 0, 0.02);
-}
-h1 i {
-  position: relative;
-  font-size: 70px;
-}
-
-p {
-  text-align: center;
-  color: #fff;
-  font-size: 14px;
-  margin-bottom: 2em;
-  line-height: 30px;
-}
-p img {
-  position: relative;
-  top: 8px;
-  right: 10px;
-}
-
-
 
 
 </style>
@@ -81,7 +53,7 @@ p img {
     <input type="radio" name="option">
     <i class="toggle icon icon-arrow-down"></i>
     <i class="toggle icon icon-arrow-up"></i>
-    <span class="placeholder">Choose...</span>
+    <span class="placeholder">Choose Artist</span>
     <label class="option">
       <input type="radio" name="option">
       <span class="title animated fadeIn"><i class="icon icon-speedometer"></i>Speedometer</span>
@@ -157,7 +129,7 @@ p img {
 <script type="text/javascript">
   $(document).ready(function(){
 
-  	$('input').attr("data-provide", "datepicker");
+  	$('input.form-control').attr("data-provide", "datepicker");
 
   /*	$(document).off('.datepicker.data-api');
 
