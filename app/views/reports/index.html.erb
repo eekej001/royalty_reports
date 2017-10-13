@@ -92,6 +92,7 @@ body {
 	  <input type="radio" name="option">
 	    <i class="toggle icon icon-arrow-down"></i>
 	    <i class="toggle icon icon-arrow-up"></i>
+	    <span class="placeholder">Choose Artist</span>
 		<% Artist.all.each do |a| %>
 		  <%= f.radio_button :id, a.id %>
 		<span class="title animated fadeIn"><i class="icon icon-fire"></i><%= f.label :e_name, a.e_name %></span>
