@@ -74,12 +74,14 @@ button:focus {
      })
     
     $('div').on('click', function(e){
-    	alert("Pressed");
+    	//alert("Pressed");
         e.preventDefault();
         return false;
      })
 
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+    	ignoreReadonly: true
+    });
 
 
 
