@@ -69,12 +69,13 @@ button:focus {
 
   	$(document).off('.datepicker.data-api');
 
-  	$('h1').on('click', function(e){
+  	$('i').on('click', function(e){
     	/*alert("H1");
         e.preventDefault();
         return false;
         */
         $('.datepicker').datepicker({
+         console.log("Clicked");
     	//ignoreReadonly: true
     });
      })
