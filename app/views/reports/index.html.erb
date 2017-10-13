@@ -33,7 +33,7 @@ button:focus {
     <tr>
       <td><%= f.label(:start_date, "Start Date") %>
       <td>
-        <div class="input-group date" data-provide="datepicker"  onclick="return false;">
+        <div class="input-group date" data-provide="datepicker">
           <%= f.text_field :start_date, :class => "form-control notype", :readonly => 'readonly' %>
           <span class="input-group-addon">
              <i class="glyphicon glyphicon-th"></i>
@@ -53,7 +53,7 @@ button:focus {
       </td>
     </tr>
 
-   
+
 
     <tr>
       <td>&nbsp;</td>
@@ -67,21 +67,27 @@ button:focus {
 <script type="text/javascript">
   $(document).ready(function(){
 
+  	$(document).off('.datepicker.data-api');
+
   	$('h1').on('click', function(e){
-    	alert("H1");
+    	/*alert("H1");
         e.preventDefault();
         return false;
+        */
+        $('.datepicker').datepicker({
+    	//ignoreReadonly: true
+    });
      })
     
-    $('div').on('click', function(e){
+  /*  $('div').on('click', function(e){
     	//alert("Pressed");
         e.preventDefault();
         return false;
-     })
+     })  */
 
-    $('.datepicker').datepicker({
+   /* $('.datepicker').datepicker({
     	//ignoreReadonly: true
-    });
+    });  */
 
 
 
