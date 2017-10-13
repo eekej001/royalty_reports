@@ -13,7 +13,7 @@
 
 <div class="container">
 
-<h1 class="mt-5">Generate Royalty Report</h1>
+<h1 class="mt-2">Generate Royalty Report</h1>
 
 
 <div class="mt-5">
@@ -62,10 +62,18 @@
   $(document).ready(function(){
     $('.datepicker').datepicker();
 
-    $('.notype').on('click', function(e){
+    $('.notype').on('keydown', function(e){
         e.preventDefault();
         return false;
      })
+
+    
+
+$('input').keypress(function(e) {
+    e.preventDefault();
+});
+
+
   });
 
 </script>
