@@ -36,7 +36,7 @@ button:focus {
     <tr>
       <td><%= f.label(:start_date, "Start Date") %>
       <td>
-        <div class="input-group input-append date" id="dateRangePicker2" >
+        <div class="input-group date" id="dateRangePicker1" >
           <%= f.text_field :start_date, :class => "form-control", :readonly => 'readonly', :disabled => "disabled" %>
           <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
@@ -47,9 +47,10 @@ button:focus {
 
      <td style="width:40px"></td>
       <td><%= f.label(:end_date, "End Date") %></td>
-      <td><div class="input-group date" data-provide="datepicker">
-          <%= f.text_field :end_date, :class => "form-control notype", :readonly => 'readonly' %>
-          <span class="input-group-addon">
+      <td>
+        <div class="input-group date" id="dateRangePicker2" >
+          <%= f.text_field :end_date, :class => "form-control", :readonly => 'readonly', :disabled => "disabled" %>
+          <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
            </span>  
         </div>
@@ -60,7 +61,7 @@ button:focus {
 
     
 
-    <div class="input-group input-append date" id="dateRangePicker">
+    <div class="input-group input-append date" id="dateRangePicker3">
                         <input type="text" data-provide="datepicker" class="form-control" name="date" id="kalib_dato" disabled readonly />
                         <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
@@ -116,18 +117,17 @@ button:focus {
 
 
 
-    $('#enable').click(function(){
- $('#dateRangePicker, #dateRangePicker2')
+   // $('#enable').click(function(){
+ $('#dateRangePicker1', '#dateRangePicker2', '#dateRangePicker3')
         .datepicker({
             format: 'dd/mm/yyyy',
             startDate: '01/01/2010',
             endDate: '12/30/2020',
 			autoclose: true,
-	    	language: 'da',
 			enableOnReadonly: false
         });
 	});
-    });
+//    });
 
 $('#disable').click(function(){
  $(document).off('.datepicker.data-api');
