@@ -37,7 +37,7 @@ button:focus {
       <td><%= f.label(:start_date, "Start Date") %>
       <td>
         <div class="input-group date" id="dateRangePicker" >
-          <%= f.text_field :start_date, :class => "form-control", :readonly => 'readonly', :disabled => "disabled", :data-provide => "datepicker" %>
+          <%= f.text_field :start_date, :class => "form-control", :readonly => 'readonly', :disabled => "disabled" %>
           <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
            </span>  
@@ -79,6 +79,8 @@ button:focus {
 
 <script type="text/javascript">
   $(document).ready(function(){
+
+  	$('input').attr("data-provide", "datepicker");
 
   /*	$(document).off('.datepicker.data-api');
 
