@@ -17,6 +17,8 @@ gem 'axlsx_rails'
 gem 'will_paginate'
 gem 'figaro'
 gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '>= 3.2'
 
 group :production do
   #gem 'pg'

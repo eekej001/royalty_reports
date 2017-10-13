@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module ProjectH
   class Application < Rails::Application
+    config.assets.paths << "#{Rails}/vendor/assets/fonts"
     config.action_dispatch.default_headers['P3P'] = 'CP="Not used"'
     config.action_dispatch.default_headers.delete('X-Frame-Options')
     # Settings in config/environments/* take precedence over those specified here.
