@@ -14,7 +14,7 @@
  *= require_self
  */
 
-button, i {
+button, span.input-group-addon {
   cursor: pointer;
 }
 

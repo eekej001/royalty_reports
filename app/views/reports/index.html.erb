@@ -62,7 +62,8 @@
   $(document).ready(function(){
   	alert("Load");
     
-    $('.notype').on('keydown', function(e){
+   // $('.notype').on('keydown', function(e){
+   	$('input').on('keydown', ".notype", function(e){
     	alert("Pressed");
         e.preventDefault();
         return false;
