@@ -80,11 +80,12 @@ button:focus {
   	$(document).off('.datepicker.data-api');
 
   	$('i').on('click', function(e){
-        
-        $('.datepicker').datepicker({
+        $(document).on('.datepicker.data-api');
+       /* $('.datepicker').datepicker({
         
     	//ignoreReadonly: true
     });
+    */
 
           console.log("Clicked");
      }); 
