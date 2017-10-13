@@ -22,7 +22,14 @@
 
     <tr>
       <td><%= f.label(:start_date, "Start Date") %>
-      <td><%= f.text_field :start_date, "data-provide" => 'datepicker' %></td>  
+      <td>
+        <div class="input-group date">
+          <%= f.text_field :start_date, "data-provide" => 'datepicker' %>
+          <div class="input-group-addon">
+             <span class="glyphicon glyphicon-th"></span>
+           </div>  
+        </div>
+      </td>  
 </td>
 
     </tr>
