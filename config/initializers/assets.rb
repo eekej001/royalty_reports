@@ -20,3 +20,9 @@ Rails.application.config.assets.precompile += %w( bootstrap-datepicker.min.css )
 Rails.application.config.assets.precompile += %w( bootstrap.css )
 Rails.application.config.assets.precompile += %w( bootstrap.js )
 Rails.application.config.assets.precompile += %w( *.svg *.eot *.woff *.ttf )
+
+
+Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.eot )
+Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular )
+Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.woff )
+Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.woff2 )
