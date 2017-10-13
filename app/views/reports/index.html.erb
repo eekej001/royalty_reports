@@ -30,7 +30,7 @@ button:focus {
   <table>
     <tr>
       <td><%= f.label(:artist_id, "Select Artist") %></td>
-      <td><%= f.radio_button :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %><td>
+      <td><div class="aoyue-select"><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %></div><td>
     </tr>
 
     <tr>
