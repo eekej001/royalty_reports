@@ -36,7 +36,7 @@
       </td>  
 </td>
 
-     <td style="width:20px"></td>
+     <td style="width:40px"></td>
       <td><%= f.label(:end_date, "End Date") %></td>
       <td><div class="input-group date" data-provide="datepicker">
           <%= f.text_field :end_date, :class => "form-control notype", :readonly => 'readonly' %>
@@ -62,7 +62,7 @@
   $(document).ready(function(){
     $('.datepicker').datepicker();
 
-    $('.notype').on('keydown', function(e){
+    $('input').on('keydown', function(e){
         e.preventDefault();
      })
   });
