@@ -1,6 +1,5 @@
 <head>
   <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= stylesheet_link_tag "bootstrap-css/bootstrap-datepicker.min" %>
 
 
   <%= javascript_include_tag  "jquery.slim.min", "tether.min", "bootstrap.min", "bootstrap-datepicker.min" %>
@@ -21,13 +20,19 @@
       <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %><td>
     </tr>
 
-      <p>Select Start Date</p>
     <tr>
-      <td><%= f.label(:start_date, "Start Date") %></td>
-      <td><%= f.text_field :start_date, "data-provide" => 'datepicker' %></td>
+      <td><%= f.label(:start_date, "Start Date") %>
+      <!--<td><%= f.text_field :start_date, "data-provide" => 'datepicker' %></td>  -->
+      <div class="input-group date">
+    <input type="text" class="form-control" value="12-02-2012">
+    <div class="input-group-addon">
+        <span class="glyphicon glyphicon-th"></span>
+    </div>
+</div>
+</td>
+
     </tr>
 
-      <p>Select End Date</p>
      <tr>
       <td><%= f.label(:end_date, "End Date") %></td>
       <td><%= f.text_field :start_date, "data-provide" => 'datepicker' %></td>
