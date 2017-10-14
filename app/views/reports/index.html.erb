@@ -92,25 +92,23 @@ body {
 
 
 <div class="mt-5">
-  <%= form_for(:title, :url => {:action => 'report'}) do |f| %>
+  <%= form_for(:reports, :url => {:action => 'report'}) do |f| %>
 
      <div class="aoyue-select animated zoomIn">
     <!-- You can toggle select (disabled) -->
-    <input type="radio" name="option">
+    <input type="radio" name="option" id=<%= artist.id %> >
     <i class="toggle icon icon-arrow-down"></i>
     <i class="toggle icon icon-arrow-up"></i>
     <span class="placeholder">Select Artist</span>
 
     <% @artists.each do |artist| %>
-    <label class="option">
-      <input type="radio" name="option">
+    <label class="option" for="reports[e_name]">
+      <input type="radio" name="option" value=<%= artist.id %> >
       <span class="title animated fadeIn"><i class="icon icon-fire"></i><%= artist.e_name %></span>
     </label>
     <% end %>
     
 </div>
-
-
 
   <table>
     <tr>
