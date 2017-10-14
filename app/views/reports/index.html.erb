@@ -101,7 +101,7 @@ body {
     <i class="toggle icon icon-arrow-up"></i>
     <span class="placeholder">Select Artist</span>
 
-    <% Artist.each do |artist| %>
+    <% @artists.each do |artist| %>
     <label class="option">
       <input type="radio" name="option">
       <span class="title animated fadeIn"><i class="icon icon-fire"></i><%= artist.e_name %></span>
