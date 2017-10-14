@@ -121,14 +121,12 @@ body {
 
   */
 
-  $('form').submit(function(ev) {
-  	alert("Stopu!");
+  $('#report_form').submit(function(ev) {
     ev.preventDefault(); // to stop the form from submitting
-    alert("Stopu2!");
     $("input.form-control").attr("disabled", "false");
     var date1 = $("input.form-control")[0].attr("val");
     alert(date1);
-   // this.submit(); // If all the validations succeeded
+    this.submit(); // If all the validations succeeded
   });
 
 
