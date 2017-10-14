@@ -74,7 +74,7 @@ body {
       <td><%= label(:start_date, "Start Date") %>
       <td>
         <div class="input-group date" id="dateRangePicker1" >
-          <%= text_field_tag "start_date", placeholder: '', class: "form-control", readonly: 'readonly', disabled: true %>
+          <%= text_field_tag "start_date", '', class: "form-control", readonly: 'readonly', disabled: true %>
           <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
            </span>  
@@ -86,7 +86,7 @@ body {
       <td><%= label(:end_date, "End Date") %></td>
       <td>
         <div class="input-group date" id="dateRangePicker2" >
-          <%= text_field_tag "end_date", placeholder: '', class: "form-control", readonly: 'readonly', disabled: true %>
+          <%= text_field_tag "end_date", '', class: "form-control", readonly: 'readonly', disabled: true %>
           <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
            </span>  
@@ -111,10 +111,9 @@ body {
 
   	$(".aoyue-select > label").attr("class", "option");
 
-  	$('#form-submit').click(function(){
-  		$("input.name-swap").attr("name", "reports[id]");
 
-  	});
+    $("input.form-control").removeAttr("value");
+
   //	$(".aoyue-select > label").append("<input type='radio' name='option'><span class='title animated fadeIn'><i class='icon icon-fire'></i>Hey</span>");
 
   /*	$(document).off('.datepicker.data-api');
