@@ -103,7 +103,7 @@ body {
 
     <% @artists.each do |artist| %>
 	    <label class="option" for="reports_id_<%= artist.id %>">
-	      <input type="radio" name="reports[id]" id="reports_id_<%= artist.id %>" value=<%= artist.id %> >
+	      <input type="radio" class="name_swap" name="option" id="reports_id_<%= artist.id %>" value=<%= artist.id %> >
 	      <span class="title animated fadeIn"><i class="icon icon-fire"></i><%= artist.e_name %></span>
 	    </label>
     <% end %>
@@ -143,7 +143,7 @@ body {
     <tr>
 
       <td>&nbsp;</td>
-      <td class="mt-5"><%= submit_tag("Submit") %></td>
+      <td class="mt-5"><%= submit_tag("Submit", :id => "form-submit") %></td>
     </tr>
   </table>
   <% end %> 
@@ -156,6 +156,11 @@ body {
   	$('input.form-control').attr("data-provide", "datepicker");
 
   	$(".aoyue-select > label").attr("class", "option");
+
+  	$('#form-submit').click(function(){
+  		$("input.name-swap").attr("name", "reports[id]");
+
+  	});
   //	$(".aoyue-select > label").append("<input type='radio' name='option'><span class='title animated fadeIn'><i class='icon icon-fire'></i>Hey</span>");
 
   /*	$(document).off('.datepicker.data-api');
