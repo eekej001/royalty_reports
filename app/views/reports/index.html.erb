@@ -51,7 +51,7 @@ body {
 
 
 <div class="mt-5">
-  <%= form_for(:reports, :url => {:action => 'report'}) do |f| %>
+  <%= form_tag("/report", method: "post") do %>
 
      <div class="aoyue-select animated zoomIn">
     <!-- You can toggle select (disabled) -->
@@ -60,8 +60,8 @@ body {
     <i class="toggle icon icon-arrow-up"></i>
     <span class="placeholder">Select Artist</span>
     <% @artists.each do |artist| %>
-	    <label class="option" for="reports_id_<%= artist.id %>">
-	      <input type="radio" class="name_swap" name="option" id="reports_id_<%= artist.id %>" value=<%= artist.id %> >
+	    <label class="option" for="id_<%= artist.id %>">
+	      <input type="radio" class="name_swap" name="option" id="id_<%= artist.id %>" value=<%= artist.id %> >
 	      <span class="title animated fadeIn"><i class="icon icon-fire"></i><%= artist.e_name %></span>
 	    </label>
     <% end %>
@@ -71,10 +71,10 @@ body {
   <table>
 
     <tr>
-      <td><%= f.label(:start_date, "Start Date") %>
+      <td><%= label(:start_date, "Start Date") %>
       <td>
         <div class="input-group date" id="dateRangePicker1" >
-          <%= f.text_field :start_date, :class => "form-control", :readonly => 'readonly', :disabled => "disabled" %>
+          <%= text_field :start_date, :class => "form-control", :readonly => 'readonly', :disabled => "disabled" %>
           <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
            </span>  
@@ -83,10 +83,10 @@ body {
 </td>
 
      <td style="width:40px"></td>
-      <td><%= f.label(:end_date, "End Date") %></td>
+      <td><%= label(:end_date, "End Date") %></td>
       <td>
         <div class="input-group date" id="dateRangePicker2" >
-          <%= f.text_field :end_date, :class => "form-control", :readonly => 'readonly', :disabled => "disabled" %>
+          <%= text_field :end_date, :class => "form-control", :readonly => 'readonly', :disabled => "disabled" %>
           <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
            </span>  
