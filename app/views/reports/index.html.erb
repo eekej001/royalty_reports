@@ -85,18 +85,29 @@ body {
 
 
 
+
+
+
+
+
+
 <div class="mt-5">
   <%= form_for(:title, :url => {:action => 'report'}) do |f| %>
 
      <div class="aoyue-select animated zoomIn">
-	  <input type="radio" name="option">
-	    <i class="toggle icon icon-arrow-down"></i>
-	    <i class="toggle icon icon-arrow-up"></i>
-	    <span class="placeholder">Choose Artist</span>
-		<% Artist.all.each do |a| %>
-		  <%= f.label :e_name, a.e_name %>
-		 
-		<% end %>
+    <!-- You can toggle select (disabled) -->
+    <input type="radio" name="option">
+    <i class="toggle icon icon-arrow-down"></i>
+    <i class="toggle icon icon-arrow-up"></i>
+    <span class="placeholder">Select Artist</span>
+
+    <% Artist.each do |artist| %>
+    <label class="option">
+      <input type="radio" name="option">
+      <span class="title animated fadeIn"><i class="icon icon-fire"></i><% artist.e_name %></span>
+    </label>
+    <% end %>
+    
 </div>
 
 
