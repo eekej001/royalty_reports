@@ -71,7 +71,7 @@ body {
   <table>
 
     <tr>
-      <td><%= label(:start_date, "Start Date") %>
+      <td><label for="start_date">Start Date</label>
       <td>
         <div class="input-group date" id="dateRangePicker1" >
           <%= text_field :name => "start_date", :class => "form-control", :readonly => 'readonly', :disabled => "disabled" %>
@@ -83,7 +83,7 @@ body {
 </td>
 
      <td style="width:40px"></td>
-      <td><%= label(:end_date, "End Date") %></td>
+      <td><label for="end_date">End Date</label></td>
       <td>
         <div class="input-group date" id="dateRangePicker2" >
           <%= text_field :name => "end_date", :class => "form-control", :readonly => 'readonly', :disabled => "disabled" %>
