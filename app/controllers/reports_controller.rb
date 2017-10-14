@@ -5,7 +5,7 @@ class ReportsController < ShopifyApp::AuthenticatedController
  end
 
  def report
- 	id = params[:id]
+ 	id = params[:option]
  	start_date = params[:start_date]
  	end_date = params[:end_date]
     flash[:notice] = "The artist id is #{id}.  The start date is #{start_date}.  The end date is #{end_date}."
@@ -13,7 +13,7 @@ class ReportsController < ShopifyApp::AuthenticatedController
  end
 
 
- 
+
 end
 
 
