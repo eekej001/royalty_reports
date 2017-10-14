@@ -51,7 +51,7 @@ body {
 
 
 <div class="mt-5">
-  <%= form_tag(controller: "reports", action: "report", method: "post") do %>
+  <%= form_tag(controller: "reports", action: "report", method: "post", id: "report_form") do %>
 
      <div class="aoyue-select animated zoomIn">
     <!-- You can toggle select (disabled) -->
@@ -114,10 +114,19 @@ body {
 
     $("input.form-control").removeAttr("value");
 
-    $('#form-submit').on('click', function(){
+   /* $('#form-submit').on('click', function(){
     	$("input.form-control").attr("disabled", "false");
     	alert("clicked");
      });  
+
+  */
+
+  $('#report-form').submit(function(ev) {
+    ev.preventDefault(); // to stop the form from submitting
+    $("input.form-control").attr("disabled", "false");
+    this.submit(); // If all the validations succeeded
+  });
+
 
   //	$(".aoyue-select > label").append("<input type='radio' name='option'><span class='title animated fadeIn'><i class='icon icon-fire'></i>Hey</span>");
 
