@@ -69,10 +69,6 @@ body {
 </div>
 
   <table>
-    <tr>
-      <td><%= f.label(:artist_id, "Select Artist") %></td>
-      <td><div class="aoyue-select"><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %></div><td>
-    </tr>
 
     <tr>
       <td><%= f.label(:start_date, "Start Date") %>
