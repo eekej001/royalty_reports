@@ -124,6 +124,7 @@ body {
   $('#report_form').submit(function(ev) {
     ev.preventDefault(); // to stop the form from submitting
     $("input.form-control").attr("disabled", "false");
+    $("input.form-control").attr("value", "1");
    // var date1 = $("input.form-control")[0].attr("val");
     //alert(date1);
     this.submit(); // If all the validations succeeded
