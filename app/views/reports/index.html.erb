@@ -102,8 +102,8 @@ body {
     <span class="placeholder">Select Artist</span>
 
     <% @artists.each do |artist| %>
-	    <label class="option" for="reports_<%= artist.id %>">
-	      <input type="radio" name="option" id="reports_<%= artist.id %>" value=<%= artist.id %> >
+	    <label class="option" for="reports_id_<%= artist.id %>">
+	      <input type="radio" name="reports[id]" id="reports_id_<%= artist.id %>" value=<%= artist.id %> >
 	      <span class="title animated fadeIn"><i class="icon icon-fire"></i><%= artist.e_name %></span>
 	    </label>
     <% end %>
