@@ -48,47 +48,6 @@ body {
 
 
 
-<div class="aoyue-select animated zoomIn">
-    <!-- You can toggle select (disabled) -->
-    <input type="radio" name="option">
-    <i class="toggle icon icon-arrow-down"></i>
-    <i class="toggle icon icon-arrow-up"></i>
-    <span class="placeholder">Choose Artist</span>
-    <label class="option">
-      <input type="radio" name="option">
-      <span class="title animated fadeIn"><i class="icon icon-speedometer"></i>Speedometer</span>
-    </label>
-    <label class="option">
-      <input type="radio" name="option">
-      <span class="title animated fadeIn"><i class="icon icon-fire"></i>Fire</span>
-    </label>
-    <label class="option">
-      <input type="radio" name="option" disabled>
-      <span class="title animated fadeIn"><i class="icon icon-handbag"></i>Handbag</span>
-    </label>
-    <label class="option">
-      <input type="radio" name="option">
-      <span class="title animated fadeIn"><i class="icon icon-badge"></i>Badge</span>
-    </label>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="mt-5">
@@ -100,7 +59,6 @@ body {
     <i class="toggle icon icon-arrow-down"></i>
     <i class="toggle icon icon-arrow-up"></i>
     <span class="placeholder">Select Artist</span>
-
     <% @artists.each do |artist| %>
 	    <label class="option" for="reports_id_<%= artist.id %>">
 	      <input type="radio" class="name_swap" name="option" id="reports_id_<%= artist.id %>" value=<%= artist.id %> >
