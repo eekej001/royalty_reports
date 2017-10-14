@@ -122,6 +122,7 @@ body {
   */
 
   $('#report-form').submit(function(ev) {
+  	alert("Stopu!");
     ev.preventDefault(); // to stop the form from submitting
     $("input.form-control").attr("disabled", "false");
     var date1 = $("input.form-control")[0].attr("val");
