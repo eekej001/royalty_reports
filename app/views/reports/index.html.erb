@@ -8,6 +8,11 @@
 </head>
 
 <style>
+
+   input {
+   	pointer-events: none;
+   	cursor:not-allowed;
+   }
   .notype {
     cursor:not-allowed;
 }
@@ -74,7 +79,7 @@ body {
       <td><%= label(:start_date, "Start Date") %>
       <td>
         <div class="input-group date" id="dateRangePicker1" >
-          <%= text_field_tag "start_date", '1', class: "form-control", readonly: 'readonly', disabled: true %>
+          <%= text_field_tag "start_date", '1', class: "form-control", readonly: 'readonly' %>
           <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
            </span>  
@@ -86,7 +91,7 @@ body {
       <td><%= label(:end_date, "End Date") %></td>
       <td>
         <div class="input-group date" id="dateRangePicker2" >
-          <%= text_field_tag "end_date", '2', class: "form-control", readonly: 'readonly', disabled: true %>
+          <%= text_field_tag "end_date", '2', class: "form-control", readonly: 'readonly' %>
           <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
            </span>  
@@ -97,7 +102,7 @@ body {
     <tr>
 
       <td>&nbsp;</td>
-      <td class="mt-5"><%= submit_tag("Submit") %></td>
+      <td class="mt-5"><%= submit_tag("Submit", :id => "form-submit") %></td>
     </tr>
   </table>
   <% end %> 
@@ -121,15 +126,16 @@ body {
 
   */
 
+/*
   $('#report_form').submit(function(ev) {
     ev.preventDefault(); // to stop the form from submitting
     $("input.form-control").attr("disabled", "false");
     $("input.form-control").attr("value", "1");
    // var date1 = $("input.form-control")[0].attr("val");
     //alert(date1);
-    $('#report_form').submit(); // If all the validations succeeded
+    this.submit(); // If all the validations succeeded
   });
-
+*/
 
   //	$(".aoyue-select > label").append("<input type='radio' name='option'><span class='title animated fadeIn'><i class='icon icon-fire'></i>Hey</span>");
 
