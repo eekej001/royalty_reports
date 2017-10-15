@@ -23,10 +23,10 @@
   display: block !important;
 }
 .aoyue-select:not(:hover) > i.toggle.icon-arrow-up {
-  display: none !important; 
+  display: none !important; /*  */
 }
 .aoyue-select:not(:hover) label.option > input:not(:checked) ~ span.title {
-  display: none !important; 
+  display: none !important; /*  */
 }
 .aoyue-select > i.toggle {
   position: absolute;
