@@ -79,7 +79,7 @@ body {
       <td><%= label(:start_date, "Start Date") %>
       <td>
         <div class="input-group date" id="dateRangePicker1" >
-          <%= text_field_tag "start_date", class: "form-control", readonly: 'readonly' %>
+          <%= text_field_tag "start_date", '', class: "form-control", readonly: 'readonly' %>
           <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
            </span>  
@@ -91,7 +91,7 @@ body {
       <td><%= label(:end_date, "End Date") %></td>
       <td>
         <div class="input-group date" id="dateRangePicker2" >
-          <%= text_field_tag "end_date", class: "form-control", readonly: 'readonly' %>
+          <%= text_field_tag "end_date", '', class: "form-control", readonly: 'readonly' %>
           <span class="input-group-addon add-on">
              <i class="glyphicon glyphicon-calendar"></i>
            </span>  
