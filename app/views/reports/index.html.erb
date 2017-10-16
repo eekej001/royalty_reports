@@ -125,6 +125,10 @@ i:hover {
 <script type="text/javascript">
   $(document).ready(function(){
 
+  	 $('input[type = "radio"]').change(function () {
+        return false;
+    });
+
   	var radio_toggle = 1;
 
   	$('input.form-control').attr("data-provide", "datepicker");
