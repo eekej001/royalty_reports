@@ -20,7 +20,7 @@
   box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, 0.5);
 }
 .aoyue-select:not(:hover) > i.toggle.icon-arrow-down {
-  display: block !important;
+ /* display: block !important; */
 }
 .aoyue-select:not(:hover) > i.toggle.icon-arrow-up {
  /* display: none !important;  */ /*  */
