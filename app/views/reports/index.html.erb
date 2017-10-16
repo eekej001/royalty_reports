@@ -47,6 +47,10 @@ body {
  position: absolute;
 }
 
+i:hover {
+	cursor:pointer;
+}
+
 
 /*form {
 	position:fixed;
@@ -148,7 +152,9 @@ body {
     }); 
 
 */
-
+    $("i.toggle.icon-arrow-down").on("click", function(ev) {
+       $("#select").prop("checked", true);
+    }); 
 
     $("i.toggle.icon-arrow-up").on("click", function(ev) {
        $("#select").prop("checked", false);
