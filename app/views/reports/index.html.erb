@@ -176,9 +176,14 @@ i:hover {
 */
 
     $("#select").on("click", function() {
+        if ( $("#select").prop("checked") && $("i.icon-arrow-up").attr("display", "hidden"))  {
+           $("#select").prop("checked", true);
+  	 	}
+
   	 	if ( $("#select").prop("checked") && $("i.icon-arrow-up").attr("display", "block"))  {
            $("#select").prop("checked", false);
   	 	}
+
     }); 
 
 /*
