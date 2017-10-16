@@ -127,7 +127,7 @@ body {
   	$(".aoyue-select > label").attr("class", "option");
 
 
-  	 $("#select").on("click", function(ev) {
+  	/* $("#select").on("click", function(ev) {
   	 	var checked = document.getElementById("select").checked; 
   	 	ev.preventDefault();
   	 	console.log("Before: " + checked);
@@ -139,7 +139,20 @@ body {
            $("#select").prop("checked", false);
         }
         return true;
-    });
+    }); */
+
+    $("#select").change(function(ev){
+       ev.preventDefault();
+       var checked = document.getElementById("select").checked; 
+       console.log("Before: " + checked);
+       if ($("#select").prop("checked", true))  {
+    	console.log("After: " + checked);
+    	//var check = document.getElementById("select").checked; 
+    	//alert(check);
+           $("#select").prop("checked", false);
+        }
+        return true;
+    }); 
 
    
 
