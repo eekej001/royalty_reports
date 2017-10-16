@@ -133,6 +133,8 @@ i:hover {
 
   	$('html').click(function(e) {
 	  //if clicked element is not your element and parents aren't your div
+	 var x = $("i.icon-arrow-down").length;
+	 alert(x); 
 	  if (e.target.id != 'select-form' && $(e.target).parents('#select-form').length == 0 ) {
 	    $("#select").prop("checked", false);
 	  }
