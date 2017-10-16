@@ -129,6 +129,8 @@ body {
 
   	 $("h1").on("click", function() {
     	console.log("Body clicked.");
+    	var check = document.getElementById("select").checked; 
+    	alert(check);
         $("#select").prop("checked", true);
     });
 
