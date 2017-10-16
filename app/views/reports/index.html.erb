@@ -189,10 +189,11 @@ i:hover {
        e.stopPropagation();
        if ($("i.icon-arrow-up").is(":visible")) {
       	$("#select").prop("checked", false);
+      	$("#select").unbind('mouseup');
       }
       else if ($("i.icon-arrow-down").is(":visible")) {
-        $("#select").prop("checked", true);
-        e.stopPropagation();
+       // $("#select").prop("checked", true);
+       // e.stopPropagation();
       }
     });
 
