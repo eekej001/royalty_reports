@@ -125,14 +125,16 @@ i:hover {
 <script type="text/javascript">
   $(document).ready(function(){
 
+  	var radio_toggle = 1;
+
   	$('input.form-control').attr("data-provide", "datepicker");
 
   	$(".aoyue-select > label").attr("class", "option");
 
   	$('html').click(function(e) {
 	  //if clicked element is not your element and parents aren't your div
-	  if (e.target.id != 'select' && $(e.target).parents('#select').length == 0) {
-	   // $("#select").prop("checked", false);
+	  if (e.target.id != 'select' && $(e.target).parents('#select').length == 0  && !e.target.hasClass('toggle')) {
+	    $("#select").prop("checked", false);
 	  }
    });
 
