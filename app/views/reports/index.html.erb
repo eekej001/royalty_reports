@@ -124,7 +124,6 @@ i:hover {
 
 <script type="text/javascript">
   $(document).ready(function(){
-   $("#select").unbind('mouseup');
   	 $('input[type = "radio"]').change(function () {
         return false;
     });
@@ -186,6 +185,7 @@ i:hover {
 
 
     $('#select').mousedown(function(e) {
+    	$("#select").unbind('mouseup');
        e.stopPropagation();
        if ($("i.icon-arrow-up").is(":visible")) {
       	$("#select").prop("checked", false);
