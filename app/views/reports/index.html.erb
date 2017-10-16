@@ -133,7 +133,7 @@ i:hover {
 
   	$('html').click(function(e) {
 	  //if clicked element is not your element and parents aren't your div
-	  if (e.target.id != 'select' && $(e.target).parents('#select').length == 0  && !(e.target.hasClass('toggle')) ) {
+	  if (e.target.id != 'select' && $(e.target).parents('#select').length == 0  && $('#select').attr('checked') ) {
 	    $("#select").prop("checked", false);
 	  }
    });
