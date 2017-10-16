@@ -126,6 +126,13 @@ body {
 
   	$(".aoyue-select > label").attr("class", "option");
 
+  	$('html').click(function(e) {
+	  //if clicked element is not your element and parents aren't your div
+	  if (e.target.id != 'select' && $(e.target).parents('#select').length == 0) {
+	    $("#select").prop("checked", false);
+	  }
+   });
+
 /*
   	 $("#select").on("click", function(ev) {
   	 	var checked = document.getElementById("select").checked; 
@@ -143,10 +150,11 @@ body {
 
 */
 
+/*
     $("form").on("click", function(ev) {
        $("#select").prop("checked", false);
     }); 
-
+*/
 
 /*
     $("#select").change(function(ev){
