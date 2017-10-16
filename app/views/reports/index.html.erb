@@ -71,6 +71,7 @@ body {
 	<div class="aoyue-select animated zoomIn">
 	    <!-- You can toggle select (disabled) -->
 	    <input type="radio" id="select" name="option" >
+	    <div id="radio-toggle">
 	    <i class="toggle icon icon-arrow-down"></i>
 	    <i class="toggle icon icon-arrow-up"></i>
 	    <span class="placeholder">Select Artist</span>
@@ -80,7 +81,7 @@ body {
 		      <span class="title animated fadeIn"><i class="icon icon-fire"></i><%= artist.e_name %></span>
 		    </label>
 	    <% end %>
-	    
+	    </div>
 	</div>
 
   <table>
@@ -128,7 +129,7 @@ body {
 
   	$('html').click(function(e) {
 	  //if clicked element is not your element and parents aren't your div
-	  if (e.target.id != 'select' && $(e.target).parents('#select').length == 0) {
+	  if (e.target.id != 'radio-toggle' && $(e.target).parents('#radio-toggle').length == 0) {
 	    $("#select").prop("checked", false);
 	  }
    });
