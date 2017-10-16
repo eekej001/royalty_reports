@@ -186,6 +186,9 @@ i:hover {
        if ($("i.icon-arrow-up").is(":visible")) {
       	$("#select").prop("checked", false);
       }
+      else if ($("i.icon-arrow-down").is(":visible")) {
+        $("#select").prop("checked", false);
+      }
     });
 
     $("#select").on("click", function() {
