@@ -191,6 +191,19 @@ i:hover {
       }
     });
 
+
+    $('#select').mouseup(function(e) {
+       e.stopPropagation();
+       /* if ($("i.icon-arrow-up").is(":visible")) {
+      	$("#select").prop("checked", false);
+      }
+      else if ($("i.icon-arrow-down").is(":visible")) {
+        $("#select").prop("checked", true);
+      }  */
+    });
+
+
+
     $("#select").on("click", function() {
         if ( $("#select").prop("checked") && $("i.icon-arrow-up").attr("display", "hidden"))  {
            $("#select").prop("checked", true);
