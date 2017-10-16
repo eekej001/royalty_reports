@@ -176,6 +176,14 @@ i:hover {
 */
     $("#select").on("click", function() {
       if ($("i.icon-arrow-up").is(":visible")) {
+      	//$("#select").prop("checked", false);
+      }
+    });
+
+
+    $('#select').mousedown(function(e) {
+       e.stopPropagation();
+       if ($("i.icon-arrow-up").is(":visible")) {
       	$("#select").prop("checked", false);
       }
     });
