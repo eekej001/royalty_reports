@@ -68,20 +68,20 @@ body {
 <div class="mt-5">
   <%= form_tag({controller: "reports", action: "report"}, method: "post", :id => "report_form") do %>
 
-     <div class="aoyue-select animated zoomIn">
-    <!-- You can toggle select (disabled) -->
-    <input type="radio" name="option" >
-    <i class="toggle icon icon-arrow-down"></i>
-    <i class="toggle icon icon-arrow-up"></i>
-    <span class="placeholder">Select Artist</span>
-    <% @artists.each do |artist| %>
-	    <label class="option" for="id_<%= artist.id %>">
-	      <input type="radio" class="name_swap" name="option" id="id_<%= artist.id %>" value=<%= artist.id %> >
-	      <span class="title animated fadeIn"><i class="icon icon-fire"></i><%= artist.e_name %></span>
-	    </label>
-    <% end %>
-    
-</div>
+	<div class="aoyue-select animated zoomIn">
+	    <!-- You can toggle select (disabled) -->
+	    <input type="radio" id="select" name="option" >
+	    <i class="toggle icon icon-arrow-down"></i>
+	    <i class="toggle icon icon-arrow-up"></i>
+	    <span class="placeholder">Select Artist</span>
+	    <% @artists.each do |artist| %>
+		    <label class="option" for="id_<%= artist.id %>">
+		      <input type="radio" class="name_swap" name="option" id="id_<%= artist.id %>" value=<%= artist.id %> >
+		      <span class="title animated fadeIn"><i class="icon icon-fire"></i><%= artist.e_name %></span>
+		    </label>
+	    <% end %>
+	    
+	</div>
 
   <table>
 
@@ -140,6 +140,12 @@ body {
   $('#report_form').submit(function(ev) {
     ev.preventDefault(); // to stop the form from submitting
     $("input.form-control").removeAttr('disabled');
+
+    $("body").on("click", function() {
+    	console.log("Body clicked.");
+        $("#radio_1").prop("checked", true);
+    });
+    
    // $("input.form-control").attr("value", "1");
    // var date1 = $("input.form-control")[0].attr("val");
     //alert(date1);
