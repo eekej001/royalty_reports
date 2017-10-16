@@ -136,7 +136,7 @@ i:hover {
 	// var x = $("i.icon-arrow-down").length;
 	// var y = $("#select").prop("checked")
 	 //alert(y); 
-	  if (e.target.id != 'select-form' && e.target.id != 'select' && $(e.target).parents('#select-form').length == 0 ) {
+	  if (e.target.id != 'select-form' && $(e.target).parents('#select-form').length == 0 ) {
 	    $("#select").prop("checked", false);
 	  }
    });
@@ -181,7 +181,7 @@ i:hover {
   	 	}
 
   	 	if ( $("#select").prop("checked") && $("i.icon-arrow-up").attr("display", "block"))  {
-           $("#select").prop("checked", false);
+         //  $("#select").prop("checked", false);
   	 	}
 
     }); 
