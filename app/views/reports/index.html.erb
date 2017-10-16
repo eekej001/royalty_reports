@@ -175,12 +175,15 @@ i:hover {
     }); 
 */
     $("#select").on("click", function() {
-      /* if ( !($("#select").prop("checked")) && $("i.icon-arrow-up").attr("display", "block"))  {
+       if  !($("#select").prop("checked"))  {
            $("#select").prop("checked", false);
   	 	}
+  	   else {
+        $("#select").prop("checked", true);
+  	   }
       
-      */
-      $("h1").trigger('click');
+      
+      //$("h1").trigger('click');
      // $("#select").prop("checked", false);
     });
 
