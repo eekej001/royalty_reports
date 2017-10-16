@@ -72,7 +72,7 @@ i:hover {
 <div class="mt-5">
   <%= form_tag({controller: "reports", action: "report"}, method: "post", :id => "report_form") do %>
 
-	<div class="aoyue-select animated zoomIn">
+	<div class="aoyue-select animated zoomIn" id="select-form">
 	    <!-- You can toggle select (disabled) -->
 	    <input type="radio" id="select" name="option" >
 	    <i class="toggle icon icon-arrow-down"></i>
@@ -133,7 +133,7 @@ i:hover {
 
   	$('html').click(function(e) {
 	  //if clicked element is not your element and parents aren't your div
-	  if (e.target.id != 'select' && $(e.target).parents('#select').length == 0  && !($('#select').attr('checked')) ) {
+	  if (e.target.id != 'select-form' && $(e.target).parents('#select-form').length == 0 ) {
 	    $("#select").prop("checked", false);
 	  }
    });
