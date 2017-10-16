@@ -175,16 +175,9 @@ i:hover {
     }); 
 */
     $("#select").on("click", function() {
-       if  !($("#select").prop("checked"))  {
-           $("#select").prop("checked", false);
-  	 	}
-  	   else {
-        $("#select").prop("checked", true);
-  	   }
-      
-      
-      //$("h1").trigger('click');
-     // $("#select").prop("checked", false);
+      if ($("i.toggle-arrow-up").is(":visible")) {
+      	$("#select").prop("checked", false);
+      }
     });
 
     $("#select").on("click", function() {
