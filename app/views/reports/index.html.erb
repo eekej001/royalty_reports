@@ -175,10 +175,13 @@ i:hover {
     }); 
 */
     $("span.placeholder").on("click", function() {
-       if ( !($("#select").prop("checked")) && $("i.icon-arrow-up").attr("display", "block"))  {
+      /* if ( !($("#select").prop("checked")) && $("i.icon-arrow-up").attr("display", "block"))  {
            $("#select").prop("checked", false);
   	 	}
+      
+      */
 
+      $("#select").prop("checked", false);
     });
 
     $("#select").on("click", function() {
