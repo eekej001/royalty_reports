@@ -188,6 +188,7 @@ i:hover {
       }
       else if ($("i.icon-arrow-down").is(":visible")) {
         $("#select").prop("checked", true);
+        e.stopPropagation();
       }
     });
 
