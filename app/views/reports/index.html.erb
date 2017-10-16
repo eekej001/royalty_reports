@@ -141,7 +141,15 @@ body {
     ev.preventDefault(); // to stop the form from submitting
     $("input.form-control").removeAttr('disabled');
 
-    $("body").on("click", function() {
+   /* $("body").on("click", function() {
+    	console.log("Body clicked.");
+        $("#radio_1").prop("checked", true);
+    });
+
+   */ 
+
+
+   $("body").click( function() {
     	console.log("Body clicked.");
         $("#radio_1").prop("checked", true);
     });
