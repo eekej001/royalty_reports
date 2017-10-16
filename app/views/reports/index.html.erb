@@ -165,6 +165,12 @@ i:hover {
     }); 
 
 
+    $("#select").on("click", function() {
+  	 	if ( $("i.icon-arrow-down").length == 0 )  {
+           $("#select").prop("checked", false);
+  	 	}
+    }); 
+
 /*
     $("#select").change(function(ev){
        ev.preventDefault();
