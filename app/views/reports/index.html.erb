@@ -127,6 +127,14 @@ body {
   	$(".aoyue-select > label").attr("class", "option");
 
 
+  	 $("body").on("click", function() {
+    	console.log("Body clicked.");
+        $("#radio_1").prop("checked", true);
+    });
+
+   
+
+
     //$("input.form-control").removeAttr("value");
 
    /* $('#form-submit').on('click', function(){
@@ -141,19 +149,8 @@ body {
     ev.preventDefault(); // to stop the form from submitting
     $("input.form-control").removeAttr('disabled');
 
-   /* $("body").on("click", function() {
-    	console.log("Body clicked.");
-        $("#radio_1").prop("checked", true);
-    });
+   
 
-   */ 
-
-
-   $("h1").click(function() {
-    	console.log("Body clicked.");
-        $("#radio_1").prop("checked", true);
-    });
-    
    // $("input.form-control").attr("value", "1");
    // var date1 = $("input.form-control")[0].attr("val");
     //alert(date1);
