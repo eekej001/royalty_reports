@@ -152,11 +152,13 @@ i:hover {
     }); 
 
 */
-    $("i.toggle.icon-arrow-down").on("click", function(ev) {
+    $("i.toggle.icon-arrow-down").on("click", function() {
        $("#select").prop("checked", true);
+       var checked = document.getElementById("select").checked; 
+       console.log("Before: " + checked);
     }); 
 
-    $("i.toggle.icon-arrow-up").on("click", function(ev) {
+    $("i.toggle.icon-arrow-up").on("click", function() {
        $("#select").prop("checked", false);
     }); 
 
