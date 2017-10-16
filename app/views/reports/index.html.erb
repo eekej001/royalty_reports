@@ -127,13 +127,18 @@ body {
   	$(".aoyue-select > label").attr("class", "option");
 
 
-  	 $("#select").on("click", function() {
+  	 $("#select").on("click", function(ev) {
+  	 	var check = document.getElementById("select").checked; 
+  	 	ev.preventDefault();
+  	 	console.log("Before: " + checked);
   	 	if ($("#select").prop("checked", true))  {
-    	//console.log("Body clicked.");
+    	console.log("Select clicked.");
+    	console.log("After: " + checked);
     	//var check = document.getElementById("select").checked; 
     	//alert(check);
            $("#select").prop("checked", false);
         }
+        return true;
     });
 
    
