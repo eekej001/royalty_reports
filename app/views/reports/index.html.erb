@@ -128,10 +128,12 @@ body {
 
 
   	 $("#select").on("click", function() {
+  	 	if ($("#select").prop("checked", true))  {
     	//console.log("Body clicked.");
     	//var check = document.getElementById("select").checked; 
     	//alert(check);
-        $("#select").prop("checked", false);
+           $("#select").prop("checked", false);
+        }
     });
 
    
