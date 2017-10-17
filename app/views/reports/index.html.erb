@@ -171,6 +171,8 @@ i:hover {
     */
     var radio_toggle = 1;
 
+     var pos = $("body").position();
+
    function manual_click() {
     	console.log("initiating manual_click...");
     	//$("input[type=radio]").attr('disabled', false);
@@ -263,6 +265,7 @@ i:hover {
 
     $('#select').mousedown(
     function(e) {
+    	$("body").css({top: pos.top, left: pos.left});
        if ($("i.icon-arrow-up").is(":visible")) {
          //$("#select").prop("checked", false);
         // e.stopPropagation()
