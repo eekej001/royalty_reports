@@ -205,7 +205,8 @@ i:hover {
        if ($("i.icon-arrow-up").is(":visible")) {
          $("#select").prop("checked", false);
          e.stopPropagation()
-         $("input[type=radio]").attr('disabled', true);;
+         $("input[type=radio]").attr('disabled', true);
+         $("input[type=radio]").attr('disabled', false);
          console.log("Clicking when the arrow is up to collapse.");
          return false;
 
