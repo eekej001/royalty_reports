@@ -134,7 +134,9 @@ i:hover {
     function manual_click() {
     	console.log("initiating manual_click...");
     	$("input[type=radio]").attr('disabled', false);
+    	alert("Starting Click");
     	$("i.icon-arrow-up").trigger('click');
+    	alert("Ending Click");
     	$("#select").prop("checked", false);
     	//$("#report_form").hide(); 
     	//$("#report_form").show(); 
