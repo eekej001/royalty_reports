@@ -86,38 +86,35 @@ i:hover {
 	    <% end %>
 	</div>
 
-  <table>
 
-    <tr>
-      <td><%= label(:start_date, "Start Date") %>
-      <td>
-        <div class="input-group date" id="dateRangePicker1" >
-          <%= text_field_tag "start_date", '', class: "form-control", readonly: "readonly", disabled: "true" %>
-          <span class="input-group-addon add-on">
-             <i class="glyphicon glyphicon-calendar"></i>
-           </span>  
-        </div>
-      </td>  
-</td>
 
-     <td style="width:40px"></td>
-      <td><%= label(:end_date, "End Date") %></td>
-      <td>
-        <div class="input-group date" id="dateRangePicker2" >
-          <%= text_field_tag "end_date", '', class: "form-control", readonly: "readonly", disabled: "true" %>
-          <span class="input-group-addon add-on">
-             <i class="glyphicon glyphicon-calendar"></i>
-           </span>  
-        </div>
-      </td>
-    </tr>
+    <div class="row align-items-center">
+        <div class="col">
+	       <%= label(:start_date, "Start Date") %>
 
-    <tr>
+	        <div class="input-group date" id="dateRangePicker1" >
+	          <%= text_field_tag "start_date", '', class: "form-control", readonly: "readonly", disabled: "true" %>
+	          <span class="input-group-addon add-on">
+	             <i class="glyphicon glyphicon-calendar"></i>
+	           </span>  
+	        </div>
+        </div> <!--col-->
 
-      <td>&nbsp;</td>
-      <td class="mt-5"><%= submit_tag("Submit", :id => "form-submit") %></td>
-    </tr>
-  </table>
+        <div class="col offset-6">
+	       <%= label(:end_date, "End Date") %>
+
+	        <div class="input-group date" id="dateRangePicker2" >
+	          <%= text_field_tag "end_date", '', class: "form-control", readonly: "readonly", disabled: "true" %>
+	          <span class="input-group-addon add-on">
+	             <i class="glyphicon glyphicon-calendar"></i>
+	           </span>  
+	        </div>
+	    </div> <!--col-->    
+    </div> <!--row-->    
+
+    <div class="row mt-3 align-items-cneter">
+       <%= submit_tag("Submit", :id => "form-submit") %>
+    </div> <!--row-->
   <% end %> 
 </div>
 
