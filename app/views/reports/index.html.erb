@@ -185,11 +185,12 @@ i:hover {
 
 
     $('#select').mousedown(function(e) {
-    	$("#select").unbind('mouseup');
+
        e.stopPropagation();
        if ($("i.icon-arrow-up").is(":visible")) {
+       	$("#select").unbind('mouseup');
       	$("#select").prop("checked", false);
-      	$("#select").unbind('mouseup');
+      	//$("#select").unbind('mouseup');
       }
       else if ($("i.icon-arrow-down").is(":visible")) {
        // $("#select").prop("checked", true);
