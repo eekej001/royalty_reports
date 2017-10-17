@@ -56,11 +56,11 @@ input[type=submit] {
     font-size: 16px;
     padding: 12px 20px 12px 18px;
     background: white;
-	color: #5BC0E2;
+	color: #5BC0DE;
 }
 
 input[type=submit]:hover {
 	cursor:pointer;
-	background: #5BC0E2;
+	background: #5BC0DE;
 	color: white;
 }
