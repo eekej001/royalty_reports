@@ -131,20 +131,22 @@ i:hover {
     */
     var radio_toggle = 1;
 
-  /*  function manual_click() {
+   function manual_click() {
     	console.log("initiating manual_click...");
-    	$("input[type=radio]").attr('disabled', false);
+    	//$("input[type=radio]").attr('disabled', false);
     	//alert("Starting Click");
     	//$("i.icon-arrow-up").trigger('click');
     	//alert("Ending Click");
-    	$("#select").prop("checked", false);
+    	setTimeout(function(){ 
+      		$("#select").prop("checked", false); 
+      	}, 500);
     	//$("#report_form").hide(); 
     	//$("#report_form").show(); 
     	radio_toggle = 1;
     	console.log("ending manual_click.");
     }
 
-  	*/
+  	
 
   	$('input.form-control').attr("data-provide", "datepicker");
 
@@ -219,12 +221,12 @@ i:hover {
     });
 */
 
-  /*  $('#select').mousedown(
+    $('#select').mousedown(
     function(e) {
        if ($("i.icon-arrow-up").is(":visible")) {
-         $("#select").prop("checked", false);
-         e.stopPropagation()
-         $("input[type=radio]").attr('disabled', true);
+         //$("#select").prop("checked", false);
+        // e.stopPropagation()
+         //$("input[type=radio]").attr('disabled', true);
           
           radio_toggle = 2;
 
@@ -247,7 +249,7 @@ i:hover {
         });
       //  });
 
-*/
+
 
 
 
