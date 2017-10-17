@@ -203,7 +203,8 @@ i:hover {
     $('#select').mousedown(
     function() {
        if ($("i.icon-arrow-up").is(":visible")) {
-       //	$("#select").unbind('mouseup');
+         $("#select").prop("checked", false);
+         console.log("Clicking when the arrow is up to collapse.");
 
        }
         }).mouseup(function(){
