@@ -183,7 +183,7 @@ i:hover {
       }
     });
 
-
+/*  BEST SO FAR
     $('#select').mousedown(function(e) {
 
        e.stopPropagation();
@@ -198,6 +198,22 @@ i:hover {
        // e.stopPropagation();
       }
     });
+*/
+
+    $('#select').mousedown(
+    function() {
+       if ($("i.icon-arrow-up").is(":visible")) {
+       //	$("#select").unbind('mouseup');
+
+       }
+        }).mouseup(function(){
+              return false;
+        });
+      //  });
+
+
+
+
 
 
     $('#select').mouseup(function(e) {
