@@ -206,13 +206,14 @@ i:hover {
          $("#select").prop("checked", false);
          e.stopPropagation()
          $("input[type=radio]").attr('disabled', true);
-         $("input[type=radio]").attr('disabled', false);
-         $("#select").prop("checked", false);
+         
+        // $("#select").prop("checked", false);
          console.log("Clicking when the arrow is up to collapse.");
          return false;
 
        }
         }).mouseup(function(){
+        	$("input[type=radio]").attr('disabled', false);
               return false;
         });
       //  });
