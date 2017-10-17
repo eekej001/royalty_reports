@@ -15,7 +15,7 @@
     position: relative;
     overflow: hidden;
     display: block;
-    /* margin: auto; */
+     margin: auto; 
     width: 330px;
     height: 100%;
     border-bottom: 0px;
@@ -26,7 +26,7 @@
         
     }
     > i.toggle {
-        position: absolute;
+        /* position: absolute; */
         z-index: 4;
         right: 1.5em;
         top: 1.6em;
@@ -44,7 +44,7 @@
         cursor: pointer;
     }
     & > input {
-        position: absolute;
+        /* position: absolute; */
         left: 0px;
         top: 0px;
         z-index: 1;
@@ -114,7 +114,7 @@
         input {
             display: none;
             &:checked ~ span.title {
-                position: absolute;
+                /* position: absolute; */
                 display: block;
                 z-index: 3;
                 top: 0px;
