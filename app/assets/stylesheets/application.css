@@ -51,10 +51,12 @@ input[type=text]#start_date, input[type=text]#end_date {
 
 input[type=submit] {
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    border: 2px solid #5BC0E2;
     border-radius: 4px;
     font-size: 16px;
     padding: 12px 20px 12px 18px;
+    background: white;
+	color: #5BC0E2;
 }
 
 input[type=submit]:hover {
