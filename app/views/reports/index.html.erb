@@ -135,6 +135,7 @@ i:hover {
     	console.log("initiating manual_click...");
     	$("input[type=radio]").attr('disabled', false);
     	$("h1").trigger('click');
+    	$("#select").prop("checked", false);
     	radio_toggle = 1;
     	console.log("ending manual_click.");
     }
