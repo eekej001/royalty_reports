@@ -201,9 +201,10 @@ i:hover {
 */
 
     $('#select').mousedown(
-    function() {
+    function(e) {
        if ($("i.icon-arrow-up").is(":visible")) {
          $("#select").prop("checked", false);
+         e.stopPropagation();
          console.log("Clicking when the arrow is up to collapse.");
          return false;
 
