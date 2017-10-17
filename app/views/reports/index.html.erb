@@ -131,12 +131,12 @@ i:hover {
     */
     var radio_toggle = 1;
 
-    function manual_click() {
+  /*  function manual_click() {
     	console.log("initiating manual_click...");
     	$("input[type=radio]").attr('disabled', false);
-    	alert("Starting Click");
-    	$("i.icon-arrow-up").trigger('click');
-    	alert("Ending Click");
+    	//alert("Starting Click");
+    	//$("i.icon-arrow-up").trigger('click');
+    	//alert("Ending Click");
     	$("#select").prop("checked", false);
     	//$("#report_form").hide(); 
     	//$("#report_form").show(); 
@@ -144,7 +144,7 @@ i:hover {
     	console.log("ending manual_click.");
     }
 
-  	
+  	*/
 
   	$('input.form-control').attr("data-provide", "datepicker");
 
@@ -195,7 +195,10 @@ i:hover {
 */
     $("#select").on("click", function() {
       if ($("i.icon-arrow-up").is(":visible")) {
-      	//$("#select").prop("checked", false);
+      	setTimeout(function(){ 
+      		$("#select").prop("checked", false); 
+      	}, 500);
+
       }
     });
 
@@ -249,15 +252,15 @@ i:hover {
 
 
 
-    $('#select').mouseup(function(e) {
-       e.stopPropagation();
+//    $('#select').mouseup(function(e) {
+//       e.stopPropagation();
        /* if ($("i.icon-arrow-up").is(":visible")) {
       	$("#select").prop("checked", false);
       }
       else if ($("i.icon-arrow-down").is(":visible")) {
         $("#select").prop("checked", true);
       }  */
-    });
+ //   });
 
 
 
