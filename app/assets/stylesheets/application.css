@@ -54,7 +54,7 @@ input[type=submit] {
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    padding: 12px 20px 12px 12px;
+    padding: 12px 20px 12px 18px;
 }
 
 input[type=submit]:hover {
