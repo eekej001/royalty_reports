@@ -160,11 +160,14 @@ form {
 
 
     var width = document.getElementById('report_title').offsetWidth;
+    var width_half = width/2;
     var width_fourth = width/4;
     var h1 = $("#report_title").position();
     var h1_x = h1.left;
+    console_log("H1 position is " + h1_x);
     //var adjust = h1_x + width_fourth;
-    var adjust = h1_x * 1.5;
+    //var adjust = h1_x * 1.5;
+    var adjust = width_half;
 
     $("#form_container").css("left", adjust);
 
