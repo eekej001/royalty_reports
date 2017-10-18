@@ -5,11 +5,21 @@ class ReportsController < ShopifyApp::AuthenticatedController
  end
 
  def report
+#=begin 	
  	id = params[:option]
  	start_date = params[:start_date]
  	end_date = params[:end_date]
     flash[:notice] = "The artist id is #{id}.  The start date is #{start_date}.  The end date is #{end_date}."
     redirect_to(:action => 'index')
+#=end
+
+=begin
+  respond_to do |format|
+      format.html
+      format.xlsx
+     
+    end
+=end
  end
 
 

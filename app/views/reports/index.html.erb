@@ -48,6 +48,11 @@ body {
  /*position: absolute; */ 
 }
 
+
+div#form_container {
+	position: absolute;
+}
+
 label {
 	margin-bottom: 0px;
 }
@@ -70,10 +75,10 @@ form {
 <% end %>
 
 
-<h1 class="mt-2">Generate Royalty Report</h1>
+<h1 id="report_title" class="mt-2">Generate Royalty Report</h1>
 
 
-<div class="container">
+<div class="container" id="form_container">
 
 
 
@@ -150,6 +155,22 @@ form {
     var radio_toggle = 1;
 
      var pos = $("body").position();
+
+
+
+
+    var width = document.getElementById('report_title').offsetWidth;
+    var width_half = width/2;
+    var h1 = $("#report_title").position();
+    var h1_x = h1.left;
+    var adjust = h1_x + width_half;
+
+    $("#form_container").css("left", adjust);
+
+
+
+
+
 
    function manual_click() {
     	console.log("initiating manual_click...");
