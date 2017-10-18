@@ -52,20 +52,15 @@ label {
 	margin-bottom: 0px;
 }
 
-input {
-	display:none;
-}
-
 i:hover {
 	cursor:pointer;
 }
 
 
-/*form {
+form {
 	position:fixed;
-	margin-left: 13%;
 }
-*/
+
 
 
 </style>
@@ -86,7 +81,7 @@ i:hover {
 
 
 
-<div class="mt-5 mx-auto">
+<div class="mt-5 col offset-1">
   <%= form_tag({controller: "reports", action: "report"}, method: "post", :id => "report_form") do %>
 
 	<div class="aoyue-select animated zoomIn" id="select-form">
