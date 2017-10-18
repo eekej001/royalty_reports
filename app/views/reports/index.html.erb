@@ -92,7 +92,7 @@ form {
 	<div class="aoyue-select animated zoomIn" id="select-form">
 	    <!-- You can toggle select (disabled) -->
 	    <input type="radio" id="select" name="option" >
-	    <i class="toggle icon icon-arrow-down"></i>
+	    <i class="toggle icon icon-arrow-down" id="i-down"></i>
 	    <i class="toggle icon icon-arrow-up"></i>
 	    <span class="placeholder">Select Artist</span>
 	    <% @artists.each do |artist| %>
@@ -163,11 +163,19 @@ form {
     var width_half = width/2;
     var width_fourth = width/4;
     var h1 = $("#report_title").position();
+    var form_container = $("#form_container").position();
+    var form_container_width = document.getElementById('form_container').offsetWidth;
+    var form_container_end = form_container.left + form_container_width;
+    var down_arrow = $("#icon_down").position();
+    var down_arrow_width = document.getElementById('icon_down').offsetWidth;
+    var down_arrow_end = down_arrow.left + down_arrow_width;
+    var container_difference = form_container_end- down_arrow_end;
     var h1_x = h1.left;
     console.log("H1 position is " + h1_x);
     //var adjust = h1_x + width_fourth;
     //var adjust = h1_x * 1.5;
-    var adjust = width_half;
+    //var adjust = width_half;
+    var adjust = width - container_difference;
 
     $("#form_container").css("left", adjust);
 
