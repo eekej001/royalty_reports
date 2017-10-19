@@ -286,10 +286,19 @@ var width = document.getElementById('report_title').offsetWidth;
        $("#select").prop("checked", true);
        var checked = document.getElementById("select").checked; 
        console.log("Before: " + checked);
+       var select_input_height = document.getElementById('select').offsetHeight;
+       var select_input_width = document.getElementById('select').offsetWidth;
+        $("#select").append("<div id='form-append'></div>");
+        $("#form-append").css({
+		   'height' : select_input_height,
+		   'width' : select_input_width,
+		   'background' : 'blue'
+		})
     }); 
 
     $("i.toggle.icon-arrow-up").on("click", function() {
        $("#select").prop("checked", false);
+       $("#form-append").remove();
     }); 
 
  /*
