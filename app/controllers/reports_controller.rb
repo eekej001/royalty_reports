@@ -9,6 +9,11 @@ class ReportsController < ShopifyApp::AuthenticatedController
  	id = params[:option]
  	@start_date = params[:start_date]
  	@end_date = params[:end_date]
+ 	artist = Artist.find_by id: id
+ 	@titles = artist.titles
+     
+
+
     #flash[:notice] = "The artist id is #{id}.  The start date is #{start_date}.  The end date is #{end_date}."
     #redirect_to(:action => 'index')
 

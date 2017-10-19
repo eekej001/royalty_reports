@@ -1,21 +1,36 @@
+<%= link_to :controller => 'home', :action => 'index' do %>
+  <button type="button" class="btn btn-info">Back to Main Menu</button>
+<% end %>
+
+<h1>Royalty Report <%= @titles.find(1).artist.e_name %></h1>
+<h3><% @start_date %> - <% @end_date %></h3>
+
+
+
 <table style="width:100%">
     <tr>
       <th>Title</th>
-      <th>English Title</th>
-      <th>Download</th>
+      <th>Downloads</th>
       <th>SRP</th>
       <th>Gross Sales</th>
-      <th>Dist & Rate Fee</th>
+      <th>Dist. & Rate Fee</th>
       <th>Net Sales</th>
+      <th>Rate</th>
+      <th>Royalty Due</th>
 
     </tr>
+
+
     <% @titles.each do |title| %>
         <tr style="text-align:center">
-          <td><%= title.j_title %></td>
-          <td><%= title.artist.e_name %></td>
-          <td><%= title.e_title %></td>
-          <td><%= title.sales.count %></td>
+          <td><%= title.e_title %></td> 
+          <td><%= title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count %></td>
           <td><%= title.srp %></td>
+          <td><%= title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp %></td>
+          <td><%= (title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) * 0.3 %></td>
+          <td>$<%= (title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) )- (title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) * 0.3) %></td>
+          <td>20%</td>
+          <td>$<%= ((title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) )- (title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) * 0.3)) * 0.2 %></td>
         </tr>
    <% end %>
 </table> 
