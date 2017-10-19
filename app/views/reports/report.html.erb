@@ -1,10 +1,15 @@
-<%= link_to :controller => 'home', :action => 'index' do %>
-  <button type="button" class="btn btn-info">Back to Main Menu</button>
+<head>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+
+  <%= javascript_include_tag  "jquery.slim.min", "tether.min", "bootstrap.min" %>
+</head>
+
+<%= link_to :controller => 'reports', :action => 'index' do %>
+  <button type="button" class="btn btn-info">Generate New Report</button>
 <% end %>
 
-<h1>Royalty Report <%= @titles.find(1).artist.e_name %></h1>
-<h3><% @start_date %> - <% @end_date %></h3>
-
+<h1>Royalty Report: <%= @titles.find(1).artist.e_name %></h1>
+<h3><% @start_date_str %> - <% @end_date_str %></h3>
 
 
 <table style="width:100%">
@@ -25,9 +30,9 @@
         <tr style="text-align:center">
           <td><%= title.e_title %></td> 
           <td><%= title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count %></td>
-          <td><%= title.srp %></td>
-          <td><%= title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp %></td>
-          <td><%= (title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) * 0.3 %></td>
+          <td>$<%= title.srp %></td>
+          <td>$<%= title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp %></td>
+          <td>$<%= (title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) * 0.3 %></td>
           <td>$<%= ((title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) - (title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp)) * 0.3 %></td>
           <td>20%</td>
           <td>$<%= ((title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp)  - (title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) * 0.3) * 0.2 %></td>
