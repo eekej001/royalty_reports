@@ -51,8 +51,8 @@ span.pink {
 
 	    </tr>
 
-
-	    <% @titles.each do |title| %>
+       <% final_royalty = 0 %>
+	   <% @titles.each do |title| %>
 
        <% sales_count = title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count %>
 	   <% gross_sales = sales_count * title.srp %>
