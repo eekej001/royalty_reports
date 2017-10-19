@@ -65,7 +65,7 @@ td.pink {
 	   <% dist_fee = gross_sales * 0.3 %>
 	   <% net_sales = gross_sales - dist_fee %>
 	   <% rate_dec = 0.2 %>
-	   <% royalty_due = net_sales * rate_dec %>
+	   <% royalty_due = (net_sales * rate_dec).round(2) %>
 	   <% final_royalty = final_royalty + royalty_due %>
 
 
@@ -86,7 +86,7 @@ td.pink {
               <td></td>
               <td></td>
               <td></td>
-              <td><%= final_royalty %></td>
+              <td></td>
               <td class="pink">Total</td>
               <td class="pink" style="text-align:center"><%= number_to_currency(final_royalty) %></td>
 
