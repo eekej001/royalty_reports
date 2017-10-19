@@ -27,6 +27,10 @@ span.red {
 	color: red;
 }
 
+span.blue {
+	color: #6FC0DE;
+}
+
 td.pink {
 	background: #ff1171;
 	font-weight: bold;
@@ -39,7 +43,7 @@ td.pink {
   <button type="button" class="btn btn-info">Generate New Report</button>
 <% end %>
 
-<h1>Royalty Report: <%= @titles.first.artist.e_name %></h1>
+<h1>Royalty Report: <span class="blue"><%= @titles.first.artist.e_name %></span></h1>
 
 
 <div class="container"> 
