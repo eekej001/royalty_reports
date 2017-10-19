@@ -64,10 +64,12 @@ i:hover {
 
 form {
 	position:fixed;
-	height: 100%;
-	overflow: scroll;
 }
 
+div#form_parent  {
+   	height: 100%;
+	overflow: scroll;
+}
 
 
 </style>
@@ -88,7 +90,7 @@ form {
 
 
 
-<div class="mt-5 col offset-1">
+<div class="mt-5 col offset-1" id="form_parent">
   <%= form_tag({controller: "reports", action: "report"}, method: "post", :id => "report_form") do %>
 
 	<div class="aoyue-select animated zoomIn" id="select-form">
