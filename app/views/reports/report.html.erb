@@ -45,13 +45,13 @@ td.pink {
 		  <button type="button" class="btn btn-info">Generate New Report</button>
 		<% end %>
     </div>	
-    <div class='col-sm-1 offset-11'>
+    <div class='col-sm-1 offset-8'>
 		<%= link_to :controller => 'reports', :action => 'download' do %>
 		  <button type="button" class="btn btn-info">Download Report</button>
 		<% end %>
     </div>	
-  </div>
-</div>
+  </div><!--row-->
+</div><!--container-->
 
 <h1>Royalty Report: <span class="blue"><%= @titles.first.artist.e_name %></span></h1>
 
