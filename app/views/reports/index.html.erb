@@ -283,7 +283,7 @@ var width = document.getElementById('report_title').offsetWidth;
 
 */
    // $("i.toggle.icon-arrow-down").on("click", function() {
-   	$("i").on("click", function() {
+   	$("i").click(function(e) {
        $("#select").prop("checked", true);
        var checked = document.getElementById("select").checked; 
        console.log("Before: " + checked);
@@ -294,7 +294,7 @@ var width = document.getElementById('report_title').offsetWidth;
 		   'height' : select_input_height,
 		   'width' : select_input_width,
 		   'background' : 'blue'
-		})
+		});
     }); 
 
     $("i.toggle.icon-arrow-up").on("click", function() {
