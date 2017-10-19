@@ -28,7 +28,7 @@ span.red {
 }
 
 td.pink {
-	background: pink;
+	background: #ff1171;
 	font-weight: bold;
 }
 
@@ -72,7 +72,7 @@ td.pink {
 	        <tr style="text-align:center">
 	          <td><%= title.e_title %></td> 
 	          <td><%= sales_count %></td>
-	          <td><%= title.srp %></td>
+	          <td><%= number_to_currency(title.srp) %></td>
 	          <td><%= number_to_currency(gross_sales) %></td>
 	          <td><%= number_to_currency(dist_fee) %></td>
 	          <td><%= number_to_currency(net_sales) %></td>

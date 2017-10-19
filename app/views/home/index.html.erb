@@ -77,7 +77,16 @@
                     <% end %>
 	             <p class="text-success">View sales based on artist or title.</p>
 	          </div>
-	        </div> <!--carousel-item-->  
+	        </div> <!--carousel-item--> 
+	        <div class="carousel-item active">
+	          <%= image_tag("reports.jpg", :class => "d-block img-fluid", :title => "Reports", :alt => "Reports") %>
+	          <div class="carousel-caption">
+	             <%= link_to :controller => 'reports', :action => 'index' do %>
+                     <h3 class="text-info">Reports</h3>
+                    <% end %>
+	             <p class="text-info">Manually generate a royalty report.</p>
+	          </div>
+	        </div> <!--carousel-item--> 
         </div> <!--carousel-inner-->
         <a class="carousel-control-prev" href="#featured" role="button" data-slide="prev">
            <span class="carousel-control-prev-icon" aria-hidden="true">
