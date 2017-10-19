@@ -1,0 +1,21 @@
+<table style="width:100%">
+    <tr>
+      <th>Title</th>
+      <th>English Title</th>
+      <th>Download</th>
+      <th>SRP</th>
+      <th>Gross Sales</th>
+      <th>Dist & Rate Fee</th>
+      <th>Net Sales</th>
+
+    </tr>
+    <% @titles.each do |title| %>
+        <tr style="text-align:center">
+          <td><%= title.j_title %></td>
+          <td><%= title.artist.e_name %></td>
+          <td><%= title.e_title %></td>
+          <td><%= title.sales.count %></td>
+          <td><%= title.srp %></td>
+        </tr>
+   <% end %>
+</table> 
