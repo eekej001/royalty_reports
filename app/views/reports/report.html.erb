@@ -23,6 +23,10 @@ span.red {
 	color: red;
 }
 
+span.pink {
+	color: pink;
+}
+
 </style>
 
 
@@ -33,31 +37,54 @@ span.red {
 <h1>Royalty Report: <%= @titles.find(1).artist.e_name %></h1>
 <h3><span class="red"><%= @start_date_str %> - <%= @end_date_str %></span></h3>
 
+<div class="container"> 
+	<table class="table table-responsive table-striped table-hover mx-auto">
+	    <tr>
+	      <th>Title</th>
+	      <th>Downloads</th>
+	      <th>SRP</th>
+	      <th>Gross Sales</th>
+	      <th>Dist. & Rate Fee</th>
+	      <th>Net Sales</th>
+	      <th>Rate</th>
+	      <th>Royalty Due</th>
 
-<table class="table table-responsive table-striped table-hover mx-auto">
-    <tr>
-      <th>Title</th>
-      <th>Downloads</th>
-      <th>SRP</th>
-      <th>Gross Sales</th>
-      <th>Dist. & Rate Fee</th>
-      <th>Net Sales</th>
-      <th>Rate</th>
-      <th>Royalty Due</th>
-
-    </tr>
+	    </tr>
 
 
-    <% @titles.each do |title| %>
-        <tr style="text-align:center">
-          <td><%= title.e_title %></td> 
-          <td><%= title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count %></td>
-          <td>$<%= title.srp %></td>
-          <td>$<%= title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp %></td>
-          <td>$<%= (title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) * 0.3 %></td>
-          <td>$<%= ((title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) - (title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp)) * 0.3 %></td>
-          <td>20%</td>
-          <td>$<%= ((title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp)  - (title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count * title.srp) * 0.3) * 0.2 %></td>
-        </tr>
-   <% end %>
-</table> 
+	    <% @titles.each do |title| %>
+
+       <% sales_count = title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count %>
+	   <% gross_sales = sales_count * title.srp %>
+	   <% dist_fee = gross_sales * 0.3 %>
+	   <% net_sales = gross_sales - dist_fee %>
+	   <% rate_dec = 0.2 %>
+	   <% royalty_due = net_sales * rate_dec %>
+	   <% final_royalty = final_royalty + royalty_due %>
+
+
+	        <tr style="text-align:center">
+	          <td><%= title.e_title %></td> 
+	          <td><% sales_count %></td>
+	          <td><%= title.srp %></td>
+	          <td><%= number_to_currency(gross_sales) %></td>
+	          <td><%= number_to_currency(dist_fee) %></td>
+	          <td><%= number_to_currency(net_sales) %></td>
+	          <td>20%</td>
+	          <td><%= number_to_currency(royalty_due) %></td>
+	        </tr>
+	   <% end %>
+	        <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="pink">Total</td>
+              <td class="pink"><%= number_to_currency(final_royalty) %></td>
+
+
+	        </tr>
+	</table> 
+</div>
