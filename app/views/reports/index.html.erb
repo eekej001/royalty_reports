@@ -282,7 +282,8 @@ var width = document.getElementById('report_title').offsetWidth;
     }); 
 
 */
-    $("i.toggle.icon-arrow-down").on("click", function() {
+   // $("i.toggle.icon-arrow-down").on("click", function() {
+   	$("i").on("click", function() {
        $("#select").prop("checked", true);
        var checked = document.getElementById("select").checked; 
        console.log("Before: " + checked);
