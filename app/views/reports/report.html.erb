@@ -8,7 +8,6 @@
 <style>
 h1 {
 	text-decoration: underline;
-	font-weight: bold;
 }
 
 h3 {
@@ -84,11 +83,11 @@ td.pink {
 
 
 	        <tr style="text-align:center">
-	          <td><%= title.e_title %></td> 
+	          <td style="font-weight:bold"><%= title.e_title %></td> 
 	          <td><%= sales_count %></td>
 	          <td><%= number_to_currency(title.srp) %></td>
 	          <td><%= number_to_currency(gross_sales) %></td>
-	          <td><%= number_to_currency(dist_fee) %></td>
+	          <td style="color:red"><%= number_to_currency(dist_fee) %></td>
 	          <td><%= number_to_currency(net_sales) %></td>
 	          <td>20%</td>
 	          <td><%= number_to_currency(royalty_due) %></td>
