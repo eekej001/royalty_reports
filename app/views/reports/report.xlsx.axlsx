@@ -1,8 +1,7 @@
 wb = xlsx_package.workbook
 final_royalty = 0
-#current_date = Datetime.now
 
-#title_name = @titles.find(1).artist.j_name + '(' + @titles.find(1).artist.e_name + ')'
+
 title_name = @artist_j_name + '(' + @artist_e_name + ')'
 
 wb.styles do |style|

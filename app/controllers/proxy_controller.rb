@@ -20,7 +20,7 @@ class ProxyController < ApplicationController
   #write a for loop here.  for each artist, generate pass down artists.sales and send email
 =end 
 
-   @titles = Artist.find(1).titles
+   @titles = Artist.first.titles
     respond_to do |format|
       format.html
       format.xlsx
@@ -31,7 +31,7 @@ class ProxyController < ApplicationController
     @artists = Artist.all
 
     @artists.each_with_index do |artist, index|
-      RoyaltyMail.royalty_report(index).deliver
+      #RoyaltyMail.royalty_report(index).deliver
     end  
 
     #RoyaltyMail.sample_email(@titles).deliver   
