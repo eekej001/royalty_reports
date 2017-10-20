@@ -6,12 +6,7 @@ class ReportsController < ShopifyApp::AuthenticatedController
 
  def report
 
- 	respond_to do |format|
-      format.html
-      format.xlsx
-     
-    end
-     
+
 	
  	@id = params[:option]
  	@start_date_str = params[:start_date]
@@ -27,6 +22,12 @@ class ReportsController < ShopifyApp::AuthenticatedController
  	@x_end_date = params[:x_end_date]
 
  	
+ 	respond_to do |format|
+      format.html
+      format.xlsx
+     
+    end
+     
 
 
     #flash[:notice] = "The artist id is #{id}.  The start date is #{start_date}.  The end date is #{end_date}."
