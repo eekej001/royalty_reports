@@ -35,7 +35,7 @@ wb.styles do |style|
       #sheet.add_row ['サークル名:', title_name, nil, nil, nil, nil, nil, nil, 'デジタル配信' ], style: [first_cell, first_cell, underline, underline, underline, underline, underline, underline, small_cell]
       sheet.add_row ["サークル名: #{title_name}", nil, nil, nil, nil, nil, nil, nil, 'デジタル配信' ], style: [first_cell, underline, underline, underline, underline, underline, underline, underline, small_cell]
       sheet.add_row ['デジタル配信 本払'], style: red_text
-      sheet.add_row ["#{@x_start_date} - #{@x_end_date}"], style: [red_text]
+      sheet.add_row ["#{@x_start_date_og} - #{@x_end_date_og}"], style: [red_text]
       #sheet.add_row [prev_date, '-', current_date], style: [red_text, red_text_mid, red_text]
 
       
@@ -58,7 +58,7 @@ wb.styles do |style|
 	    amount_rec = total_sales - dist_fee
 	    rate_dec = 0.2
 	    rate = '20%'
-	    royalty_due = amount_rec * rate_dec
+	    royalty_due = (amount_rec * rate_dec).round(2)
 	    final_royalty = final_royalty + royalty_due
 	    #sheet.add_row [customer.first_name, customer.last_name, customer.email, customer.title ], style: [nil, nil, nil, highlight_cell]
 

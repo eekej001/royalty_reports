@@ -19,6 +19,8 @@ class ReportsController < ShopifyApp::AuthenticatedController
  	@titles = @artist.titles
     
     unless params[:x_start_date].nil?
+    	@x_start_date_og = params[:x_start_date]
+    	@x_end_date_og = params[:x_end_date]
 	 	@x_start_date = Date.strptime(params[:x_start_date], '%m/%d/%Y')
 	 	@x_end_date = Date.strptime(params[:x_end_date], '%m/%d/%Y')
     end
