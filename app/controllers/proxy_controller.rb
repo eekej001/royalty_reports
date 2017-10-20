@@ -23,7 +23,10 @@ class ProxyController < ApplicationController
    @titles = Artist.first.titles
     respond_to do |format|
       format.html
-      format.xlsx
+      format.xlsx{
+         #response.headers['Content-Disposition'] = 'attachment; filename="report.xlsx"'
+         render xlsx: 'index',  filename: "report.xlsx", disposition: 'inline', xlsx_created_at: 3.days.ago, xlsx_author: "Elmer Fudd"
+      }
      
     end
 

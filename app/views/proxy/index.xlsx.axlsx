@@ -8,7 +8,7 @@ prev_date = DateTime.parse(current_date) << 3
 prev_date = DateTime.parse(prev_date.to_s).strftime("%m/%Y")
 
 #title_name = @titles.find(1).artist.j_name + '(' + @titles.find(1).artist.e_name + ')'
-title_name = @artist_j_name + '(' + @artist_e_name + ')'
+title_name = @artist.j_name + '(' + @artist.e_name + ')'
 
 wb.styles do |style|
   highlight_cell = style.add_style(bg_color: "EFC376")

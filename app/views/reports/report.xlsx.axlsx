@@ -2,7 +2,7 @@ wb = xlsx_package.workbook
 final_royalty = 0
 
 
-title_name = @artist_j_name + '(' + @artist_e_name + ')'
+title_name = @artist.j_name + '(' + @artist.e_name + ')'
 
 wb.styles do |style|
   highlight_cell = style.add_style(bg_color: "EFC376")
