@@ -24,6 +24,8 @@ class ReportsController < ShopifyApp::AuthenticatedController
     	@x_end_date_og = params[:x_end_date]
 	 	@x_start_date = Date.strptime(params[:x_start_date], '%m/%d/%Y')
 	 	@x_end_date = Date.strptime(params[:x_end_date], '%m/%d/%Y')
+
+	 	filename = "#{artist_name}-#{@x_start_date}-#{@x_end_date}_Royalty Report.xlsx"
    
 
 
@@ -31,7 +33,7 @@ class ReportsController < ShopifyApp::AuthenticatedController
 	      format.html
 	      format.xlsx{ 
 	        #response.headers['Content-Disposition'] = "attachment; filename='#{artist_name}-#{@x_start_date}-#{@x_end_date}_Royalty Report.xlsx'"
-            response.headers['Content-Disposition'] = "attachment; filename='#{artist_name}-Royalty Report.xlsx'"
+            response.headers['Content-Disposition'] = "attachment; filename='#{filename}'"
 
           }
          #{
