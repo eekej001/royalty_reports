@@ -33,7 +33,7 @@ class ReportsController < ShopifyApp::AuthenticatedController
 	      format.html
 	      format.xlsx{ 
 	        #response.headers['Content-Disposition'] = "attachment; filename='#{artist_name}-#{@x_start_date}-#{@x_end_date}_Royalty Report.xlsx'"
-            response.headers['Content-Disposition'] = "attachment; filename='#{filename}'"
+            #response.headers['Content-Disposition'] = "attachment; filename='#{filename}'"
 
           }
          #{
