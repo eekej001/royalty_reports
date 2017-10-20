@@ -29,9 +29,9 @@ class ReportsController < ShopifyApp::AuthenticatedController
 
        respond_to do |format|
 	      format.html
-	      format.xlsx {
-	      	render xlsx: 'report', filename: "#{artist_name}-#{@x_start_date_og}-#{@x_end_date_og}.xlsx", disposition: 'inline',
-	      }
+	      format.xlsx #{
+	      	#render xlsx: 'report', filename: "#{artist_name}-#{@x_start_date_og}-#{@x_end_date_og}.xlsx", disposition: 'inline',
+	     # }
      
       end
 
