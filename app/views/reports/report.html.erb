@@ -45,7 +45,7 @@ td.pink {
 		<% end %>
     </div>	
     <div class='col-sm-1 offset-8'>
-		<%= link_to :controller => 'reports', :action => 'report', :format => "xlsx", :option => @id, :x_start_date => @start_date, :x_end_date => @end_date do %>
+		<%= link_to :controller => 'reports', :action => 'report', :format => "xlsx", :option => @id, :x_start_date => @start_date_str, :x_end_date => @end_date_str do %>
 		  <button type="button" class="btn btn-info">Download Report</button>
 		<% end %>
     </div>	
