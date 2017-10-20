@@ -15,8 +15,8 @@ class ReportsController < ShopifyApp::AuthenticatedController
 	 	@start_date = Date.strptime(@start_date_str, '%m/%d/%Y')
 	 	@end_date = Date.strptime(@end_date_str, '%m/%d/%Y')
 	end 	
- 	artist = Artist.find_by id: @id
- 	@titles = artist.titles
+ 	@artist = Artist.find_by id: @id
+ 	@titles = @artist.titles
 
  	@x_start_date = params[:x_start_date]
  	@x_end_date = params[:x_end_date]
