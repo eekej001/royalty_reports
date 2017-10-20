@@ -30,7 +30,9 @@ class ReportsController < ShopifyApp::AuthenticatedController
        respond_to do |format|
 	      format.html
 	      format.xlsx{ 
-	        response.headers['Content-Disposition'] = "attachment; filename='#{artist_name}-#{@x_start_date}-#{@x_end_date}.xlsx'"
+	        #response.headers['Content-Disposition'] = "attachment; filename='#{artist_name}-#{@x_start_date}-#{@x_end_date}_Royalty Report.xlsx'"
+            response.headers['Content-Disposition'] = "attachment; filename='#{artist_name}-Royalty Report.xlsx'"
+
           }
          #{
 	      	#render xlsx: 'report', filename: "#{artist_name}-#{@x_start_date_og}-#{@x_end_date_og}.xlsx", disposition: 'inline',
