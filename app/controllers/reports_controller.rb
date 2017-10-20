@@ -17,20 +17,30 @@ class ReportsController < ShopifyApp::AuthenticatedController
 	end 	
  	@artist = Artist.find_by id: @id
  	@titles = @artist.titles
+ 	artist_name = @artist.e_name
     
     unless params[:x_start_date].nil?
     	@x_start_date_og = params[:x_start_date]
     	@x_end_date_og = params[:x_end_date]
 	 	@x_start_date = Date.strptime(params[:x_start_date], '%m/%d/%Y')
 	 	@x_end_date = Date.strptime(params[:x_end_date], '%m/%d/%Y')
+   
+
+
+       respond_to do |format|
+	      format.html
+	      format.xlsx {
+	      	render xlsx: 'report', filename: "#{artist_name}-#{@x_start_date_og}-#{@x_end_date_og}.xlsx", disposition: 'inline',
+	      }
+     
+      end
+
+
+
     end
 
  	
- 	respond_to do |format|
-      format.html
-      format.xlsx
-     
-    end
+ 	
      
 
 
