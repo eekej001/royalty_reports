@@ -18,7 +18,7 @@ class ReportsController < ShopifyApp::AuthenticatedController
  	@artist = Artist.find_by id: @id
  	@titles = @artist.titles
     
-    unless @start_date_str.nil?
+    unless params[:x_start_date].nil?
 	 	@x_start_date = Date.strptime(params[:x_start_date], '%m/%d/%Y')
 	 	@x_end_date = Date.strptime(params[:x_end_date], '%m/%d/%Y')
     end
