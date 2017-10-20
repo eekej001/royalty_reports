@@ -41,7 +41,7 @@ wb.styles do |style|
       #sheet.add_row ['サークル名:', title_name, nil, nil, nil, nil, nil, nil, 'デジタル配信' ], style: [first_cell, first_cell, underline, underline, underline, underline, underline, underline, small_cell]
       sheet.add_row ["サークル名: #{title_name}", nil, nil, nil, nil, nil, nil, nil, 'デジタル配信' ], style: [first_cell, underline, underline, underline, underline, underline, underline, underline, small_cell]
       sheet.add_row ['デジタル配信 本払'], style: red_text
-      sheet.add_row ["#{prev_date} - #{current_date}"], style: [red_text]
+      sheet.add_row ["#{@start_date} - #{@end_date}"], style: [red_text]
       #sheet.add_row [prev_date, '-', current_date], style: [red_text, red_text_mid, red_text]
 
       
@@ -57,7 +57,7 @@ wb.styles do |style|
 	  curr_date = Time.now
 	  prev_date = curr_date - 3.month
 
-	   sales_count = title.sales.where(:created_at => prev_date.beginning_of_day..curr_date.end_of_day).count
+	   sales_count = title.sales.where(:created_at => @start_date.beginning_of_day..@end_date.end_of_day).count
 	   total_sales = sales_count * title.srp
 	    #total_sales = title.sales.count * title.srp
 	    dist_fee = total_sales * 0.3
