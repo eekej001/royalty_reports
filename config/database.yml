@@ -77,3 +77,4 @@ production:
   url: mysql2://sql3172946:tMgirN8ney@sql3.freemysqlhosting.net:3306/sql3172946
   username: sql3172946
   password: tMgirN8ney
+  collation: utf8_general_ci
