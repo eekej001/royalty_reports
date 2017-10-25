@@ -51,7 +51,7 @@ input[type=text]#start_date, input[type=text]#end_date {
 
 
 input[type=number] {
-    width: 25px;
+    width: 60px;
 }
 
 input[type=number]:focus {
