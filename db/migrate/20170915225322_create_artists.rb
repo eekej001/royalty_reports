@@ -4,7 +4,7 @@ class CreateArtists < ActiveRecord::Migration
     create_table :artists do |t|
       t.string :e_name, limit: 50, null: false
       t.string :j_name, limit: 50, null: false
-      t.string :email, limit: 50, null: false
+      t.string :email, limit: 90, null: false
       t.integer :percent
       t.integer :r_frequency
       t.integer :p_frequency
@@ -12,7 +12,7 @@ class CreateArtists < ActiveRecord::Migration
       t.timestamps null: false
       change_column :artists, :e_name, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
       change_column :artists, :j_name, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
-      change_column :artists, :email, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
+      change_column :artists, :email, "VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_general_ci"
     end
   end
 
