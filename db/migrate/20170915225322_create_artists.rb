@@ -9,11 +9,11 @@ class CreateArtists < ActiveRecord::Migration
       t.integer :r_frequency
       t.integer :p_frequency
       t.decimal :pending, :precision => 5, :scale => 2, :default => 0
-      t.timestamps null: false
-      change_column :artists, :e_name, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
-      change_column :artists, :j_name, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
-      change_column :artists, :email, "VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_general_ci"
+      t.timestamps null: false    
     end
+    change_column :artists, :e_name, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
+    change_column :artists, :j_name, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
+    change_column :artists, :email, "VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_general_ci"
   end
 
 

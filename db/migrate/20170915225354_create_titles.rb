@@ -6,10 +6,10 @@ class CreateTitles < ActiveRecord::Migration
       t.string :e_title, limit: 50, null: false
       t.decimal :srp, :precision => 5, :scale => 2
       t.timestamps null: false
-      change_column :titles, :j_title, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
-      change_column :titles, :e_title, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
     end
     add_index("titles", "artist_id")
+    change_column :titles, :j_title, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
+    change_column :titles, :e_title, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
   end
 
   def self.down

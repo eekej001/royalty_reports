@@ -9,12 +9,12 @@ class CreateSales < ActiveRecord::Migration
       t.string :format, limit: 50, null: false
       t.decimal :price, :precision => 5, :scale => 2
       t.timestamps null: false
-      change_column :sales, :first_name, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
-      change_column :sales, :last_name, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
-      change_column :sales, :email, "VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_general_ci"
-      change_column :sales, :format, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
     end
     add_index :sales, ["artist_id", "title_id"]
+    change_column :sales, :first_name, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
+    change_column :sales, :last_name, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
+    change_column :sales, :email, "VARCHAR(90) CHARACTER SET utf8 COLLATE utf8_general_ci"
+    change_column :sales, :format, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
   end
 
   def self.down
