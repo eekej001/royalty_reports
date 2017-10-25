@@ -30,7 +30,7 @@ end
 artist_list = [
   [ "Mizuryu Kei", "合計売上", "miz@gmail.com", 20, 3, 3],
   [ "Kishi", "合計売上", "kishi@gmail.com", 30, 4, 4],
-  [ "Tite", "合計売上", "tite@gmail.com" 40, 1, 6],
+  [ "Tite", "合計売上", "tite@gmail.com", 40, 1, 6],
   [ "Toriyama", "合計売上", "tori@gmail.com", 50, 12, 12]
 ]
 
