@@ -58,7 +58,7 @@ wb.styles do |style|
 	    amount_rec = total_sales - dist_fee
 	    #rate_dec = 0.2
 	    #rate = '20%'
-	    rate_dec = (title.artist.percent)/100
+	    rate_dec = (title.artist.percent.to_f)/100
 	    rate = (title.artist.percent).to_s + "%"
 	    
 	    royalty_due = (amount_rec * rate_dec).round(2)
