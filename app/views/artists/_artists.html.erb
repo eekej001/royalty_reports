@@ -37,9 +37,9 @@
     <th scope="row"><%= link_to(artist.e_name, {:action => 'show', :id => artist.id}, :class => 'action show') %></th>
     <td><%= artist.j_name %></td>
     <td><%= artist.email %></td>
-    <td><%= artist.percent %></td>
-    <td><%= artist.r_frequency %></td>
-    <td><%= artist.p_frequency %></td>
+    <td><%= artist.percent %>%</td>
+    <td><%= artist.r_frequency %> Months</td>
+    <td><%= artist.p_frequency %> Months</td>
     <td><%= artist.titles.count %></td>
     <td><%= artist.sales.count %></td>
     <td><%= link_to :action => "edit", :id => artist.id do %>
