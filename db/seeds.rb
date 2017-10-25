@@ -28,17 +28,17 @@ end
 
 
 artist_list = [
-  [ "Mizuryu Kei", "合計売上", "miz@gmail.com"],
-  [ "Kishi", "合計売上", "kishi@gmail.com"],
-  [ "Tite", "合計売上", "tite@gmail.com"],
-  [ "Toriyama", "合計売上", "tori@gmail.com"]
+  [ "Mizuryu Kei", "合計売上", "miz@gmail.com", 20, 3, 3],
+  [ "Kishi", "合計売上", "kishi@gmail.com", 30, 4, 4],
+  [ "Tite", "合計売上", "tite@gmail.com" 40, 1, 6],
+  [ "Toriyama", "合計売上", "tori@gmail.com", 50, 12, 12]
 ]
 
 
 
 
-artist_list.each do | e_name, j_name, email |
-	Artist.create( e_name: e_name, j_name: j_name, email: email )
+artist_list.each do | e_name, j_name, email, percent, r_frequency, p_frequency |
+	Artist.create( e_name: e_name, j_name: j_name, email: email, percent: percent, r_frequency: r_frequency, p_frequency: p_frequency )
 end
 
 

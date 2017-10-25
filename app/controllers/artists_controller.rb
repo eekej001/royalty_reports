@@ -66,7 +66,7 @@ def delete
 
 
     def artist_params
-      params.require(:artist).permit(:e_name, :j_name, :email) 
+      params.require(:artist).permit(:e_name, :j_name, :email, :percent, :r_frequency, :p_frequency) 
     end 
 
 

@@ -24,7 +24,21 @@
     <tr>
      <td>Email</td>
       <td><%= @artist.email %></td>
+    </tr>    
+    <tr>
+     <td>Percent</td>
+      <td><%= @artist.percent %></td>
     </tr>
+    <tr>
+     <td>Report Frequency</td>
+      <td><%= @artist.r_frequency %></td>
+    </tr>
+    <tr>
+     <td>Payment Frequency</td>
+      <td><%= @artist.p_frequency %></td>
+    </tr>
+    
+
     <tr>
      <td>Titles</td>
       <td><%= link_to(@artist.titles.count, {:action => 'titles_display', :id => @artist.id}, :class => 'action show') %></td>

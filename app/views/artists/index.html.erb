@@ -39,6 +39,24 @@
       <td><%= f.text_field(:email) %></td>
    </tr>
 
+
+   <tr>
+      <td><%= f.label(:percent, "Royalty Percent") %></td>
+      <td><%= f.number_field(:percent) %></td>
+   </tr>
+
+
+   <tr>
+      <td><%= f.label(:r_frequency, "Report Frequency (Months)") %></td>
+      <td><%= f.number_field(:r_frequency) %></td>
+   </tr>
+
+
+   <tr>
+      <td><%= f.label(:p_frequency, "Payment Frequency (Months)") %></td>
+      <td><%= f.number_field(:p_frequency) %></td>
+   </tr>
+
     <tr>
       <td>&nbsp;</td>
       <td><%= submit_tag("Submit") %></td>
