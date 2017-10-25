@@ -56,8 +56,11 @@ wb.styles do |style|
 	    #total_sales = title.sales.count * title.srp
 	    dist_fee = total_sales * 0.3
 	    amount_rec = total_sales - dist_fee
-	    rate_dec = 0.2
-	    rate = '20%'
+	    #rate_dec = 0.2
+	    #rate = '20%'
+	    rate_dec = title.percent/100
+	    rate = (title.percent).to_s + "%"
+	    
 	    royalty_due = (amount_rec * rate_dec).round(2)
 	    final_royalty = final_royalty + royalty_due
 	    #sheet.add_row [customer.first_name, customer.last_name, customer.email, customer.title ], style: [nil, nil, nil, highlight_cell]
