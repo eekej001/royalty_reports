@@ -26,6 +26,7 @@
       <th scope="col">Royalty Percent</th>
       <th scope="col">Report Frequency</th>
       <th scope="col">Payment Frequency</th>
+      <th scope="col">Pending Payment</th>
       <th scope="col">Titles</th>
       <th scope="col">Sales</th>
       <th scope="col"></th>
@@ -40,6 +41,7 @@
     <td><%= artist.percent %>%</td>
     <td><%= artist.r_frequency %> Months</td>
     <td><%= artist.p_frequency %> Months</td>
+    <td>$<%= artist.pending %></td>
     <td><%= artist.titles.count %></td>
     <td><%= artist.sales.count %></td>
     <td><%= link_to :action => "edit", :id => artist.id do %>
