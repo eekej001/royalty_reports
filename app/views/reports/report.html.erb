@@ -77,7 +77,7 @@ td.pink {
 	   <% gross_sales = sales_count * title.srp %>
 	   <% dist_fee = gross_sales * 0.3 %>
 	   <% net_sales = gross_sales - dist_fee %>
-	   <% rate_dec = title.percent/100 %>
+	   <% rate_dec = (title.artist.percent)/100 %>
 	   <% royalty_due = (net_sales * rate_dec).round(2) %>
 	   <% final_royalty = final_royalty + royalty_due %>
 
