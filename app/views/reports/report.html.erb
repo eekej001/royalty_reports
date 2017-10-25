@@ -77,7 +77,7 @@ td.pink {
 	   <% gross_sales = sales_count * title.srp %>
 	   <% dist_fee = gross_sales * 0.3 %>
 	   <% net_sales = gross_sales - dist_fee %>
-	   <% rate_dec = 0.2 %>
+	   <% rate_dec = title.percent/100 %>
 	   <% royalty_due = (net_sales * rate_dec).round(2) %>
 	   <% final_royalty = final_royalty + royalty_due %>
 
@@ -89,7 +89,7 @@ td.pink {
 	          <td><%= number_to_currency(gross_sales) %></td>
 	          <td style="color:red">(<%= number_to_currency(dist_fee) %>)</td>
 	          <td><%= number_to_currency(net_sales) %></td>
-	          <td>20%</td>
+	          <td><%= title.percent %>%</td>
 	          <td><%= number_to_currency(royalty_due) %></td>
 	        </tr>
 	   <% end %>
