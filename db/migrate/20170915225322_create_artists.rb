@@ -8,7 +8,7 @@ class CreateArtists < ActiveRecord::Migration
       t.integer :percent
       t.integer :r_frequency
       t.integer :p_frequency
-      t.decimal :pending, :precision => 5, :scale => 2
+      t.decimal :pending, :precision => 5, :scale => 2, :default => 0
       t.timestamps null: false
     end
   end
