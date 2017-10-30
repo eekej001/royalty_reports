@@ -3,10 +3,10 @@ class CreateSales < ActiveRecord::Migration
     create_table :sales do |t|
       t.integer :artist_id
       t.integer :title_id
-      t.string :first_name, limit: 50, null: false
-      t.string :last_name, limit: 50, null: false
+      t.string :first_name, limit: 50, null: false, :default => "Null"
+      t.string :last_name, limit: 50, null: false, :default => "Null"
       t.string :email, limit: 90, null: false
-      t.string :format, limit: 50, null: false
+      t.string :format, limit: 50, null: false, :default => "Null"
       t.decimal :price, :precision => 5, :scale => 2
       t.timestamps null: false
     end
