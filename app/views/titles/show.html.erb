@@ -37,6 +37,7 @@
 <% else %>
     <button type="button" class="btn btn-info" disabled>Database Has A'ready Been Filled With Shopify Order Records for this Title</button>
 <% end %>
+</br>
 <%= link_to("Edit", {:action => 'edit', :id => @title.id}, :class => 'action edit') %>
 </br>
 <%= link_to("Delete", {:action => 'delete', :id => @title.id}, :class => 'action delete') %>

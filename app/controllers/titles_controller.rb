@@ -61,7 +61,8 @@ class TitlesController < ShopifyApp::AuthenticatedController
           first_name = order.customer.first_name
           last_name = order.customer.last_name
           email = order.customer.email
-          created = Date.strptime(order.created_at, '%Y/%m/%d')
+          #created = Date.strptime(order.created_at, '%Y/%m/%d')
+          created = Time.at(order.created_at)
 
             for line_item in order.line_items do
               if (line_item.title == e_title && line_item.vendor == artist_name)

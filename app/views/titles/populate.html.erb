@@ -6,10 +6,15 @@
 
 <h1>Order History Fill for <%= @title.e_title %></h1>
 
-<p>Are you sure you want to fill the database with Shopify order records?<p>
-
 
 <div class="container">
+
+  <div class="col mx-auto">
+     <p>Are you sure you want to fill the database with Shopify order records?</p>
+  </div>
+
+
+
   <div class="row">
     <div class="col-sm-1 offset-4">
 	  <%= link_to :controller => 'titles', :action => 'populate_confirm', :id => @title.id do %>
