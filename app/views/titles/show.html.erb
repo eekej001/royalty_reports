@@ -35,7 +35,7 @@
       <button type="button" class="btn btn-info">Fill Database With Shopify Order Records for this Title</button> 
      <% end %>   
 <% else %>
-    <button type="button" class="btn btn-info" disabled>Database Has A'ready Been Filled With Shopify Order Records for this Title</button>
+    <button type="button" class="btn btn-info" disabled>Database Has Already Been Filled With Shopify Order Records for this Title</button>
 <% end %>
 </br>
 <%= link_to("Edit", {:action => 'edit', :id => @title.id}, :class => 'action edit') %>

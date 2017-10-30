@@ -81,7 +81,6 @@ class TitlesController < ShopifyApp::AuthenticatedController
               Sale.create(:artist_id => sale[0], :title_id => sale[1], :first_name => sale[2], :last_name => sale[3], :email => sale[4], :format => sale[5], :price => sale[6], :created_at => sale[7])    
             end
          array_length = sale_array.length   
-         @title.update_attributes(:populated => 1)
          flash[:notice] = "#{array_length} sales records have been populated for this title."
          redirect_to(:action => 'show', :id => @title.id)
          
@@ -91,7 +90,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
       flash[:notice] = "Sales records have already been populated for this title."
       redirect_to(:action => 'show', :id => @title.id)
     end  
-  
+    @title.update_attributes(:populated => 1)
 
  end  
 
