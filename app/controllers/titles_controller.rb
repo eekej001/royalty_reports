@@ -61,7 +61,9 @@ class TitlesController < ShopifyApp::AuthenticatedController
           first_name = order.customer.first_name
           last_name = order.customer.last_name
           email = order.customer.email
-          created = Date.strptime(order.created_at, '%Y-%m-%dT%H:%M:%S.%L%z')
+          created = order.created_at
+          puts "Order created at: #{created}"
+          #created = Date.strptime(order.created_at, '%Y-%m-%dT%H:%M:%S.%L%z')
           #created = Time.at(order.created_at)
 
             for line_item in order.line_items do
