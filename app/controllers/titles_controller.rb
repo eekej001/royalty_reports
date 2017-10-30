@@ -40,12 +40,56 @@ class TitlesController < ShopifyApp::AuthenticatedController
 
  def show
     @title = Title.find(params[:id])
-    @orders = ShopifyAPI::Order.find(:all, :params => {:limit => 10})
-    first  = @orders.first
-    puts "First Order Details Output Begins..."
-    puts first.line_items[0].title
-    puts "First Order Details Output Ends..."
  end
+
+ def populate
+    @title = Title.find(params[:id])
+ end
+
+ def populate_confirm
+    @title = Title.find(params[:id])
+    e_title = @title.e_title
+    artist_name = @title.artist.e_name
+    title_id = @title.id
+    artist_id = @title.artist_id
+    @orders = ShopifyAPI::Order.find(:all)
+    
+    sale_array = []
+    
+    if @title.populated == 0
+        for order in @orders do
+          first_name = order.customer.first_name
+          last_name = order.customer.last_name
+          email = order.customer.email
+          created = Date.strptime(order.created_at, '%Y/%m/%d')
+
+            for line_item in order.line_items do
+              if (line_item.title == e_title && line_item.vendor == artist_name)
+                 if line_item.variant_id.present?
+                    sale_array.push(artist_id, title_id, first_name, last_name, email, line_item.variant_id, line_item.price, created)
+                 else
+                    sale_array.push(artist_id, title_id, first_name, last_name, email, "No Format", line_item.price, created) 
+                 end
+                 puts "Sale Array: #{sale_array}"
+              end
+            end  
+
+            for sale in sale_array do 
+              Sale.create(:artist_id => sale[0], :title_id => sale[1], :first_name => sale[2], :last_name => sale[3], :email => sale[4], :format => sale[5], :price => sale[6], :created_at => sale[7])    
+            end
+         @title.update_attributes(:populated => 1)
+         flash[:notice] = "Sales records have already been populated for this title"
+         redirect_to(:action => 'show', :id => @title.id)
+         
+        end  
+    else
+      puts "Sales records have already been populated for this title"
+      flash[:notice] = "Sales records have already been populated for this title"
+      redirect_to(:action => 'show', :id => @title.id)
+    end  
+  
+
+ end  
 
  def sales_display
     @title = Title.find(params[:id])

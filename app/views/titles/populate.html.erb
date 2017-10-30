@@ -1,0 +1,27 @@
+<head>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
+</head>
+
+<h1>Order History Fill for <%= @title.e_title %></h1>
+
+<p>Are you sure you want to fill the database with Shopify order records?<p>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1 offset-4">
+	  <%= link_to :controller => 'titles', :action => 'populate_confirm', :id => @title.id do %>
+	      <button type="button" class="btn btn-info">Yes</button>
+	  <% end %> 
+	 </div><!--end button--> 
+     <div class="col-sm-1 offset-2">
+	  <%= link_to :controller => 'titles', :action => 'show', :id => @title.id do %>
+	      <button type="button" class="btn btn-info">No</button>
+	  <% end %>
+	  </div><!--end button--> 
+  </div><!--end row-->
+</div><!--end container-->
+  
+

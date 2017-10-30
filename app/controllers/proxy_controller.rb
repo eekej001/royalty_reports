@@ -53,8 +53,6 @@ class ProxyController < ApplicationController
 
 def webhook
 
-     
-
      @artists = Artist.all
      @titles = Title.all
      
