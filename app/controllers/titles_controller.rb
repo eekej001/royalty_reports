@@ -61,8 +61,8 @@ class TitlesController < ShopifyApp::AuthenticatedController
           first_name = order.customer.first_name
           last_name = order.customer.last_name
           email = order.customer.email
-          #created = Date.strptime(order.created_at, '%Y/%m/%d')
-          created = Time.at(order.created_at)
+          created = Date.strptime(order.created_at, '%Y-%m-%dT%H:%M:%S.%L%z')
+          #created = Time.at(order.created_at)
 
             for line_item in order.line_items do
               if (line_item.title == e_title && line_item.vendor == artist_name)
@@ -78,14 +78,15 @@ class TitlesController < ShopifyApp::AuthenticatedController
             for sale in sale_array do 
               Sale.create(:artist_id => sale[0], :title_id => sale[1], :first_name => sale[2], :last_name => sale[3], :email => sale[4], :format => sale[5], :price => sale[6], :created_at => sale[7])    
             end
+         array_length = sales_array.length   
          @title.update_attributes(:populated => 1)
-         flash[:notice] = "Sales records have already been populated for this title"
+         flash[:notice] = "#{array_length} sales records have been populated for this title."
          redirect_to(:action => 'show', :id => @title.id)
          
         end  
     else
       puts "Sales records have already been populated for this title"
-      flash[:notice] = "Sales records have already been populated for this title"
+      flash[:notice] = "Sales records have already been populated for this title."
       redirect_to(:action => 'show', :id => @title.id)
     end  
   
