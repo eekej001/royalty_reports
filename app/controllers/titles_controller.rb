@@ -41,7 +41,10 @@ class TitlesController < ShopifyApp::AuthenticatedController
  def show
     @title = Title.find(params[:id])
     @orders = ShopifyAPI::Order.find(:all, :params => {:limit => 10})
-    puts @orders.first
+    first  = @orders.first
+    puts "First Order Details Output Begins..."
+    puts first.line_items[0].title
+    puts "First Order Details Output Ends..."
  end
 
  def sales_display
