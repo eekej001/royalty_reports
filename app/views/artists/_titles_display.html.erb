@@ -32,7 +32,7 @@
       <th scope="row"><%= link_to(title.e_title, {:controller => 'titles', :action => 'show', :id => title.id, :path_marker => "titles_display"}, :class => 'action show') %></th>
       <td><%= title.j_title %></td>
       <td>$<%= title.srp %></td>
-      <td>$<%= title.sales.count %></td>
+      <td><%= title.sales.count %></td>
       <td><%= link_to("Edit", {:controller => 'titles', :action => 'edit', :id => title.id}, :class => 'action edit') %></td>
       <td><%= link_to("Delete", {:controller => 'titles', :action => 'delete', :id => title.id}, :class => 'action delete') %></td>
     </tr>
