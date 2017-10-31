@@ -35,6 +35,9 @@ class TitlesController < ShopifyApp::AuthenticatedController
   end
 
  def edit
+    if params[:path_marker] == "titles_display"
+      @path_marker = "titles_display" 
+    end
     @title = Title.find(params[:id])
  end
 
@@ -123,6 +126,9 @@ class TitlesController < ShopifyApp::AuthenticatedController
   end 
 
 def delete
+    if params[:path_marker] == "titles_display"
+      @path_marker = "titles_display" 
+    end
     @title = Title.find(params[:id])
  end
 

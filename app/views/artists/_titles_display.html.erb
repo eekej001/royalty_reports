@@ -33,8 +33,8 @@
       <td><%= title.j_title %></td>
       <td>$<%= title.srp %></td>
       <td><%= title.sales.count %></td>
-      <td><%= link_to("Edit", {:controller => 'titles', :action => 'edit', :id => title.id}, :class => 'action edit') %></td>
-      <td><%= link_to("Delete", {:controller => 'titles', :action => 'delete', :id => title.id}, :class => 'action delete') %></td>
+      <td><%= link_to("Edit", {:controller => 'titles', :action => 'edit', :id => title.id, :path_marker => "titles_display"}, :class => 'action edit') %></td>
+      <td><%= link_to("Delete", {:controller => 'titles', :action => 'delete', :id => title.id, :path_marker => "titles_display"}, :class => 'action delete') %></td>
     </tr>
     <% end %>
   </table>

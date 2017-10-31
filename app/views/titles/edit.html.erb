@@ -4,8 +4,14 @@
   <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
-<%= link_to :controller => 'titles', :action => 'index' do %>
-  <button type="button" class="btn btn-info">Back to Title List</button>
+<% if @path_marker == "titles_display" %>
+    <%= link_to :controller => 'artists', :action => 'titles_display', :id => @title.artist_id do %>
+       <button type="button" class="btn btn-info">Back to Title List</button>
+    <% end %>
+<% else %>
+  <%= link_to :controller => 'titles', :action => 'index' do %>
+    <button type="button" class="btn btn-info">Back to Title List</button>
+  <% end %>
 <% end %>
 
 <div class="titles edit">
