@@ -9,7 +9,7 @@
        <button type="button" class="btn btn-info">Back to Title List</button>
     <% end %>
 <% elsif @path_marker == "titles_show"%>
-    <%= link_to :controller => 'titles', :action => 'show', :id => @title.id :path_params => "titles_show" do %>
+    <%= link_to :controller => 'titles', :action => 'show', :id => @title.id, :path_params => "titles_show" do %>
        <button type="button" class="btn btn-info">Back to Title List</button>
     <% end %>
 <% else %>
