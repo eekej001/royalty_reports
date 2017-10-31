@@ -55,7 +55,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
     #@orders = ShopifyAPI::Order.find(:all)
     @orders = ShopifyAPI::Order.find_all(:status => :any)
 
-    puts "Total Number of Shopify Orders: #{@orders.length}"
+    #puts "Total Number of Shopify Orders: #{@orders.length}"
     
     sale_array = []
     
@@ -87,9 +87,9 @@ class TitlesController < ShopifyApp::AuthenticatedController
            Sale.create(:artist_id => sale[0], :title_id => sale[1], :order_number => sale[2], :first_name => sale[3], :last_name => sale[4], :email => sale[5], :format => sale[6], :price => sale[7], :created_at => sale[8])    
         end 
 
-       # array_length = sale_array.length   
+        array_length = sale_array.length   
         @title.update_attributes(:populated => 1)
-        #flash[:notice] = "#{array_length} sales records have been populated for this title."
+        flash[:notice] = "#{array_length} sales records have been populated for this title."
         redirect_to(:action => 'show', :id => @title.id) 
     else
       puts "Sales records have already been populated for this title"
