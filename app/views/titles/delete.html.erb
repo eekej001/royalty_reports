@@ -8,6 +8,10 @@
     <%= link_to :controller => 'artists', :action => 'titles_display', :id => @title.artist_id do %>
        <button type="button" class="btn btn-info">Back to Title List</button>
     <% end %>
+<% elsif @path_marker == "titles_show"%>
+    <%= link_to :controller => 'titles', :action => 'show', :id => @title.id do %>
+       <button type="button" class="btn btn-info">Back to Title List</button>
+    <% end %>
 <% else %>
   <%= link_to :controller => 'titles', :action => 'index' do %>
     <button type="button" class="btn btn-info">Back to Title List</button>
