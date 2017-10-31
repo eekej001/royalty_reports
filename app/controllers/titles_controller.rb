@@ -52,13 +52,16 @@ class TitlesController < ShopifyApp::AuthenticatedController
     artist_name = @title.artist.e_name
     title_id = @title.id
     artist_id = @title.artist_id
-    @orders = ShopifyAPI::Order.find(:all)
+    #@orders = ShopifyAPI::Order.find(:all)
+    @orders = ShopifyAPI::Order.find_all(:status => :any)
+
     puts "Total Number of Shopify Orders: #{@orders.length}"
     
     sale_array = []
     
     if @title.populated == 0
         for order in @orders do
+          order_number = order.order_number
           first_name = order.customer.first_name
           last_name = order.customer.last_name
           email = order.customer.email
@@ -70,7 +73,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
             for line_item in order.line_items do
               if (line_item.title == e_title && line_item.vendor == artist_name)
                #  if last_name.present?
-                    sale_array.push([artist_id, title_id, first_name, last_name, email, line_item.variant_title, line_item.price, created])
+                    sale_array.push([artist_id, title_id, order_number, first_name, last_name, email, line_item.variant_title, line_item.price, created])
                #  else
                #     sale_array.push([artist_id, title_id, first_name, "NULL", email, line_item.variant_id, line_item.price, created]) 
                #  end
@@ -81,7 +84,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
             
         end 
         for sale in sale_array do 
-           Sale.create(:artist_id => sale[0], :title_id => sale[1], :first_name => sale[2], :last_name => sale[3], :email => sale[4], :format => sale[5], :price => sale[6], :created_at => sale[7])    
+           Sale.create(:artist_id => sale[0], :title_id => sale[1], :order_number => sale[2], :first_name => sale[3], :last_name => sale[4], :email => sale[5], :format => sale[6], :price => sale[7], :created_at => sale[8])    
         end 
 
         array_length = sale_array.length   

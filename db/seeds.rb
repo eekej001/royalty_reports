@@ -15,8 +15,8 @@ order_list = [
 ]
 
 
-order_list.each do | first_name, last_name, email, title |
-	Order.create( first_name: first_name, last_name: last_name, email: email, title: title )
+order_list.each do | order_number, first_name, last_name, email, title |
+	Order.create( order_number: order_number, first_name: first_name, last_name: last_name, email: email, title: title )
 end
 
 =end
@@ -26,18 +26,29 @@ end
 
 ##############################################################################################
 
-
-artist_list = [
+=begin
+   artist_list = [
   [ "Mizuryu Kei", "合計売上", "miz@gmail.com", 20, 3, 3],
   [ "Kishi", "合計売上", "kishi@gmail.com", 30, 4, 4],
   [ "Tite", "合計売上", "tite@gmail.com", 40, 1, 6],
-  [ "Toriyama", "合計売上", "tori@gmail.com", 50, 12, 12]
+  [ "Toriyama", "合計売上", "tori@gmail.com", 50, 12, 12],
+  [ "Yamatogawa", "合計売上", "ebenezer@emanga.com", 50, 3, 3]
+]
+=end
+
+
+artist_list = [
+  [ "Mizuryu Kei", "合計売上", "ebenezer@emanga.com", 20, 3, 3],
+  [ "Kishi", "合計売上", "ebenezer@emanga.com", 30, 4, 4],
+  [ "Tite", "合計売上", "ebenezer@emanga.com", 40, 1, 6],
+  [ "Toriyama", "合計売上", "ebenezer@emanga.com", 50, 12, 12],
+  [ "Yamatogawa", "合計売上", "ebenezer@emanga.com", 50, 3, 3]
 ]
 
 
 
 
-artist_list.each do | e_name, j_name, email, percent, r_frequency, p_frequency |
+artist_list.each do | order_number, e_name, j_name, email, percent, r_frequency, p_frequency |
 	Artist.create( e_name: e_name, j_name: j_name, email: email, percent: percent, r_frequency: r_frequency, p_frequency: p_frequency )
 end
 
@@ -76,6 +87,15 @@ title4_list = [
   [ "Chid", "Dawn 4", 7.95]
 ]
 
+title5_list = [
+  [ "Aqua Bless (2nd Edition)", "J-Aqua", 9.95],
+  [ "Boing Boing (2nd Edition)", "J-Boing", 9.95],
+  [ "How Good Was I? (2nd Edition)", "J-How", 9.95],
+  [ "Power Play! (2nd Edition)", "J-Power", 9.95],
+  [ "Vanilla Essence", "J-Vanilla", 9.95],
+  [ "Witchcraft (2nd Edition)", "J-Witch", 9.95]
+]
+
 
 title1_list.each do | j_title, e_title, srp |
 	Title.create( artist_id: 1, j_title: j_title, e_title: e_title, srp: srp )
@@ -94,38 +114,42 @@ title4_list.each do | j_title, e_title, srp |
 	Title.create( artist_id: 4, j_title: j_title, e_title: e_title, srp: srp )
 end
 
+title5_list.each do | j_title, e_title, srp |
+	Title.create( artist_id: 5, j_title: j_title, e_title: e_title, srp: srp )
+end
+
 
 
 
 
 a1t1_list = [
-  [ "Bob", "Dole", "bobd@gmail.com", "PDF", 7.95],
-  [ "Jane", "Doe", "janed@gmail.com", "MOBI", 7.95],
-  [ "Craig", "Robinson", "craigr@gmail.com", "CBZ", 7.95],
-  [ "Andy", "Sand", "andys@gmail.com", "PRC", 7.95],
+  [ 1, "Bob", "Dole", "bobd@gmail.com", "PDF", 7.95],
+  [ 2, "Jane", "Doe", "janed@gmail.com", "MOBI", 7.95],
+  [ 3, "Craig", "Robinson", "craigr@gmail.com", "CBZ", 7.95],
+  [ 4, "Andy", "Sand", "andys@gmail.com", "PRC", 7.95],
 ]
 
 
 a1t2_list = [
-  [ "Randy", "Marsh", "randym@gmail.com", "PDF", 7.95],
-  [ "Stan", "Marsh", "stanm@gmail.com", "MOBI", 7.95],
-  [ "Kenny", "Roads", "kennyr@gmail.com", "CBZ", 7.95],
-  [ "Albert", "Brand", "albertb@gmail.com", "PRC", 7.95],
+  [ 5, "Randy", "Marsh", "randym@gmail.com", "PDF", 7.95],
+  [ 6, "Stan", "Marsh", "stanm@gmail.com", "MOBI", 7.95],
+  [ 7, "Kenny", "Roads", "kennyr@gmail.com", "CBZ", 7.95],
+  [ 8, "Albert", "Brand", "albertb@gmail.com", "PRC", 7.95],
 ]
 
 a1t3_list = [
-  [ "Mary", "Lamb", "maryl@gmail.com", "PDF", 7.95],
-  [ "Peter", "Rogers", "peterr@gmail.com", "MOBI", 7.95],
-  [ "Floyd", "Henderson", "floydh@gmail.com", "CBZ", 7.95],
-  [ "Chris", "Dine", "chrisd@gmail.com", "PRC", 7.95],
+  [ 9, "Mary", "Lamb", "maryl@gmail.com", "PDF", 7.95],
+  [ 10, "Peter", "Rogers", "peterr@gmail.com", "MOBI", 7.95],
+  [ 11, "Floyd", "Henderson", "floydh@gmail.com", "CBZ", 7.95],
+  [ 12, "Chris", "Dine", "chrisd@gmail.com", "PRC", 7.95],
 ]
 
 
 a1t4_list = [
-  [ "Lindsey", "Booth", "lindseyb@gmail.com", "PDF", 7.95],
-  [ "Margaret", "Thatcher", "margiet@gmail.com", "MOBI", 7.95],
-  [ "James", "Harlow", "jamesh@gmail.com", "CBZ", 7.95],
-  [ "Paul", "Pierce", "paulp@gmail.com", "PRC", 7.95],
+  [ 13, "Lindsey", "Booth", "lindseyb@gmail.com", "PDF", 7.95],
+  [ 14, "Margaret", "Thatcher", "margiet@gmail.com", "MOBI", 7.95],
+  [ 15, "James", "Harlow", "jamesh@gmail.com", "CBZ", 7.95],
+  [ 16, "Paul", "Pierce", "paulp@gmail.com", "PRC", 7.95],
 ]
 
 
@@ -133,97 +157,97 @@ a1t4_list = [
 
 
 a2t1_list = [
-  [ "Hung", "Jo", "hungj@gmail.com", "PDF", 7.95],
-  [ "Brady", "Li", "bradyl@gmail.com", "MOBI", 7.95],
-  [ "Fabio", "Gustavo", "fabiog@gmail.com", "CBZ", 7.95],
-  [ "Nancy", "Air", "nancya@gmail.com", "PRC", 7.95],
+  [ 17, "Hung", "Jo", "hungj@gmail.com", "PDF", 7.95],
+  [ 18, "Brady", "Li", "bradyl@gmail.com", "MOBI", 7.95],
+  [ 19, "Fabio", "Gustavo", "fabiog@gmail.com", "CBZ", 7.95],
+  [ 20, "Nancy", "Air", "nancya@gmail.com", "PRC", 7.95],
 ]
 
 
 a2t2_list = [
-  [ "Luke", "Smith", "lukes@gmail.com", "PDF", 7.95],
-  [ "Barry", "Nicks", "barryn@gmail.com", "MOBI", 7.95],
-  [ "Fred", "Estere", "frede@gmail.com", "CBZ", 7.95],
-  [ "Nick", "Oldman", "nicko@gmail.com", "PRC", 7.95],
+  [ 21, "Luke", "Smith", "lukes@gmail.com", "PDF", 7.95],
+  [ 22, "Barry", "Nicks", "barryn@gmail.com", "MOBI", 7.95],
+  [ 23, "Fred", "Estere", "frede@gmail.com", "CBZ", 7.95],
+  [ 24, "Nick", "Oldman", "nicko@gmail.com", "PRC", 7.95],
 ]
 
 a2t3_list = [
-  [ "Tristan", "Thomas", "tristant@gmail.com", "PDF", 7.95],
-  [ "Albert", "Hodge", "alberth@gmail.com", "MOBI", 7.95],
-  [ "Hugh", "Backman", "hughb@gmail.com", "CBZ", 7.95],
-  [ "Bruce", "Dane", "bruced@gmail.com", "PRC", 7.95],
+  [ 25, "Tristan", "Thomas", "tristant@gmail.com", "PDF", 7.95],
+  [ 26, "Albert", "Hodge", "alberth@gmail.com", "MOBI", 7.95],
+  [ 27, "Hugh", "Backman", "hughb@gmail.com", "CBZ", 7.95],
+  [ 28, "Bruce", "Dane", "bruced@gmail.com", "PRC", 7.95],
 ]
 
 
 a2t4_list = [
-  [ "Cisco", "Power", "ciscop@gmail.com", "PDF", 7.95],
-  [ "Laurie", "Growth", "laurieg@gmail.com", "MOBI", 7.95],
-  [ "Grace", "Knight", "gracek@gmail.com", "CBZ", 7.95],
-  [ "Nam", "Ho", "namh@gmail.com", "PRC", 7.95],
+  [ 29, "Cisco", "Power", "ciscop@gmail.com", "PDF", 7.95],
+  [ 30, "Laurie", "Growth", "laurieg@gmail.com", "MOBI", 7.95],
+  [ 31, "Grace", "Knight", "gracek@gmail.com", "CBZ", 7.95],
+  [ 32, "Nam", "Ho", "namh@gmail.com", "PRC", 7.95],
 ]
 
 
 
 a3t1_list = [
-  [ "Broly", "Mad", "brolym@gmail.com", "PDF", 7.95],
-  [ "Ethan", "Crane", "ethanc@gmail.com", "MOBI", 7.95],
-  [ "Haley", "Cherry", "haleyc@gmail.com", "CBZ", 7.95],
-  [ "Morpheous", "Flight", "morpheousf@gmail.com", "PRC", 7.95],
+  [ 33, "Broly", "Mad", "brolym@gmail.com", "PDF", 7.95],
+  [ 34, "Ethan", "Crane", "ethanc@gmail.com", "MOBI", 7.95],
+  [ 35, "Haley", "Cherry", "haleyc@gmail.com", "CBZ", 7.95],
+  [ 36, "Morpheous", "Flight", "morpheousf@gmail.com", "PRC", 7.95],
 ]
 
 
 a3t2_list = [
-  [ "Muten", "Roshi", "mutenr@gmail.com", "PDF", 7.95],
-  [ "Kira", "Light", "kiral@gmail.com", "MOBI", 7.95],
-  [ "Austin", "Weak", "austinw@gmail.com", "CBZ", 7.95],
-  [ "John", "Tsunami", "johnt@gmail.com", "PRC", 7.95],
+  [ 37, "Muten", "Roshi", "mutenr@gmail.com", "PDF", 7.95],
+  [ 38, "Kira", "Light", "kiral@gmail.com", "MOBI", 7.95],
+  [ 39, "Austin", "Weak", "austinw@gmail.com", "CBZ", 7.95],
+  [ 40, "John", "Tsunami", "johnt@gmail.com", "PRC", 7.95],
 ]
 
 a3t3_list = [
-  [ "April", "Oheal", "aprilo@gmail.com", "PDF", 7.95],
-  [ "Charles", "Maverick", "peterr@gmail.com", "MOBI", 7.95],
-  [ "Logan", "Howlett", "loganh@gmail.com", "CBZ", 7.95],
-  [ "Jean", "Black", "jeanb@gmail.com", "PRC", 7.95],
+  [ 41, "April", "Oheal", "aprilo@gmail.com", "PDF", 7.95],
+  [ 42, "Charles", "Maverick", "peterr@gmail.com", "MOBI", 7.95],
+  [ 43, "Logan", "Howlett", "loganh@gmail.com", "CBZ", 7.95],
+  [ 44, "Jean", "Black", "jeanb@gmail.com", "PRC", 7.95],
 ]
 
 
 a3t4_list = [
-  [ "Kevin", "Lung", "kevinl@gmail.com", "PDF", 7.95],
-  [ "Reed", "Kichards", "reedk@gmail.com", "MOBI", 7.95],
-  [ "Adrian", "Fierce", "adrianf@gmail.com", "CBZ", 7.95],
-  [ "Matt", "Strong", "matts@gmail.com", "PRC", 7.95],
+  [ 45, "Kevin", "Lung", "kevinl@gmail.com", "PDF", 7.95],
+  [ 46, "Reed", "Kichards", "reedk@gmail.com", "MOBI", 7.95],
+  [ 47, "Adrian", "Fierce", "adrianf@gmail.com", "CBZ", 7.95],
+  [ 48, "Matt", "Strong", "matts@gmail.com", "PRC", 7.95],
 ]
 
 
 
 a4t1_list = [
-  [ "Gretchen", "Stank", "gretchens@gmail.com", "PDF", 7.95],
-  [ "Jennie", "Heart", "jennieh@gmail.com", "MOBI", 7.95],
-  [ "Avril", "Lake", "avril@gmail.com", "CBZ", 7.95],
-  [ "Blake", "Horse", "blakeh@gmail.com", "PRC", 7.95],
+  [ 49, "Gretchen", "Stank", "gretchens@gmail.com", "PDF", 7.95],
+  [ 50, "Jennie", "Heart", "jennieh@gmail.com", "MOBI", 7.95],
+  [ 51, "Avril", "Lake", "avril@gmail.com", "CBZ", 7.95],
+  [ 52, "Blake", "Horse", "blakeh@gmail.com", "PRC", 7.95],
 ]
 
 
 a4t2_list = [
-  [ "Kennedy", "Frost", "kennedyf@gmail.com", "PDF", 7.95],
-  [ "Victor", "Hot", "victorh@gmail.com", "MOBI", 7.95],
-  [ "Terry", "Crimson", "terryc@gmail.com", "CBZ", 7.95],
-  [ "Charlie", "Luci", "charliel@gmail.com", "PRC", 7.95],
+  [ 53, "Kennedy", "Frost", "kennedyf@gmail.com", "PDF", 7.95],
+  [ 54, "Victor", "Hot", "victorh@gmail.com", "MOBI", 7.95],
+  [ 55, "Terry", "Crimson", "terryc@gmail.com", "CBZ", 7.95],
+  [ 56, "Charlie", "Luci", "charliel@gmail.com", "PRC", 7.95],
 ]
 
 a4t3_list = [
-  [ "Nancy", "Pike", "nancyp@gmail.com", "PDF", 7.95],
-  [ "Tammy", "Freeman", "tammyf@gmail.com", "MOBI", 7.95],
-  [ "Sarah", "Goner", "sarahg@gmail.com", "CBZ", 7.95],
-  [ "Julia", "Rogers", "juliar@gmail.com", "PRC", 7.95],
+  [ 57, "Nancy", "Pike", "nancyp@gmail.com", "PDF", 7.95],
+  [ 58, "Tammy", "Freeman", "tammyf@gmail.com", "MOBI", 7.95],
+  [ 59, "Sarah", "Goner", "sarahg@gmail.com", "CBZ", 7.95],
+  [ 60, "Julia", "Rogers", "juliar@gmail.com", "PRC", 7.95],
 ]
 
 
 a4t4_list = [
-  [ "Paulina", "Mark", "paulinam@gmail.com", "PDF", 7.95],
-  [ "Stacey", "Rash", "stacyr@gmail.com", "MOBI", 7.95],
-  [ "Carmen", "Burrows", "carmenb@gmail.com", "CBZ", 7.95],
-  [ "Larry", "Stevens", "larrys@gmail.com", "PRC", 7.95],
+  [ 61, "Paulina", "Mark", "paulinam@gmail.com", "PDF", 7.95],
+  [ 62, "Stacey", "Rash", "stacyr@gmail.com", "MOBI", 7.95],
+  [ 63, "Carmen", "Burrows", "carmenb@gmail.com", "CBZ", 7.95],
+  [ 64, "Larry", "Stevens", "larrys@gmail.com", "PRC", 7.95],
 ]
 
 
@@ -232,68 +256,68 @@ a4t4_list = [
 
 
 
-a1t1_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 1, title_id: 1, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a1t1_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 1, title_id: 1, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a1t2_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 1, title_id: 2, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a1t2_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 1, title_id: 2, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a1t3_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 1, title_id: 3, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a1t3_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 1, title_id: 3, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a1t4_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 1, title_id: 4, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a1t4_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 1, title_id: 4, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a2t1_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 2, title_id: 5, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a2t1_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 2, title_id: 5, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a2t2_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 2, title_id: 6, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a2t2_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 2, title_id: 6, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a2t3_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 2, title_id: 7, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a2t3_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 2, title_id: 7, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a2t4_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 2, title_id: 8, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a2t4_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 2, title_id: 8, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a3t1_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 3, title_id: 9, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a3t1_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 3, title_id: 9, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a3t2_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 3, title_id: 10, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a3t2_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 3, title_id: 10, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a3t3_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 3, title_id: 11, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a3t3_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 3, title_id: 11, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a3t4_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 3, title_id: 12, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a3t4_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 3, title_id: 12, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a4t1_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 4, title_id: 13, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a4t1_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 4, title_id: 13, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a4t2_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 4, title_id: 14, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a4t2_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 4, title_id: 14, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a4t3_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 4, title_id: 15, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a4t3_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 4, title_id: 15, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
-a4t4_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 4, title_id: 16, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a4t4_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 4, title_id: 16, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
 
@@ -310,8 +334,8 @@ a4t4_list = [
 ]
 
 
-a4t4_list.each do | first_name, last_name, email, format, price |
-	Sale.create( artist_id: 1, title_id: 6, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
+a4t4_list.each do | order_number, first_name, last_name, email, format, price |
+	Sale.create( artist_id: 1, title_id: 6, order_number: order_number, first_name: first_name, last_name: last_name, email: email, format: format, price: price)
 end
 
 =end

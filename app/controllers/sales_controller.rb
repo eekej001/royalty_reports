@@ -37,7 +37,7 @@ def delete
 
 
     def sale_params
-      params.require(:sale).permit(:artist_id, :title_id, :first_name, :last_name, :email, :format, :price) 
+      params.require(:sale).permit(:artist_id, :title_id, :order_number, :first_name, :last_name, :email, :format, :price) 
     end 
 
 
