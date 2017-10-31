@@ -48,7 +48,7 @@ artist_list = [
 
 
 
-artist_list.each do | order_number, e_name, j_name, email, percent, r_frequency, p_frequency |
+artist_list.each do | e_name, j_name, email, percent, r_frequency, p_frequency |
 	Artist.create( e_name: e_name, j_name: j_name, email: email, percent: percent, r_frequency: r_frequency, p_frequency: p_frequency )
 end
 
