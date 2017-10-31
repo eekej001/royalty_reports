@@ -8,7 +8,7 @@ module ShopifyAPI
       retried = false
       
       begin
-        until find(:all, :params => params).each #{ |value| block.call(value) }.empty?
+        until find(:all, :params => params).each { |value| block.call(value) }.empty?
           params[:page] += 1
           retried = false
         end

@@ -53,14 +53,15 @@ class TitlesController < ShopifyApp::AuthenticatedController
     title_id = @title.id
     artist_id = @title.artist_id
     #@orders = ShopifyAPI::Order.find(:all)
-    @orders = ShopifyAPI::Order.find_all(:status => :any)
+    #@orders = ShopifyAPI::Order.find_all(:status => :any)
 
     #puts "Total Number of Shopify Orders: #{@orders.length}"
     
     sale_array = []
     
     if @title.populated == 0
-        for order in @orders do
+        #for order in @orders do
+        ShopifyAPI::Order.find_all(:status => :any) do |order|
           order_number = order.order_number
           first_name = order.customer.first_name
           last_name = order.customer.last_name
