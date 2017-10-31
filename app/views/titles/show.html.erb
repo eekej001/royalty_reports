@@ -43,8 +43,14 @@
     <button type="button" class="btn btn-info" disabled>Database Has Already Been Filled With Shopify Order Records for this Title</button>
 <% end %>
 </br>
-<%= link_to("Edit", {:action => 'edit', :id => @title.id}, :class => 'action edit') %>
-</br>
-<%= link_to("Delete", {:action => 'delete', :id => @title.id}, :class => 'action delete') %>
 
+<% if @path_marker == "titles_display" %>
+   <%= link_to("Edit", {:action => 'edit', :id => @title.id, :path_marker => @path_marker}, :class => 'action edit') %>
+   </br>
+   <%= link_to("Delete", {:action => 'delete', :id => @title.id, :path_marker => @path_marker}, :class => 'action delete') %>
+<% else %>
+   <%= link_to("Edit", {:action => 'edit', :id => @title.id}, :class => 'action edit') %>
+   </br>
+   <%= link_to("Delete", {:action => 'delete', :id => @title.id}, :class => 'action delete') %>
+<% end %>
 
