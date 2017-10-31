@@ -45,8 +45,8 @@
 </br>
 
 
- <%= link_to("Edit", {:action => 'edit', :id => @title.id, :path_marker => @path_marker}, :class => 'action edit') %>
+ <%= link_to("Edit", {:action => 'edit', :id => @title.id, :path_marker => "titles_show"}, :class => 'action edit') %>
  </br>
- <%= link_to("Delete", {:action => 'delete', :id => @title.id, :path_marker => @path_marker}, :class => 'action delete') %>
+ <%= link_to("Delete", {:action => 'delete', :id => @title.id, :path_marker => "titles_show"}, :class => 'action delete') %>
 
 
