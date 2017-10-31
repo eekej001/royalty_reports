@@ -5,7 +5,7 @@
 </head>
 
 <% if @path_marker == "titles_display" %>
-    <%= link_to :controller => 'artists', :action => 'titles_display', :id => @title.id do %>
+    <%= link_to :controller => 'titles', :action => 'show', :id => @title.id do %>
        <button type="button" class="btn btn-info">Back to Title List</button>
     <% end %>
 <% else %>
