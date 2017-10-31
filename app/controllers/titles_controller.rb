@@ -69,9 +69,9 @@ class TitlesController < ShopifyApp::AuthenticatedController
             for line_item in order.line_items do
               if (line_item.title == e_title && line_item.vendor == artist_name)
                  if last_name.present?
-                    sale_array.push(artist_id, title_id, first_name, last_name, email, line_item.variant_id, line_item.price, created)
+                    sale_array.push([artist_id, title_id, first_name, last_name, email, line_item.variant_id, line_item.price, created])
                  else
-                    sale_array.push(artist_id, title_id, first_name, "NULL", email, line_item.variant_id, line_item.price, created) 
+                    sale_array.push([artist_id, title_id, first_name, "NULL", email, line_item.variant_id, line_item.price, created]) 
                  end
                  puts "Sale Array: #{sale_array}"
               end
