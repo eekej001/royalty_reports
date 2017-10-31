@@ -53,6 +53,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
     title_id = @title.id
     artist_id = @title.artist_id
     @orders = ShopifyAPI::Order.find(:all)
+    puts "Total Number of Shopify Orders: #{@orders.length}"
     
     sale_array = []
     
@@ -68,19 +69,21 @@ class TitlesController < ShopifyApp::AuthenticatedController
 
             for line_item in order.line_items do
               if (line_item.title == e_title && line_item.vendor == artist_name)
-                 if last_name.present?
-                    sale_array.push([artist_id, title_id, first_name, last_name, email, line_item.variant_id, line_item.price, created])
-                 else
-                    sale_array.push([artist_id, title_id, first_name, "NULL", email, line_item.variant_id, line_item.price, created]) 
-                 end
+               #  if last_name.present?
+                    sale_array.push([artist_id, title_id, first_name, last_name, email, line_item.variant_title, line_item.price, created])
+               #  else
+               #     sale_array.push([artist_id, title_id, first_name, "NULL", email, line_item.variant_id, line_item.price, created]) 
+               #  end
                  puts "Sale Array: #{sale_array}"
               end
             end  
 
-            for sale in sale_array do 
-              Sale.create(:artist_id => sale[0], :title_id => sale[1], :first_name => sale[2], :last_name => sale[3], :email => sale[4], :format => sale[5], :price => sale[6], :created_at => sale[7])    
-            end 
+            
         end 
+        for sale in sale_array do 
+           Sale.create(:artist_id => sale[0], :title_id => sale[1], :first_name => sale[2], :last_name => sale[3], :email => sale[4], :format => sale[5], :price => sale[6], :created_at => sale[7])    
+        end 
+
         array_length = sale_array.length   
         @title.update_attributes(:populated => 1)
         flash[:notice] = "#{array_length} sales records have been populated for this title."
