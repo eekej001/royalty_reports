@@ -67,18 +67,18 @@ class TitlesController < ShopifyApp::AuthenticatedController
           last_name = order.customer.last_name
           email = order.customer.email
           created = order.created_at
-          puts "Order created at: #{created}"
           #created = Date.strptime(order.created_at, '%Y-%m-%dT%H:%M:%S.%L%z')
           #created = Time.at(order.created_at)
 
             for line_item in order.line_items do
               if (line_item.title == e_title && line_item.vendor == artist_name)
+                puts "Order Number: #{order_number}"
                #  if last_name.present?
                     sale_array.push([artist_id, title_id, order_number, first_name, last_name, email, line_item.variant_title, line_item.price, created])
                #  else
                #     sale_array.push([artist_id, title_id, first_name, "NULL", email, line_item.variant_id, line_item.price, created]) 
                #  end
-                 puts "Sale Array: #{sale_array}"
+                 #puts "Sale Array: #{sale_array}"
               end
             end  
 
