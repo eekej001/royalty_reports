@@ -88,12 +88,12 @@ title4_list = [
 ]
 
 title5_list = [
-  [ "Aqua Bless (2nd Edition)", "J-Aqua", 9.95],
-  [ "Boing Boing (2nd Edition)", "J-Boing", 9.95],
-  [ "How Good Was I? (2nd Edition)", "J-How", 9.95],
-  [ "Power Play! (2nd Edition)", "J-Power", 9.95],
-  [ "Vanilla Essence", "J-Vanilla", 9.95],
-  [ "Witchcraft (2nd Edition)", "J-Witch", 9.95]
+  [ "J-Aqua", "Aqua Bless (2nd Edition)", 9.95],
+  [ "J-Boing", "Boing Boing (2nd Edition)", 9.95],
+  [ "J-How", "How Good Was I? (2nd Edition)", 9.95],
+  [ "J-Power", "Power Play! (2nd Edition)", 9.95],
+  [ "J-Vanilla", "Vanilla Essence", 9.95],
+  [ "J-Witch", "Witchcraft (2nd Edition)",  9.95]
 ]
 
 
