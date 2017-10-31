@@ -22,15 +22,17 @@
       <th scope="col">English Title</th>
       <th scope="col">Japanese Title</th>
       <th scope="col">SRP</th>
+      <th scope="col">Sales</th>
       <th scope="col"></th>
       <th scope="col"></th>
     </tr>
    </thead>
     <% @titles.each_with_index do |title, index| %>
     <tr>
-      <th scope="row"><%= link_to(title.e_title, {:controller => 'titles', :action => 'show', :id => title.id}, :class => 'action show') %></th>
+      <th scope="row"><%= link_to(title.e_title, {:controller => 'titles', :action => 'show', :id => title.id, :path_marker => "titles_display"}, :class => 'action show') %></th>
       <td><%= title.j_title %></td>
       <td>$<%= title.srp %></td>
+      <td>$<%= title.sales.count %></td>
       <td><%= link_to("Edit", {:controller => 'titles', :action => 'edit', :id => title.id}, :class => 'action edit') %></td>
       <td><%= link_to("Delete", {:controller => 'titles', :action => 'delete', :id => title.id}, :class => 'action delete') %></td>
     </tr>

@@ -39,6 +39,9 @@ class TitlesController < ShopifyApp::AuthenticatedController
  end
 
  def show
+    if params[:path_marker] == "titles_display"
+      @path_marker = "titles_display" 
+    end
     @title = Title.find(params[:id])
  end
 
@@ -87,6 +90,8 @@ class TitlesController < ShopifyApp::AuthenticatedController
         for sale in sale_array do 
            Sale.create(:artist_id => sale[0], :title_id => sale[1], :order_number => sale[2], :first_name => sale[3], :last_name => sale[4], :email => sale[5], :format => sale[6], :price => sale[7], :created_at => sale[8])    
         end 
+
+        puts "Length of Sale Array: #{sale_array.length}"
 
         array_length = sale_array.length   
         @title.update_attributes(:populated => 1)
