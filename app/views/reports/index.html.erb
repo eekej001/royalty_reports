@@ -109,7 +109,9 @@ form {
 	-->
 
      <div class="col-sm-1 mx-auto">
+       <span>Select Artist</span>
        <select name="artist_id" form="report_form">
+        <option></option> 
         <% @artists.each do |artist| %>
 		    <option value="<%= artist.id %>"><%= artist.e_name %></option>
 	    <% end %>
