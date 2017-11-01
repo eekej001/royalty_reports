@@ -109,8 +109,11 @@ form {
 	-->
 
      <div class="col-sm-1 mx-auto">
-      <%= label(:artist_id, "Artist") %>
-      <%= select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %>
+       <select name="artist_id" form="report_form">
+        <% @artists.each do |artist| %>
+		    <option value="<%= artist.id %>"><%= artist.e_name %></option>
+	    <% end %>
+      </select>
      </div>
 
 
