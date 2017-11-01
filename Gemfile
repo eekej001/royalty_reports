@@ -19,6 +19,7 @@ gem 'figaro'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
+gem 'delayed_job_active_record'
 
 group :production do
   #gem 'pg'
