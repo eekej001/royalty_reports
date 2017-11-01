@@ -8,7 +8,8 @@ class ReportsController < ShopifyApp::AuthenticatedController
 
 
 	
- 	@id = params[:option]
+ 	#@id = params[:option]
+ 	@id = params[:artist_id]
  	@start_date_str = params[:start_date]
  	@end_date_str = params[:end_date]
  	unless @start_date_str.nil?
