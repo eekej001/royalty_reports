@@ -89,7 +89,7 @@ form {
 
 
 <div class="mt-5 col offset-1" id="form_parent">
-  <%= form_tag({controller: "reports", action: "report"}, method: "post", :id => "report_form") do |f| %>
+  <%= form_for({controller: "reports", action: "report"}, method: "post", :id => "report_form") do |f| %>
 
   <!--
 	<div class="aoyue-select animated zoomIn" id="select-form">  -->
@@ -109,12 +109,8 @@ form {
 	-->
 
      <div class="col-sm-1 mx-auto">
-      <table>
-	    <tr>
-	      <td><%= f.label(:artist_id, "Artist") %></td>
-	      <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %></td>
-	    </tr>
-    </table>
+      <%= f.label(:artist_id, "Artist") %>
+      <%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %>
      </div>
 
 
