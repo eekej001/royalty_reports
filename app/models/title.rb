@@ -55,7 +55,7 @@ class Title < ActiveRecord::Base
 	        puts "Length of Sale Array: #{sale_array.length}"
 
 	        array_length = sale_array.length   
-	        @title.update_attributes(:populated => 1)
+	        title.update_attributes(:populated => 1)
 	       # flash[:notice] = "#{array_length} sales records have been populated for this title."
 	       # redirect_to(:action => 'show', :id => title.id) 
 	    else
