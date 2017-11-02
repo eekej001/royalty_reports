@@ -10,8 +10,8 @@ class Title < ActiveRecord::Base
 
     #def self.populate(id)
     def populate()
-=begin	
-    	title = Title.find(id)
+    	title = Title.find(self[:id])
+    	#title = Title.find(id)
 	    e_title = title.e_title
 	    artist_name = title.artist.e_name
 	    title_id = title.id
@@ -63,9 +63,8 @@ class Title < ActiveRecord::Base
 	     # flash[:notice] = "Sales records have already been populated for this title."
 	     # redirect_to(:action => 'show', :id => title.id)
 	    end  
-=end
-   	    
-	update_attributes(:populated => 1)  
+
+
 
 	 
 
