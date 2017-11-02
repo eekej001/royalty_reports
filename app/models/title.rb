@@ -3,7 +3,7 @@ class Title < ActiveRecord::Base
     has_many :sales
 
     scope :sorted, lambda { order("e_title ASC")}
-
+=begin
     def self.populate(id)
     	title = Title.find(id)
 	    e_title = title.e_title
@@ -63,7 +63,7 @@ class Title < ActiveRecord::Base
 
     end
 
-
+=end
 
 
 
