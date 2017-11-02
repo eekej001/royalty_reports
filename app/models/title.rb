@@ -5,6 +5,12 @@ class Title < ActiveRecord::Base
     scope :sorted, lambda { order("e_title ASC")}
 
     def self.populate(id)
+    	find(id).populate
+    end	
+
+    #def self.populate(id)
+    def populate()
+=begin	
     	title = Title.find(id)
 	    e_title = title.e_title
 	    artist_name = title.artist.e_name
@@ -57,7 +63,9 @@ class Title < ActiveRecord::Base
 	     # flash[:notice] = "Sales records have already been populated for this title."
 	     # redirect_to(:action => 'show', :id => title.id)
 	    end  
-	  
+=end
+   	    
+	update_attributes(:populated => 1)  
 
 	 
 
