@@ -53,9 +53,9 @@ class TitlesController < ShopifyApp::AuthenticatedController
  end
 
  def populate_confirm
-    @title = Title.find(params[:id])
-    @title.delay.populate(params[:id])
-    #Title.delay.populate(params[:id])
+    #@title = Title.find(params[:id])
+   # @title.delay.populate(params[:id])
+    Title.delay.populate(params[:id])
     redirect_to(:action => 'show', :id => params[:id])
     # , notice: "Populating database..." 
 
