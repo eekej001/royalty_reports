@@ -59,7 +59,7 @@ class Title < ActiveRecord::Base
 	    end  
 	  
 
-	 end
+	 
 
     end
 
