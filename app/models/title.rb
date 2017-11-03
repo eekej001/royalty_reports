@@ -23,6 +23,10 @@ class Title < ActiveRecord::Base
 	    #puts "Total Number of Shopify Orders: #{@orders.length}"
 	    
 	    sale_array = []
+
+	    ShopifyAPI::Order.find(1) do |order|
+          puts order.order_number
+	    end	
 =begin	    
 	    if title.populated == 0
 	        #for order in @orders do
