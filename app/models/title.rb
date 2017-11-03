@@ -66,8 +66,9 @@ class Title < ActiveRecord::Base
 	    end  
 
 =end
+   title = find(id)
 
-	update_attributes(:populated => 1) 
+	title.update_attributes(:populated => 1) 
 
     end
 
