@@ -60,6 +60,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
    # ShopifyAPI::Order.find_all(:status => :any) do |order|
    #   orders.push[order]
    # end
+   session = ShopifyApp::SessionRepository.retrieve(1)
    token = session.request_token(params)
 
     Title.delay.populate(params[:id], token)
