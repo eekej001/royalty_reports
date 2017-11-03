@@ -8,7 +8,7 @@ class Title < ActiveRecord::Base
    # 	find(id).populate
    # end	
 
-    def self.populate(id, orders)
+    def self.populate(id)
     #def populate()
     	#title = Title.find(self[:id])
     	token = session.request_token(params)
