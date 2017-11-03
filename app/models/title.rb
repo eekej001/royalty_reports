@@ -22,8 +22,8 @@ class Title < ActiveRecord::Base
     	#session = ShopifyAPI::Session.new("projecth.myshopify.com", token)
  	    #session = ShopifyApp::SessionRepository.retrieve(1)
         #ShopifyAPI::Base.activate_session(shop)
-        shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
-        ShopifyAPI::Base.site = shop.shopify_api_path
+        #shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
+        ShopifyAPI::Base.site = Shop.shopify_api_path
 =begin    
         session = ShopifyAPI::Session.new(self.url, self.access_token)
         session.valid?
