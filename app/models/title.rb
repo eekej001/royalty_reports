@@ -8,7 +8,7 @@ class Title < ActiveRecord::Base
    # 	find(id).populate
    # end	
 
-    def self.populate(id)
+    def self.populate(id, orders)
     #def populate()
     	#title = Title.find(self[:id])
  	
@@ -24,8 +24,10 @@ class Title < ActiveRecord::Base
 	    
 	    sale_array = []
 
-	    order = ShopifyAPI::Order.find(1) 
-        puts order.order_number
+	    #order = ShopifyAPI::Order.find(1)
+	    puts "Begin Order Number Output" 
+        puts orders[1].order_number
+        puts "End Order Number Output"
 	
 =begin	    
 	    if title.populated == 0
