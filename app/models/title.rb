@@ -24,9 +24,9 @@ class Title < ActiveRecord::Base
 	    
 	    sale_array = []
 
-	    ShopifyAPI::Order.find(1) do |order|
-          puts order.order_number
-	    end	
+	    order = ShopifyAPI::Order.find(1) 
+        puts order.order_number
+	
 =begin	    
 	    if title.populated == 0
 	        #for order in @orders do
