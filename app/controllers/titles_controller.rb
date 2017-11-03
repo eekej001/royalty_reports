@@ -64,7 +64,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
    #token = session.request_token(params)
 
    shop = ShopifyAPI::Shop.current
-   session = ShopifyAPI::Session.new(shop.shopify_domain, shop.shopify_token)
+   session = ShopifyAPI::Session.new("projecth.myshopify.com", shop.shopify_token)
 
     Title.delay.populate(params[:id], session)
     redirect_to(:action => 'show', :id => params[:id])
