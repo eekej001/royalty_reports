@@ -23,7 +23,7 @@ class Title < ActiveRecord::Base
 	    #puts "Total Number of Shopify Orders: #{@orders.length}"
 	    
 	    sale_array = []
-	    
+=begin	    
 	    if title.populated == 0
 	        #for order in @orders do
 	        ShopifyAPI::Order.find_all(:status => :any) do |order|
@@ -64,10 +64,10 @@ class Title < ActiveRecord::Base
 	     # flash[:notice] = "Sales records have already been populated for this title."
 	     # redirect_to(:action => 'show', :id => title.id)
 	    end  
-
+=end
    #title = find(id)
 
-	#title.update_attributes(:populated => 1) 
+	title.update_attributes(:populated => 1) 
 
     end
 
