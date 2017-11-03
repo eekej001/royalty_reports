@@ -26,7 +26,11 @@ class Title < ActiveRecord::Base
         #ShopifyAPI::Base.site = Shop.shopify_api_path
 
         shop_domain = "projecth.myshopify.com"
-        shop = Shop.find_by(shopify_domain: shop_domain)
+        shop = ShopifyApp::SessionRepository.retrieve(shop_domain)
+        ShopifyAPI::Base.activate_session(shop)
+
+        
+       # shop = Shop.find_by(shopify_domain: shop_domain)
 
 
 
@@ -50,12 +54,12 @@ class Title < ActiveRecord::Base
 	    
 	    sale_array = []
         
-        shop.with_shopify_session do
+     
 	    order = ShopifyAPI::Order.find(1)
 	    puts "Begin Order Number Output" 
         puts orders[1].order_number
         puts "End Order Number Output"
-        end
+
 	
 =begin	    
 	    if title.populated == 0
