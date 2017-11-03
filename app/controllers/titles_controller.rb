@@ -65,7 +65,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
 
    #shop = ShopifyAPI::Shop.current
    shop = Shop.find_by(shopify_domain: params[:shop])
-   shop = ShopifyApp::SessionRepository.retrieve(shop.id)
+   #shop = ShopifyApp::SessionRepository.retrieve(shop.id)
    #session = ShopifyAPI::Session.new("projecth.myshopify.com", shop.shopify_token)
 
     Title.delay.populate(params[:id], shop)
