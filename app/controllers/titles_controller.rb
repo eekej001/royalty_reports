@@ -60,10 +60,13 @@ class TitlesController < ShopifyApp::AuthenticatedController
    # ShopifyAPI::Order.find_all(:status => :any) do |order|
    #   orders.push[order]
    # end
-   session = ShopifyApp::SessionRepository.retrieve(1)
-   token = session.request_token(params)
+   #session = ShopifyApp::SessionRepository.retrieve(1)
+   #token = session.request_token(params)
 
-    Title.delay.populate(params[:id], token)
+   shop = ShopifyAPI::Shop.current
+   session = ShopifyAPI::Session.new(shop.shopify_domain, shop.shopify_token)
+
+    Title.delay.populate(params[:id], session)
     redirect_to(:action => 'show', :id => params[:id])
     # , notice: "Populating database..." 
 

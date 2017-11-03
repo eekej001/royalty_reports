@@ -8,11 +8,11 @@ class Title < ActiveRecord::Base
    # 	find(id).populate
    # end	
 
-    def self.populate(id, token)
+    def self.populate(id, session)
     #def populate()
     	#title = Title.find(self[:id])
     	#token = session.request_token(params)
-    	session = ShopifyAPI::Session.new("projecth.myshopify.com", token)
+    	#session = ShopifyAPI::Session.new("projecth.myshopify.com", token)
  	    #session = ShopifyApp::SessionRepository.retrieve(1)
         ShopifyAPI::Base.activate_session(session)
     	title = find(id)
