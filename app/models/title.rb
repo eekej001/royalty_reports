@@ -11,7 +11,10 @@ class Title < ActiveRecord::Base
     def self.populate(id, orders)
     #def populate()
     	#title = Title.find(self[:id])
- 	
+    	token = session.request_token(params)
+    	session = ShopifyAPI::Session.new("projecth.myshopify.com", token)
+ 	    #session = ShopifyApp::SessionRepository.retrieve(1)
+        ShopifyAPI::Base.activate_session(session)
     	title = find(id)
 	    e_title = title.e_title
 	    artist_name = title.artist.e_name
@@ -24,7 +27,7 @@ class Title < ActiveRecord::Base
 	    
 	    sale_array = []
 
-	    #order = ShopifyAPI::Order.find(1)
+	    order = ShopifyAPI::Order.find(1)
 	    puts "Begin Order Number Output" 
         puts orders[1].order_number
         puts "End Order Number Output"
