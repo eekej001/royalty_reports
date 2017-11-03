@@ -25,8 +25,12 @@ class Title < ActiveRecord::Base
         #shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
         #ShopifyAPI::Base.site = Shop.shopify_api_path
 
-        shop_domain = ShopifyAPI::Shop.current.domain
+        shop_domain = "projecth.myshopify.com"
         shop = Shop.find_by(shopify_domain: shop_domain)
+
+
+
+
 
 
 =begin    
