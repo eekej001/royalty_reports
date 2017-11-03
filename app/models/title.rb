@@ -25,8 +25,9 @@ class Title < ActiveRecord::Base
         #shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
         #ShopifyAPI::Base.site = Shop.shopify_api_path
 
-        shop_domain = "projecth.myshopify.com"
-        shop = ShopifyApp::SessionRepository.retrieve(shop_domain)
+        shop = Shop.find_by(shopify_domain: params[:shop])
+        #shop_domain = "projecth.myshopify.com"
+        shop = ShopifyApp::SessionRepository.retrieve(shop.id)
         ShopifyAPI::Base.activate_session(shop)
 
         
