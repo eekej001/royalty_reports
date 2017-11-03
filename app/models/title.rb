@@ -23,7 +23,12 @@ class Title < ActiveRecord::Base
  	    #session = ShopifyApp::SessionRepository.retrieve(1)
         #ShopifyAPI::Base.activate_session(shop)
         #shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
-        ShopifyAPI::Base.site = Shop.shopify_api_path
+        #ShopifyAPI::Base.site = Shop.shopify_api_path
+
+        shop_domain = ShopifyAPI::Shop.current.domain
+        shop = Shop.find_by(shopify_domain: shop_domain)
+
+
 =begin    
         session = ShopifyAPI::Session.new(self.url, self.access_token)
         session.valid?
@@ -40,11 +45,13 @@ class Title < ActiveRecord::Base
 	    #puts "Total Number of Shopify Orders: #{@orders.length}"
 	    
 	    sale_array = []
-
+        
+        shop.with_shopify_session do
 	    order = ShopifyAPI::Order.find(1)
 	    puts "Begin Order Number Output" 
         puts orders[1].order_number
         puts "End Order Number Output"
+        end
 	
 =begin	    
 	    if title.populated == 0
