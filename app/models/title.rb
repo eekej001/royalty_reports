@@ -11,8 +11,8 @@ class Title < ActiveRecord::Base
     def self.populate(id)
     #def populate()
     	#title = Title.find(self[:id])
-=begin   	
-    	#title = Title.find(id)
+ 	
+    	title = find(id)
 	    e_title = title.e_title
 	    artist_name = title.artist.e_name
 	    title_id = title.id
@@ -65,10 +65,9 @@ class Title < ActiveRecord::Base
 	     # redirect_to(:action => 'show', :id => title.id)
 	    end  
 
-=end
-   title = find(id)
+   #title = find(id)
 
-	title.update_attributes(:populated => 1) 
+	#title.update_attributes(:populated => 1) 
 
     end
 
