@@ -59,7 +59,7 @@ class Title < ActiveRecord::Base
       #     sale = ShopifyAPI::Variant.find(self.variant)
       #  end
         
-
+=begin
         ShopifyAPI::Session.setup({:api_key => "5b6c8beffd764fc95d6bcde8459c0b2a", :secret => "a87f1122752655beffb8aa3da1a87e9d"})
         session = ShopifyAPI::Session.new("projecth.myshopify.com")
         ShopifyAPI::Base.activate_session(session)
@@ -67,7 +67,7 @@ class Title < ActiveRecord::Base
 	    puts "Begin Order Number Output" 
         puts orders[1].order_number
         puts "End Order Number Output"
-
+=end
 	
 =begin	    
 	    if title.populated == 0
