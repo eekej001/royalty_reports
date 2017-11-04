@@ -8,7 +8,7 @@ class Shop < ActiveRecord::Base
     "https://5b6c8beffd764fc95d6bcde8459c0b2a:68348e769f6cb3c191854d45d947ab81@projecth.myshopify.com/admin"
   end
 
-  def connect_to_store
+  def self.connect_to_store
   session = ShopifyAPI::Session.new(self.url, self.access_token)
   session.valid?
   ShopifyAPI::Base.activate_session(session)
