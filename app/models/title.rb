@@ -60,8 +60,8 @@ class Title < ActiveRecord::Base
       #  end
         
 
-        ShopifyAPI::Session.setup({:api_key => "5b6c8beffd764fc95d6bcde8459c0b2a", :secret => "a87f1122752655beffb8aa3da1a87e9d"})
-     
+        session = ShopifyAPI::Session.setup({:api_key => "5b6c8beffd764fc95d6bcde8459c0b2a", :secret => "a87f1122752655beffb8aa3da1a87e9d"})
+        ShopifyAPI::Base.activate_session(session)
 	    order = ShopifyAPI::Order.find(1)
 	    puts "Begin Order Number Output" 
         puts orders[1].order_number
