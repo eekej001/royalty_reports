@@ -11,7 +11,7 @@ class Shop < ActiveRecord::Base
   def self.connect_to_store
   #session = ShopifyAPI::Session.new(self.url, self.access_token)
   url = "https://projecth.myshopify.com"
-  access_token = 68348e769f6cb3c191854d45d947ab81
+  access_token = "68348e769f6cb3c191854d45d947ab81"
   session = ShopifyAPI::Session.new(url, access_token)
   session.valid?
   ShopifyAPI::Base.activate_session(session)
