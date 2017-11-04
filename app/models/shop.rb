@@ -9,7 +9,10 @@ class Shop < ActiveRecord::Base
   end
 
   def self.connect_to_store
-  session = ShopifyAPI::Session.new(self.url, self.access_token)
+  #session = ShopifyAPI::Session.new(self.url, self.access_token)
+  url = "https://projecth.myshopify.com"
+  access_token = 68348e769f6cb3c191854d45d947ab81
+  session = ShopifyAPI::Session.new(url, access_token)
   session.valid?
   ShopifyAPI::Base.activate_session(session)
   order = ShopifyAPI::Order.find(1)
