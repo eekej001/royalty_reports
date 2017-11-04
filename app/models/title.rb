@@ -25,10 +25,10 @@ class Title < ActiveRecord::Base
         #shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
         #ShopifyAPI::Base.site = Shop.shopify_api_path
 
-        shop = Shop.find_by(shopify_domain: params[:shop])
+        #shop = Shop.find_by(shopify_domain: params[:shop])
         #shop_domain = "projecth.myshopify.com"
-        shop = ShopifyApp::SessionRepository.retrieve(shop.id)
-        ShopifyAPI::Base.activate_session(shop)
+        #shop = ShopifyApp::SessionRepository.retrieve(shop.id)
+        #ShopifyAPI::Base.activate_session(shop)
 
         
        # shop = Shop.find_by(shopify_domain: shop_domain)
@@ -54,7 +54,13 @@ class Title < ActiveRecord::Base
 	    #puts "Total Number of Shopify Orders: #{@orders.length}"
 	    
 	    sale_array = []
+
+	 #   ShopifyAPI::Session.temp("projecth.myshopify.com", token) do
+      #     sale = ShopifyAPI::Variant.find(self.variant)
+      #  end
         
+
+        ShopifyAPI::Session.setup({:api_key => "5b6c8beffd764fc95d6bcde8459c0b2a", :secret => "a87f1122752655beffb8aa3da1a87e9d"})
      
 	    order = ShopifyAPI::Order.find(1)
 	    puts "Begin Order Number Output" 
