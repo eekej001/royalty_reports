@@ -15,7 +15,7 @@ class Title < ActiveRecord::Base
       ShopifyAPI::Base.activate_session(session)
     end
 =end
-    def self.populate(id, shop, token)
+    def self.populate(id)
     #def populate()
     	#title = Title.find(self[:id])
     	#token = session.request_token(params)
