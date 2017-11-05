@@ -17,7 +17,7 @@ class Shop < ActiveRecord::Base
   ShopifyAPI::Base.activate_session(session)
   order = ShopifyAPI::Order.find(1)
 	    puts "Begin Order Number Output" 
-        puts orders[1].order_number
+        puts order.order_number
         puts "End Order Number Output"    
 
 
