@@ -30,11 +30,16 @@ class Title < ActiveRecord::Base
         #shop = ShopifyApp::SessionRepository.retrieve(shop.id)
         #ShopifyAPI::Base.activate_session(shop)
 
+       # session = ShopifyAPI::Session.new(shop, token)
+       # ShopifyAPI::Base.activate_session(session)
+
+        shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
+        token = shop.shopify_token
         session = ShopifyAPI::Session.new(shop, token)
         ShopifyAPI::Base.activate_session(session)
-        order = ShopifyAPI::Order.find(1)
+        order = ShopifyAPI::Order.first
 	    puts "Begin Order Number Output" 
-        puts orders[1].order_number
+        puts order.order_number
         puts "End Order Number Output"
 
        # shop = Shop.find_by(shopify_domain: shop_domain)

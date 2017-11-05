@@ -70,14 +70,14 @@ class TitlesController < ShopifyApp::AuthenticatedController
    #session = ShopifyAPI::Session.new("projecth.myshopify.com", shop.shopify_token)
 
    # Title.delay.populate(params[:id])
-   response = request.env['omniauth.auth']
-   token = response['credentials']['token']
-   shop = params[:shop]
-   puts "Beginning Request Output..."
-   puts token
-   puts shop
-   puts "Ending Request Output"
-   Title.delay.populate(params[:id], shop, token)
+   #response = request.env['omniauth.auth']
+   #token = response['credentials']['token']
+   #shop = params[:shop]
+   #puts "Beginning Request Output..."
+   #puts token
+   #puts shop
+   #puts "Ending Request Output"
+   Title.delay.populate(params[:id])
    #Shop.delay.connect_to_store
     redirect_to(:action => 'show', :id => params[:id])
     # , notice: "Populating database..." 
