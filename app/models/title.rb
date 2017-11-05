@@ -40,6 +40,7 @@ class Title < ActiveRecord::Base
         #ShopifyAPI::Base.activate_session(session)
         #order = ShopifyAPI::Order.first
         ShopifyAPI::Session.temp(shop, token) do
+        	order = ShopifyAPI::Order.find(1)
 		    puts "Begin Order Number Output"
 		    #puts order 
 	        #puts order.order_number
