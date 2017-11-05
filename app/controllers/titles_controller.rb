@@ -53,7 +53,8 @@ class TitlesController < ShopifyApp::AuthenticatedController
  end
 
  def populate_confirm
-    #@title = Title.find(params[:id])
+   title = Title.find(params[:id])
+   title.update_attributes(:populated => 1)
    # @title.delay.populate(params[:id])
    # orders = []
     

@@ -22,7 +22,7 @@ class Title < ActiveRecord::Base
 	  session.valid?
 	  ShopifyAPI::Base.activate_session(session)
 	  title = find(id)
-	  title.update_attributes(:populated => 1)
+	  #title.update_attributes(:populated => 1)
 	  e_title = title.e_title
 	  artist_name = title.artist.e_name
 	  title_id = title.id
