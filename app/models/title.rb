@@ -16,39 +16,8 @@ class Title < ActiveRecord::Base
     end
 =end
     def self.populate(id)
-    #def populate()
-    	#title = Title.find(self[:id])
-    	#token = session.request_token(params)
-    	#session = ShopifyAPI::Session.new("projecth.myshopify.com", token)
- 	    #session = ShopifyApp::SessionRepository.retrieve(1)
-        #ShopifyAPI::Base.activate_session(shop)
-        #shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
-        #ShopifyAPI::Base.site = Shop.shopify_api_path
-
-        #shop = Shop.find_by(shopify_domain: params[:shop])
-        #shop_domain = "projecth.myshopify.com"
-        #shop = ShopifyApp::SessionRepository.retrieve(shop.id)
-        #ShopifyAPI::Base.activate_session(shop)
-
-       # session = ShopifyAPI::Session.new(shop, token)
-       # ShopifyAPI::Base.activate_session(session)
-=begin
-        shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
-        #token = shop.shopify_token.to_s
-        token = "68348e769f6cb3c191854d45d947ab81"
-        #session = ShopifyAPI::Session.new(shop, token)
-        #ShopifyAPI::Base.activate_session(session)
-        #order = ShopifyAPI::Order.first
-        ShopifyAPI::Session.temp(shop, token) do
-        	order = ShopifyAPI::Order.find(1)
-		    puts "Begin Order Number Output"
-		    #puts order 
-	        puts order.order_number
-	        puts "End Order Number Output"
-        end
-=end        
-       # shop = Shop.find_by(shopify_domain: shop_domain)
-
+      title.update_attributes(:populated => 1)
+   
       url = "https://projecth.myshopify.com"
 	  access_token = "68348e769f6cb3c191854d45d947ab81"
 	  session = ShopifyAPI::Session.new(url, access_token)
@@ -59,16 +28,7 @@ class Title < ActiveRecord::Base
         puts order.order_number
         puts "End Order Number Output"
 
-
-
-
-
-
-=begin    
-        session = ShopifyAPI::Session.new(self.url, self.access_token)
-        session.valid?
-        ShopifyAPI::Base.activate_session(session)
-=end        
+    
     	title = find(id)
 	    e_title = title.e_title
 	    artist_name = title.artist.e_name
@@ -81,22 +41,10 @@ class Title < ActiveRecord::Base
 	    
 	    sale_array = []
 
-	 #   ShopifyAPI::Session.temp("projecth.myshopify.com", token) do
-      #     sale = ShopifyAPI::Variant.find(self.variant)
-      #  end
-        
-=begin
-        ShopifyAPI::Session.setup({:api_key => "5b6c8beffd764fc95d6bcde8459c0b2a", :secret => "a87f1122752655beffb8aa3da1a87e9d"})
-        session = ShopifyAPI::Session.new("projecth.myshopify.com")
-        ShopifyAPI::Base.activate_session(session)
-	    order = ShopifyAPI::Order.find(1)
-	    puts "Begin Order Number Output" 
-        puts orders[1].order_number
-        puts "End Order Number Output"
-=end
+
 	
-=begin	    
-	    if title.populated == 0
+	    
+	    if title.populated == 1
 	        #for order in @orders do
 	        ShopifyAPI::Order.find_all(:status => :any) do |order|
 	          order_number = order.order_number
@@ -136,10 +84,9 @@ class Title < ActiveRecord::Base
 	     # flash[:notice] = "Sales records have already been populated for this title."
 	     # redirect_to(:action => 'show', :id => title.id)
 	    end  
-=end
-   #title = find(id)
 
-	#title.update_attributes(:populated => 1) 
+
+	    title.update_attributes(:populated => 2) 
 
     end
 

@@ -38,7 +38,9 @@
 <% if @title.populated == 0 %>
     <%= link_to :controller => 'titles', :action => 'populate', :id => @title.id do %>
       <button type="button" class="btn btn-info">Fill Database With Shopify Order Records for this Title</button> 
-     <% end %>   
+     <% end %>
+<% elsif @title.populated == 1 %>
+    <button type="button" class="btn btn-info" disabled>Database Is Being Populated With Shopify Order Records for this Title</button>        
 <% else %>
     <button type="button" class="btn btn-info" disabled>Database Has Already Been Filled With Shopify Order Records for this Title</button>
 <% end %>
