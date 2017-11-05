@@ -34,7 +34,8 @@ class Title < ActiveRecord::Base
        # ShopifyAPI::Base.activate_session(session)
 
         shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
-        token = shop.shopify_token.to_s
+        #token = shop.shopify_token.to_s
+        token = "68348e769f6cb3c191854d45d947ab81"
         session = ShopifyAPI::Session.new(shop, token)
         ShopifyAPI::Base.activate_session(session)
         order = ShopifyAPI::Order.first
