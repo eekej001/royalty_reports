@@ -43,7 +43,7 @@ class Title < ActiveRecord::Base
         	order = ShopifyAPI::Order.find(1)
 		    puts "Begin Order Number Output"
 		    #puts order 
-	        #puts order.order_number
+	        puts order.order_number
 	        puts "End Order Number Output"
         end
        # shop = Shop.find_by(shopify_domain: shop_domain)
