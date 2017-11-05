@@ -32,7 +32,7 @@ class Title < ActiveRecord::Base
 
        # session = ShopifyAPI::Session.new(shop, token)
        # ShopifyAPI::Base.activate_session(session)
-
+=begin
         shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
         #token = shop.shopify_token.to_s
         token = "68348e769f6cb3c191854d45d947ab81"
@@ -46,7 +46,18 @@ class Title < ActiveRecord::Base
 	        puts order.order_number
 	        puts "End Order Number Output"
         end
+=end        
        # shop = Shop.find_by(shopify_domain: shop_domain)
+
+      url = "https://projecth.myshopify.com"
+	  access_token = "68348e769f6cb3c191854d45d947ab81"
+	  session = ShopifyAPI::Session.new(url, access_token)
+	  session.valid?
+	  ShopifyAPI::Base.activate_session(session)
+	  order = ShopifyAPI::Order.first
+	    puts "Begin Order Number Output" 
+        puts order.order_number
+        puts "End Order Number Output"
 
 
 
@@ -128,7 +139,7 @@ class Title < ActiveRecord::Base
 =end
    #title = find(id)
 
-	title.update_attributes(:populated => 1) 
+	#title.update_attributes(:populated => 1) 
 
     end
 

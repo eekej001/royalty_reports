@@ -77,8 +77,8 @@ class TitlesController < ShopifyApp::AuthenticatedController
    #puts token
    #puts shop
    #puts "Ending Request Output"
-   #Title.delay.populate(params[:id])
-   Shop.delay.connect_to_store
+   Title.delay.populate(params[:id])
+   #Shop.delay.connect_to_store
     redirect_to(:action => 'show', :id => params[:id])
     # , notice: "Populating database..." 
 
