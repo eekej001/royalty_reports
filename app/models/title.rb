@@ -34,11 +34,12 @@ class Title < ActiveRecord::Base
        # ShopifyAPI::Base.activate_session(session)
 
         shop = Shop.find_by(shopify_domain: "projecth.myshopify.com")
-        token = shop.shopify_token
+        token = shop.shopify_token.to_s
         session = ShopifyAPI::Session.new(shop, token)
         ShopifyAPI::Base.activate_session(session)
         order = ShopifyAPI::Order.first
-	    puts "Begin Order Number Output" 
+	    puts "Begin Order Number Output"
+	    puts order 
         puts order.order_number
         puts "End Order Number Output"
 
