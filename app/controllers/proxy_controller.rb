@@ -159,7 +159,7 @@ def webhook
      void_sale = Sale.where(order_number: order_id) 
 
      unless void_sale.nil?
-        void_sale.destroy
+        Sale.destroy(void_sale.id)
         puts "Sales Record with ID #{void_sale.order_number} has been deleted."
      end 
 
