@@ -147,6 +147,23 @@ def webhook
   end 
 
 
+  def refund
+     @sales = Sale.all
+     
+    
+     refund_json = JSON.parse request.body.read
+     order_id = refund_json["order_id"]
+     line_items = refund_json["line_items"]
+      
+
+     void_sale = Sale.where(order_number: order_id) 
+
+     unless void_sale.nil?
+        void_sale.destroy
+        puts "Sales Record with ID #{void_sale.order_number} has been deleted."
+     end 
+
+  end
 
 
 
