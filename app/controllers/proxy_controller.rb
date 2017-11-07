@@ -117,6 +117,7 @@ def order
       for i in 1..quantity 
         Sale.create(:artist_id => sale_array[0], :title_id => sale_array[1], :order_number => "#{order_number}", :first_name => "#{fn}", :last_name => "#{ln}", :email => "#{email}", :format => sale_array[2], :price => sale_array[3])
       end
+      render :nothing => true
     end #line_items loop
 
 
