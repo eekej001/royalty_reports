@@ -101,8 +101,8 @@ def order
          puts "Variant ID: #{a['variant_id']}"
          puts "Price: #{a['price']}"
 
-         if (a["variant_id"].present?)
-          sale_array.push(artist_id, title_id, a["variant_id"], a["price"])
+         if (a["variant_title"].present?)
+          sale_array.push(artist_id, title_id, a["variant_title"], a["price"])
          else
           sale_array.push(artist_id, title_id, "No Format", a["price"]) 
          end
