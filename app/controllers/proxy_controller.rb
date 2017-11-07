@@ -51,18 +51,18 @@ class ProxyController < ApplicationController
   end
 
 
-def webhook
+def order
 
      @artists = Artist.all
      @titles = Title.all
      
     
-     webhook_json = JSON.parse request.body.read
-     fn = webhook_json["billing_address"]["first_name"]
-     ln = webhook_json["billing_address"]["last_name"]
-     email = webhook_json["email"]
-     order_number = webhook_json["number"]
-     line_items = webhook_json["line_items"]
+     order_json = JSON.parse request.body.read
+     fn = order_json["billing_address"]["first_name"]
+     ln = order_json["billing_address"]["last_name"]
+     email = order_json["email"]
+     order_number = order_json["number"]
+     line_items = order_json["line_items"]
      
     
     for a in line_items do
@@ -70,6 +70,7 @@ def webhook
      artist_id = nil
      title_id = nil
      sale_array = []
+     quantity = a["quantity"].to_i
 
       for b in @artists do
           if a["vendor"] == b["e_name"]    
@@ -112,9 +113,10 @@ def webhook
         puts "Title ID: #{title_id}"
         puts "This sale item does not belong to one of the Doujinshi Artists."   
       end
-
-
-      Sale.create(:artist_id => sale_array[0], :title_id => sale_array[1], :order_number => "#{order_number}", :first_name => "#{fn}", :last_name => "#{ln}", :email => "#{email}", :format => sale_array[2], :price => sale_array[3])
+      
+      for i in 1..quantity 
+        Sale.create(:artist_id => sale_array[0], :title_id => sale_array[1], :order_number => "#{order_number}", :first_name => "#{fn}", :last_name => "#{ln}", :email => "#{email}", :format => sale_array[2], :price => sale_array[3])
+      end
     end #line_items loop
 
 

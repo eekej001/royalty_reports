@@ -45,14 +45,20 @@ class Title < ActiveRecord::Base
           last_name = order.customer.last_name
           email = order.customer.email
           created = order.created_at
+          
           #created = Date.strptime(order.created_at, '%Y-%m-%dT%H:%M:%S.%L%z')
           #created = Time.at(order.created_at)
 
             for line_item in order.line_items do
+              quantity = line_item.quantity.to_i
               if (line_item.title == e_title && line_item.vendor == artist_name)
                 puts "Order Number: #{order_number}"
                #  if last_name.present?
-                    sale_array.push([artist_id, title_id, order_number, first_name, last_name, email, line_item.variant_title, line_item.price, created])
+                    unless Sale.exists?(order_number: order_number)
+                      for i in 1..quantity	
+                        sale_array.push([artist_id, title_id, order_number, first_name, last_name, email, line_item.variant_title, line_item.price, created])
+                      end
+                    end
                #  else
                #     sale_array.push([artist_id, title_id, first_name, "NULL", email, line_item.variant_id, line_item.price, created]) 
                #  end
