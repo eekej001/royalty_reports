@@ -164,6 +164,8 @@ def webhook
         end
      end 
 
+     render :nothing => true
+
   end
 
 
