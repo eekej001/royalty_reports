@@ -24,6 +24,8 @@ wb.styles do |style|
 
   pink_cell = style.add_style :border => { :style => :thick, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, bg_color: "F983D4", :sz => 14, :alignment => { :horizontal=> :center, :vertical => :center, :wrap_text => true, }, :num_fmt => 5, :format_code => "$#,##0.00"
 
+  pink_cell_total = style.add_style :border => { :style => :thick, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, bg_color: "F983D4", :sz => 14, :alignment => { :horizontal=> :right, :vertical => :center, :wrap_text => true, }, :num_fmt => 5, :format_code => "$#,##0.00"
+
   first_cell = style.add_style :sz => 22, :style => :thick, :border => { :style => :thick, :color =>"000000", :edges => [:bottom] }
   small_cell = style.add_style :sz => 12, :style => :thick, :border => { :style => :thick, :color =>"000000", :edges => [:bottom] }, :alignment => { :horizontal=> :right, :vertical => :center, :wrap_text => true, }
   underline = style.add_style :style => :thick, :border => { :style => :thick, :color =>"000000", :edges => [:bottom] }
@@ -73,7 +75,7 @@ wb.styles do |style|
 	    sheet.add_row [title.j_title, title.e_title, sales_count, title.srp, total_sales, dist_fee, amount_rec, rate, royalty_due], style: [left_cell, left_cell, right_cell, money_cell, money_cell, money_cell, money_cell, right_cell, money_cell]
 	  end
 
-	    sheet.add_row [nil, nil, nil, nil, nil, nil, nil, '支払金額 (Total)', final_royalty], style: [nil, nil, nil, nil, nil, nil, nil, pink_cell, pink_cell]
+	    sheet.add_row [nil, nil, nil, nil, nil, nil, nil, '支払金額 (Total)', final_royalty], style: [nil, nil, nil, nil, nil, nil, nil, pink_cell, pink_cell_total]
 	end
 end	
 
