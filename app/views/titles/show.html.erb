@@ -5,8 +5,14 @@
 </head>
 
 
-<%= link_to request.referer.present? ? request.referer : default_path do %>
-   <button type="button" class="btn btn-info">Back to Title List</button>
+<% if @path_marker == "titles_display" %>
+    <%= link_to :controller => 'artists', :action => 'titles_display', :id => @title.artist_id do %>
+       <button type="button" class="btn btn-info">Back to Title List</button>
+    <% end %>
+<% else %>
+  <%= link_to :controller => 'titles', :action => 'index' do %>
+    <button type="button" class="btn btn-info">Back to Title List</button>
+  <% end %>
 <% end %>
 
 
