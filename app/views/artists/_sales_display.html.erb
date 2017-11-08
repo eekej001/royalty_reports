@@ -1,7 +1,7 @@
 <div class="container"> 
   
   <div class="digg_pagination">
-    <div class="page_info row mx-auto">
+    <div class="page_info col mx-auto">
       <%= page_entries_info @sales, :model => 'sale' %>
     </div>
     <%= will_paginate @sales %>
@@ -32,7 +32,7 @@
     <% end %>
   </table>
   <div class="digg_pagination">
-    <div class="page_info row mx-auto">
+    <div class="page_info col mx-auto">
       <%= page_entries_info @sales, :model => 'sale' %>
     </div>
     <%= will_paginate @sales %>
