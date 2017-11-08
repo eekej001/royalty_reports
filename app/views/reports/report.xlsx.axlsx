@@ -22,9 +22,9 @@ wb.styles do |style|
 
   money_cell = style.add_style :border => { :style => :thin, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, :sz => 16, :alignment => { :horizontal=> :right, :vertical => :center, :wrap_text => true, }, :num_fmt => 5, :format_code => "$#,##0.00"
 
-  pink_cell = style.add_style :border => { :style => :thick, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, bg_color: "F983D4", :sz => 14, :alignment => { :horizontal=> :center, :vertical => :center, :wrap_text => true, }, :num_fmt => 5, :format_code => "$#,##0.00"
+  pink_cell = style.add_style :border => { :style => :thick, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, bg_color: "F983D4", :sz => 17, :alignment => { :horizontal=> :center, :vertical => :center, :wrap_text => true, }, :num_fmt => 5, :format_code => "$#,##0.00", :style => :thick
 
-  pink_cell_total = style.add_style :border => { :style => :thick, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, bg_color: "F983D4", :sz => 14, :alignment => { :horizontal=> :right, :vertical => :center, :wrap_text => true, }, :num_fmt => 5, :format_code => "$#,##0.00"
+  pink_cell_total = style.add_style :border => { :style => :thick, :color =>"000000", :edges => [:top, :bottom, :left, :right] }, bg_color: "F983D4", :sz => 17, :alignment => { :horizontal=> :right, :vertical => :center, :wrap_text => true, }, :num_fmt => 5, :format_code => "$#,##0.00", :style => :thick
 
   first_cell = style.add_style :sz => 22, :style => :thick, :border => { :style => :thick, :color =>"000000", :edges => [:bottom] }
   small_cell = style.add_style :sz => 12, :style => :thick, :border => { :style => :thick, :color =>"000000", :edges => [:bottom] }, :alignment => { :horizontal=> :right, :vertical => :center, :wrap_text => true, }
