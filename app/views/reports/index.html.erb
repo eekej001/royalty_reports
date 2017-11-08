@@ -80,7 +80,7 @@ form {
 <h1 id="report_title" class="mt-2">Generate Royalty Report</h1>
 
 
-<div class="container" id="form_container">
+<div class="container col-sm-12" id="form_container">
 
 
   <%= form_tag({controller: "reports", action: "report"}, method: "post", :id => "report_form", :class => "col-sm-8 mx-auto") do |f| %>
@@ -102,15 +102,15 @@ form {
 
 	-->
 
-     <div class="col-sm-2 mx-auto">
-       <div class="col mx-auto"><span>Artist</span></div>
-       <select name="artist_id" form="report_form">
+     
+       <div class="row col-sm-1 mx-auto"><span>Artist</span></div>
+       <select name="artist_id" form="report_form" class="row mx-auto">
         <option></option> 
         <% @artists.each do |artist| %>
 		    <option value="<%= artist.id %>"><%= artist.e_name %></option>
 	    <% end %>
       </select>
-     </div>
+
 
 
 
