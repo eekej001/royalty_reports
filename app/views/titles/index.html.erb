@@ -14,38 +14,40 @@
 
 <div class="sort_paginate_ajax"><%= render 'titles' %></div>
 
+<div class="add-form">
+    <h2>Add a Title</h2>
 
-<h2>Add a Title</h2>
-
-<div>
-  <%= form_for(:title, :url => {:action => 'create'}) do |f| %>
-  <table>
-      
-    <tr>
-      <td><%= f.label(:artist_id, "Artist") %></td>
-      <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %></td>
-    </tr>
+    <div>
+      <%= form_for(:title, :url => {:action => 'create'}) do |f| %>
+      <table>
+          
+        <tr>
+          <td><%= f.label(:artist_id, "Artist") %></td>
+          <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true } %></td>
+        </tr>
 
 
-    <tr>
-      <td><%= f.label(:e_title, "English Title") %></td>
-      <td><%= f.text_field(:e_title) %></td>
-    </tr>
+        <tr>
+          <td><%= f.label(:e_title, "English Title") %></td>
+          <td><%= f.text_field(:e_title) %></td>
+        </tr>
 
-     <tr>
-      <td><%= f.label(:j_title, "Japanese Title") %></td>
-      <td><%= f.text_field(:j_title) %></td>
-    </tr>
+         <tr>
+          <td><%= f.label(:j_title, "Japanese Title") %></td>
+          <td><%= f.text_field(:j_title) %></td>
+        </tr>
 
-    <tr>
-      <td><%= f.label(:srp, "SRP") %></td>
-      <td><%= f.text_field(:srp) %></td>
-    </tr>
+        <tr>
+          <td><%= f.label(:srp, "SRP") %></td>
+          <td><%= f.text_field(:srp) %></td>
+        </tr>
 
-    <tr>
-      <td>&nbsp;</td>
-      <td><%= submit_tag("Submit") %></td>
-    </tr>
-  </table>
-  <% end %> 
-</div>
+        <tr>
+          <td>&nbsp;</td>
+          <td><%= submit_tag("Submit") %></td>
+        </tr>
+      </table>
+      <% end %> 
+    </div>
+
+</div> <!--end add-form -->

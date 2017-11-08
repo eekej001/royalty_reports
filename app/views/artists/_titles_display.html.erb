@@ -4,18 +4,13 @@
 
  <div class="container"> 
 
-  <div class="row">
-    <div class="col-offset-6">
-        <div class="digg_pagination">
-            <div class="page_info" style="margin-left:45%">
-              <%= page_entries_info @titles, :model => 'title' %>
-            </div>
-            <div style="margin-left:50%">
-              <%= will_paginate @titles %>
-            </div>  
-        </div> 
-    </div> 
+  <div class="digg_pagination">
+    <div class="page_info row mx-auto">
+      <%= page_entries_info @titles, :model => 'title' %>
+    </div>
+    <%= will_paginate @titles %>
   </div>
+
   <table class="table table-responsive table-striped table-hover mx-auto">
    <thead class="thead-inverse">
     <tr>
@@ -39,17 +34,11 @@
     <% end %>
   </table>
 
-  <div class="row">
-    <div class="col-offset-6">
-        <div class="digg_pagination">
-            <div class="page_info" style="margin-left:45%">
-              <%= page_entries_info @titles, :model => 'title' %>
-            </div>
-            <div style="margin-left:50%">
-              <%= will_paginate @titles %>
-            </div>  
-        </div> 
-    </div> 
+  <div class="digg_pagination">
+    <div class="page_info row mx-auto">
+      <%= page_entries_info @titles, :model => 'title' %>
+    </div>
+    <%= will_paginate @titles %>
   </div>
 
   <div id='filler-space' style="margin-left:38%; position:relative; z-index:-100; height:200px; width:200px">
@@ -61,3 +50,12 @@
  </div>
 
  <% end %>
+
+
+ <script type="text/javascript">
+   $(document).ready(function(){
+
+    $(".pagination").addClass("col-sm-7 row mx-auto");
+  });
+  
+</script>
