@@ -36,18 +36,18 @@ class RoyaltyMail < ActionMailer::Base
 
 
 =end
-    artist = Artist.find(id)
-    @titles = artist.titles
-    email = artist.email
-    @artist_e_name = artist.e_name
-    @artist_j_name = artist.j_name
+    @artist = Artist.find(id)
+    @titles = @artist.titles
+    email = @artist.email
+    @artist_e_name = @artist.e_name
+    @artist_j_name = @artist.j_name
 
     #CHANGE TO START DATE AND END DATE
 
     #end_date = Time.now.to_s
     end_date_init = Date.yesterday.end_of_day.to_s
 	end_date = DateTime.parse(end_date_init).strftime("%m/%d/%Y")
-	start_date_init = DateTime.parse(end_date_init) << artist.r_frequency
+	start_date_init = DateTime.parse(end_date_init) << @artist.r_frequency
 	start_date = DateTime.parse(start_date_init.to_s).strftime("%m/%d/%Y")
 
     #@email = 'ebenezer@emanga.com'

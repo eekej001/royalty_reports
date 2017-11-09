@@ -9,7 +9,7 @@ prev_date = DateTime.parse(prev_date.to_s).strftime("%m/%Y")
 
 end_date_init = Date.yesterday.end_of_day.to_s
 end_date = DateTime.parse(end_date_init).strftime("%m/%d/%Y")
-start_date_init = DateTime.parse(end_date_init) << artist.r_frequency
+start_date_init = DateTime.parse(end_date_init) << @artist.r_frequency
 start_date = DateTime.parse(start_date_init.to_s).strftime("%m/%d/%Y")
 
 #title_name = @titles.find(1).artist.j_name + '(' + @titles.find(1).artist.e_name + ')'
