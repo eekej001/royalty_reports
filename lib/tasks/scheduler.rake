@@ -68,7 +68,12 @@
 	     	puts "Emailing royalty reports..."
 	     	Artist.royalty_report([1, 11])
 
-	     elsif (Time.now.month == 12 && Time.now.day == 1) 
+##################################
+	    elsif (Time.now.month == 11 && Time.now.day == 9) 
+	     	puts "Emailing royalty reports..."
+	     	Artist.royalty_report([3, 12]) 	
+###################################
+	     else (Time.now.month == 12 && Time.now.day == 1) 
 	     	puts "Emailing royalty reports..."
 	     	Artist.royalty_report([1, 2, 3, 4, 6, 12])
 	     end	
