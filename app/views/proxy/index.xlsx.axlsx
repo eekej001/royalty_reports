@@ -2,10 +2,10 @@ wb = xlsx_package.workbook
 final_royalty = 0
 #current_date = Datetime.now
 
-current_date = Time.now.to_s
-current_date = DateTime.parse(current_date).strftime("%m/%Y")
-prev_date = DateTime.parse(current_date) << 3
-prev_date = DateTime.parse(prev_date.to_s).strftime("%m/%Y")
+#current_date = Time.now.to_s
+#current_date = DateTime.parse(current_date).strftime("%m/%Y")
+#prev_date = DateTime.parse(current_date) << 3
+#prev_date = DateTime.parse(prev_date.to_s).strftime("%m/%Y")
 
 end_date_init = Date.yesterday.end_of_day.to_s
 end_date = DateTime.parse(end_date_init).strftime("%m/%d/%Y")
