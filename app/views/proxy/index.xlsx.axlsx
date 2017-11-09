@@ -62,7 +62,7 @@ wb.styles do |style|
 	  #curr_date = Time.now
 	  #prev_date = curr_date - 3.month
 	  end_date = DateTime.yesterday.end_of_day
-	  start_date = (end_date - title.r_frequency.months).beginning_of_month.beginning_of_day
+	  start_date = (end_date - @artist.r_frequency.months).beginning_of_month.beginning_of_day
 
 	   sales_count = title.sales.where(:created_at => start_date..end_date).count
 	   total_sales = sales_count * title.srp

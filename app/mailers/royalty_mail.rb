@@ -53,7 +53,7 @@ class RoyaltyMail < ActionMailer::Base
     #@email = 'ebenezer@emanga.com'
     #@customers = Order.all
     #xlsx = render handlers: [:axlsx], template: 'proxy/index', layout: false, locals: {customers: @customers}
-    xlsx = render handlers: [:axlsx], template: 'proxy/index', layout: false, locals: {titles: @titles, artist: @artist}
+    xlsx = render handlers: [:axlsx], template: 'proxy/index', layout: false, locals: {titles: @titles}
     attachments['report.xls'] = {mime_type: Mime::XLSX, content: xlsx }
 	mail :to => email,
 	     :cc => "ebenezer@emanga.com",
