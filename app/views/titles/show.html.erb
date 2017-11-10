@@ -50,8 +50,15 @@
 </br>
 
 
- <%= link_to("Edit", {:action => 'edit', :id => @title.id, :path_marker => "titles_show"}, :class => 'action edit') %>
+ <%= link_to :action => 'edit', :id => @title.id, :path_marker => "titles_show", :class => 'action edit' do %>
+    <button type="button" class="btn btn-outline-info btn-lg">Edit</button>
+ <% end %>
  </br>
  <%= link_to("Delete", {:action => 'delete', :id => @title.id, :path_marker => "titles_show"}, :class => 'action delete') %>
+
+ <%= link_to :action => 'delete', :id => @title.id, :path_marker => "titles_show", :class => 'action delete' do %>
+    <button type="button" class="btn btn-outline-info btn-lg">Delete</button>
+ <% end %>
+ 
 
 
