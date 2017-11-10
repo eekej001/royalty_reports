@@ -73,9 +73,12 @@
 	     	puts "Emailing royalty reports for November(Test Mode)..."
 	     	Artist.royalty_report([3, 12]) 	
 ###################################
-	     else (Time.now.month == 12 && Time.now.day == 1) 
+	     elsif (Time.now.month == 12 && Time.now.day == 1) 
 	     	puts "Emailing royalty reports for December..."
 	     	Artist.royalty_report([1, 2, 3, 4, 6, 12])
 	     end	
+	    else 
+	     	puts "No reports to email"
+	     end
 
 	end

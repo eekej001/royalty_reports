@@ -74,7 +74,16 @@
      console.log(width_container);
      $("div.pagination").css("width", width_container);
 
-     $("div.pagination").children().css("background", "red");
+    // $("div.pagination").children().css("background", "red");
+
+    $("div.pagination:nth-child(0)").css("background", "red");
+    $("div.pagination:nth-child(1)").css("background", "blue");
+    $("div.pagination:nth-child(2)").css("background", "green");
+    $("div.pagination:nth-child(3)").css("background", "yellow");
+    $("div.pagination:nth-child(4)").css("background", "purple");
+    $("div.pagination:nth-child(5)").css("background", "pink");
+    $("div.pagination:nth-child(6)").css("background", "orange");
+
 
      console.log("Test");
      console.log($("div.pagination:nth-child(0)").width());
