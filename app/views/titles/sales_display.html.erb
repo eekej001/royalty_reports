@@ -12,3 +12,11 @@
 <h1><%= @title.e_title %> Sales</h1>
 
 <div class="sort_paginate_ajax"><%= render 'sales_display' %></div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+     var thead_width = $("thead.table-info").width();    
+     $('table.table').css('width', thead_width);
+  });
+  
+</script>

@@ -18,3 +18,11 @@
 <div class="sort_paginate_ajax"><%= render 'sales' %></div>
 
 
+<script type="text/javascript">
+  $(document).ready(function(){
+     var thead_width = $("thead.table-info").width();    
+     $('table.table').css('width', thead_width);
+  });
+  
+</script>
+
