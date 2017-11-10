@@ -28,8 +28,16 @@
       <td><%= title.j_title %></td>
       <td>$<%= title.srp %></td>
       <td><%= title.sales.count %></td>
-      <td><%= link_to("Edit", {:controller => 'titles', :action => 'edit', :id => title.id, :path_marker => "titles_display"}, :class => 'action edit') %></td>
-      <td><%= link_to("Delete", {:controller => 'titles', :action => 'delete', :id => title.id, :path_marker => "titles_display"}, :class => 'action delete') %></td>
+      <td>
+        <%= link_to :controller => 'titles', :action => "edit", :id => title.id, :path_marker => "titles_display" do %>
+            <%= image_tag("edit.png", :size => "25x25", :title => "Edit", :alt => "Edit") %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to :controller => 'titles', :action => "delete", :id => title.id, :path_marker => "titles_display" do %>
+            <%= image_tag("delete.png", :size => "25x25", :title => "Delete", :alt => "Delete") %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </table>

@@ -15,7 +15,7 @@
 
 <h2>Add a Title</h2>
 
-<div>
+<div class="container">
   <%= form_for(:title, :url => {:controller => 'titles', :action => 'create', :id => @artist.id, :path_marker => @path_marker}) do |f| %>
   <table>
     
@@ -44,4 +44,4 @@
     </tr>
   </table>
   <% end %> 
-</div>
+</div> <!--end container -->
