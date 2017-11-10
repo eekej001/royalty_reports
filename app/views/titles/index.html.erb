@@ -60,7 +60,9 @@
      var child_count = $("div.pagination").children().length;
 
      for (i=0; i<child_count-1; i++) {
-       var temp_width = $("div.pagination:nth-child(i)").width();
+       var string = "div.pagination:nth-child(" + i + ")";
+       //var temp_width = $("div.pagination:nth-child(i)").width();
+       var temp_width = $(string).width();
 
         width_container += temp_width;
      }
