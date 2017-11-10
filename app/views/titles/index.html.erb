@@ -54,3 +54,21 @@
 </div> <!--end container-->
 
 
+<script type="text/javascript">
+  $(document).ready(function(){
+     var width_container = 0;
+     var child_count = $("div.pagination").child().length;
+
+     for (i=0; i<child_count-1; i++) {
+       var temp_width = $("div.pagination:nth-child(i)").width();
+
+        width_container += temp_width;
+     }
+     
+     console.log(width_container);
+     $("div.pagination").css("width", width_container);
+
+  });
+
+
+</script>
