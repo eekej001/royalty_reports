@@ -65,8 +65,10 @@
        console.log(string);
        //var temp_width = $("div.pagination:nth-child(i)").width();
        var temp_width = $(string).width();
+       console.log("Temp Width: " + temp_width);
 
-        width_container += temp_width;
+       width_container += temp_width;
+       console.log("Width Container: " + width_container);
      }
      
      console.log(width_container);
