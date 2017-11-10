@@ -58,9 +58,11 @@
   $(document).ready(function(){
      var width_container = 0;
      var child_count = $("div.pagination").children().length;
+     console.log("Child count: " + child_count);
 
      for (i=0; i<child_count-1; i++) {
        var string = "div.pagination:nth-child(" + i + ")";
+       console.log(string);
        //var temp_width = $("div.pagination:nth-child(i)").width();
        var temp_width = $(string).width();
 
