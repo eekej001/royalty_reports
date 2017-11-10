@@ -17,54 +17,55 @@
 
 <div class="sort_paginate_ajax"><%= render 'artists' %></div>
 
+<div class="container">
+  <div class="add-form">
 
-<div class="add-form">
+      <h2>Add An artist</h2>
 
-    <h2>Add An artist</h2>
-
-    <div>
-      <%= form_for(:artist, :url => {:action => 'create'}) do |f| %>
-      <table>
-       <tr>
-          <td><%= f.label(:e_name, "English Name") %></td>
-          <td><%= f.text_field(:e_name) %></td>
-       </tr>
-
-
-       <tr>
-          <td><%= f.label(:j_name, "Japanese Name") %></td>
-          <td><%= f.text_field(:j_name) %></td>
-       </tr>
-
-       <tr>
-          <td><%= f.label(:email, "Email") %></td>
-          <td><%= f.text_field(:email) %></td>
-       </tr>
+      <div>
+        <%= form_for(:artist, :url => {:action => 'create'}) do |f| %>
+        <table>
+         <tr>
+            <td><%= f.label(:e_name, "English Name") %></td>
+            <td><%= f.text_field(:e_name) %></td>
+         </tr>
 
 
-       <tr>
-          <td><%= f.label(:percent, "Royalty Percent") %></td>
-          <td><%= f.number_field(:percent, min: 0, max:100) %>%</td>
-       </tr>
+         <tr>
+            <td><%= f.label(:j_name, "Japanese Name") %></td>
+            <td><%= f.text_field(:j_name) %></td>
+         </tr>
+
+         <tr>
+            <td><%= f.label(:email, "Email") %></td>
+            <td><%= f.text_field(:email) %></td>
+         </tr>
 
 
-       <tr>
-          <td><%= f.label(:r_frequency, "Report Frequency") %></td>
-          <td><%= f.number_field(:r_frequency, min: 0, max:12) %> Months</td>
-       </tr>
+         <tr>
+            <td><%= f.label(:percent, "Royalty Percent") %></td>
+            <td><%= f.number_field(:percent, min: 0, max:100) %>%</td>
+         </tr>
 
 
-       <tr>
-          <td><%= f.label(:p_frequency, "Payment Frequency") %></td>
-          <td><%= f.number_field(:p_frequency, min: 0, max:12) %> Months</td>
-       </tr>
+         <tr>
+            <td><%= f.label(:r_frequency, "Report Frequency") %></td>
+            <td><%= f.number_field(:r_frequency, min: 0, max:12) %> Months</td>
+         </tr>
 
-        <tr>
-          <td>&nbsp;</td>
-          <td><%= submit_tag("Submit") %></td>
-        </tr>
-      </table>
-      <% end %> 
-    </div>
 
-</div> <!-- end add-form -->
+         <tr>
+            <td><%= f.label(:p_frequency, "Payment Frequency") %></td>
+            <td><%= f.number_field(:p_frequency, min: 0, max:12) %> Months</td>
+         </tr>
+
+          <tr>
+            <td>&nbsp;</td>
+            <td><%= submit_tag("Submit") %></td>
+          </tr>
+        </table>
+        <% end %> 
+      </div>
+
+  </div> <!-- end add-form -->
+</div> <!-- end container -->
