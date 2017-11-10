@@ -113,23 +113,28 @@ form {
 
 
     <div class="row mx-auto">
+         <div class="col-sm-4">
 	       <%= label(:start_date, "Start Date") %>
 
-	        <div class="input-group date col-sm-4" id="dateRangePicker1" >
+	        <div class="input-group date" id="dateRangePicker1" >
 	          <%= text_field_tag "start_date", '', class: "form-control", readonly: "readonly", disabled: "true" %>
 	          <span class="input-group-addon add-on">
 	             <i class="glyphicon glyphicon-calendar"></i>
 	           </span>  
 	        </div>
+         </div>
 
+
+         <div class="col-sm-4"> 
 	       <%= label(:end_date, "End Date") %>
 
-	        <div class="input-group date col-sm-4" id="dateRangePicker2" >
+	        <div class="input-group date" id="dateRangePicker2" >
 	          <%= text_field_tag "end_date", '', class: "form-control", readonly: "readonly", disabled: "true" %>
 	          <span class="input-group-addon add-on">
 	             <i class="glyphicon glyphicon-calendar"></i>
 	           </span>  
-	        </div>  
+	        </div>
+	     </div>     
     </div> <!--row-->    
 
     <div class="row mt-3 align-items-cneter">
