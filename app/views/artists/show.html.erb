@@ -51,4 +51,10 @@
 </div> 
 
 </br>
-
+ <%= link_to :action => 'edit', :id => @artist.id, :path_marker => "artists_show", :class => 'action edit' do %>
+    <button type="button" class="btn btn-outline-info btn-lg">Edit</button>
+ <% end %>
+ </br>
+ <%= link_to :action => 'delete', :id => @artist.id, :path_marker => "artists_show", :class => 'action delete' do %>
+    <button type="button" class="btn btn-outline-info btn-lg">Delete</button>
+ <% end %>
