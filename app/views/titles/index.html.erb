@@ -57,7 +57,7 @@
 <script type="text/javascript">
   $(document).ready(function(){
      var width_container = 0;
-     var child_count = $("div.pagination").children().length;
+     /*var child_count = $("div.pagination").children().length;
      console.log("Child count: " + child_count);
 
      for (i=0; i<child_count-1; i++) {
@@ -96,6 +96,14 @@
      console.log("Width____");
      console.log($("div.pagination").children().width());
 
+    */
+
+
+    $("div.pagination").children().each(function(i) {
+         width_container += $(this).width();
+     });
+    console.log(width_container);
+    $("div.pagination").css("width", width_container);
 
 
   });
