@@ -104,20 +104,27 @@
          width_container += $(this).css("width");
     });
 
-   /*
+   
     $("div.pagination").children('em').each(function(i) {
          $(this).css("background", "red");
-         width_container += $(this).width();
+         width_container += $(this).css("width");
     });
-  */
 
-/*
+
     $("div.pagination").children('a').each(function(i) {
          $(this).css("background", "red");
-         width_container += $(this).width();
+         width_container += $(this).css("width");
+    });
+  
+   var width_test = 0
+
+    $("div.pagination").children().each(function(i) {
+        // $(this).css("background", "red");
+         width_test += $(this).width();
      });
-*/
-    console.log(width_container);
+
+    console.log("Width Container: " + width_container);
+    console.log("Width Test: " + width_test);
     $("div.pagination").css("width", width_container);
 
 
