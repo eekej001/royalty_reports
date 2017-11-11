@@ -101,7 +101,8 @@
 
     $("div.pagination").children('span').each(function(i) {
          $(this).css("background", "red");
-         width_container += parseFloat($(this).css("width"));
+         //width_container += parseFloat($(this).css("width"));
+         width_container += $(this).css("width");
     });
 
    
