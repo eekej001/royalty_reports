@@ -101,20 +101,20 @@
 
     $("div.pagination").children('span').each(function(i) {
          $(this).css("background", "red");
-         width_container += (parseFloat($(this).css("width")) + 16 )/2;
+         width_container += (parseFloat($(this).css("width")) + 8 )/2;
          //width_container += $(this).css("width");
     });
 
    
     $("div.pagination").children('em').each(function(i) {
          $(this).css("background", "blue");
-        width_container += (parseFloat($(this).css("width")) + 16 )/2;
+        width_container += (parseFloat($(this).css("width")) + 8 )/2;
     });
 
 
     $("div.pagination").children('a').each(function(i) {
          $(this).css("background", "green");
-        width_container += (parseFloat($(this).css("width")) + 16 )/2;
+        width_container += (parseFloat($(this).css("width")) + 8 )/2;
     });
   
    var width_test = 0
@@ -122,7 +122,7 @@
     $("div.pagination").children().each(function(i) {
         // $(this).css("background", "red");
         // width_test += parseFloat($(this).css("width"));
-        width_test += (parseFloat($(this).css("width")) + 16 )/2;
+        width_test += (parseFloat($(this).css("width")) + 8 )/2;
      });
 
     console.log("Width Container: " + width_container);
