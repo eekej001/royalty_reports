@@ -57,76 +57,31 @@
 <script type="text/javascript">
   $(document).ready(function(){
      var width_container = 0;
-     /*var child_count = $("div.pagination").children().length;
-     console.log("Child count: " + child_count);
-
-     for (i=0; i<child_count-1; i++) {
-       var string = "div.pagination:nth-child(" + i + ")";
-       console.log(string);
-       //var temp_width = $("div.pagination:nth-child(i)").width();
-       var temp_width = $(string).width();
-       console.log("Temp Width: " + temp_width);
-
-       width_container += temp_width;
-       console.log("Width Container: " + width_container);
-     }
      
-     console.log(width_container);
-     $("div.pagination").css("width", width_container);
-
-    // $("div.pagination").children().css("background", "red");
-
-    $("div.pagination:nth-child(0)").css("background", "red");
-    $("div.pagination:nth-child(1)").css("background", "blue");
-    $("div.pagination:nth-child(2)").css("background", "green");
-    $("div.pagination:nth-child(3)").css("background", "yellow");
-    $("div.pagination:nth-child(4)").css("background", "purple");
-    $("div.pagination:nth-child(5)").css("background", "pink");
-    $("div.pagination:nth-child(6)").css("background", "orange");
-
-
-     console.log("Test");
-     console.log($("div.pagination:nth-child(0)").width());
-     console.log($("div.pagination:nth-child(1)").width());
-     console.log($("div.pagination:nth-child(2)").width());
-     console.log($("div.pagination:nth-child(3)").width());
-     console.log($("div.pagination:nth-child(4)").width());
-     console.log($("div.pagination:nth-child(5)").width());
-     console.log($("div.pagination:nth-child(6)").width());
-     console.log("Width____");
-     console.log($("div.pagination").children().width());
-
-    */
 
 
     $("div.pagination").children('span').each(function(i) {
-         //$(this).css("background", "red");
          width_container += (parseFloat($(this).css("width")) + 5 )/2;
-         //width_container += $(this).css("width");
     });
 
    
     $("div.pagination").children('em').each(function(i) {
-         //$(this).css("background", "blue");
         width_container += (parseFloat($(this).css("width")) + 5 )/2;
     });
 
 
     $("div.pagination").children('a').each(function(i) {
-         //$(this).css("background", "green");
         width_container += (parseFloat($(this).css("width")) + 5 )/2;
     });
   
    var width_test = 0
 
     $("div.pagination").children().each(function(i) {
-        // $(this).css("background", "red");
-        // width_test += parseFloat($(this).css("width"));
         width_test += (parseFloat($(this).css("width")) + 5 )/2;
      });
 
-    console.log("Width Container: " + width_container);
-    console.log("Width Test: " + width_test);
+    //console.log("Width Container: " + width_container);
+    //console.log("Width Test: " + width_test);
     $("div.pagination").css("width", width_container);
 
 

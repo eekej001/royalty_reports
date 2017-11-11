@@ -19,4 +19,36 @@
      $('table.table').css('width', thead_width);
   });
   
+
+  $(document).ready(function(){
+     var width_container = 0;
+     
+
+
+    $("div.pagination").children('span').each(function(i) {
+         width_container += (parseFloat($(this).css("width")) + 5 )/2;
+    });
+
+   
+    $("div.pagination").children('em').each(function(i) {
+        width_container += (parseFloat($(this).css("width")) + 5 )/2;
+    });
+
+
+    $("div.pagination").children('a').each(function(i) {
+        width_container += (parseFloat($(this).css("width")) + 5 )/2;
+    });
+  
+   var width_test = 0
+
+    $("div.pagination").children().each(function(i) {
+        width_test += (parseFloat($(this).css("width")) + 5 )/2;
+     });
+
+    $("div.pagination").css("width", width_container);
+
+
+  });
+
+
 </script>
