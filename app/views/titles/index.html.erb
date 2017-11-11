@@ -101,26 +101,26 @@
 
     $("div.pagination").children('span').each(function(i) {
          $(this).css("background", "red");
-         width_container += $(this).css("width");
+         width_container += parseInt($(this).css("width"), 10);
     });
 
    
     $("div.pagination").children('em').each(function(i) {
          $(this).css("background", "red");
-         width_container += $(this).css("width");
+         width_container += parseInt($(this).css("width"), 10);
     });
 
 
     $("div.pagination").children('a').each(function(i) {
          $(this).css("background", "red");
-         width_container += $(this).css("width");
+         width_container += parseInt($(this).css("width"), 10);
     });
   
    var width_test = 0
 
     $("div.pagination").children().each(function(i) {
         // $(this).css("background", "red");
-         width_test += $(this).width();
+         width_container += parseInt($(this).css("width"), 10);
      });
 
     console.log("Width Container: " + width_container);
