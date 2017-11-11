@@ -100,15 +100,15 @@
 
 
     $("div.pagination").children('span').each(function(i) {
-         //$(this).css("background", "red");
-         width_container += $(this).width() + 16;
+         $(this).css("background", "red");
+         width_container += $(this).width();
      });
 
     $("div.pagination").children('a').each(function(i) {
-         //$(this).css("background", "red");
-         width_container += $(this).width() + 16;
+         $(this).css("background", "red");
+         width_container += $(this).width();
      });
-    
+
     console.log(width_container);
     $("div.pagination").css("width", width_container);
 
