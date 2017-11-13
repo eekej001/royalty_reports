@@ -112,13 +112,6 @@ def title_delete2
  end 
 
 
-def title_destroy2
-    title = Title.find(params[:id]).destroy
-    flash[:notice] = "The title '#{title.e_title}' has been successfully deleted."
-    redirect_to(:action => 'title_show', :id => title.id)
- end 
-
-
 
 
   private 
