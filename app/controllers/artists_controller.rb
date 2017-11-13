@@ -80,7 +80,7 @@ def title_show
     @title = Title.find(params[:id])
     if @title.update_attributes(title_params)
       flash[:notice] = "#{@title.e_title} updated successfully."
-      redirect_to(:action => 'titles_display')
+      redirect_to(:action => 'titles_display', :id => @title.id)
     else  
       render('title_edit')
     end  
