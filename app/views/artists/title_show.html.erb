@@ -45,10 +45,10 @@
 </br>
 </br>
 
- <%= link_to :action => 'edit', :id => @title.id, :path_marker => "titles_show", :class => 'action edit' do %>
+ <%= link_to :action => 'title_edit', :id => @title.id, :class => 'action edit' do %>
     <button type="button" class="btn btn-outline-info btn-lg">Edit</button>
  <% end %>
  </br>
- <%= link_to :action => 'delete', :id => @title.id, :path_marker => "titles_show", :class => 'action delete' do %>
+ <%= link_to :action => 'title_delete', :id => @title.id, :class => 'action delete' do %>
     <button type="button" class="btn btn-outline-info btn-lg">Delete</button>
  <% end %>
