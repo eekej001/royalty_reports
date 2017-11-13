@@ -8,7 +8,7 @@ class ArtistsController < ShopifyApp::AuthenticatedController
 def create
     @artist = Artist.new(artist_params)
     if @artist.save
-      flash[:notice] = "Artist (#{@artist.e_name}) Created"
+      flash[:notice] = "Artist '#{@artist.e_name}' Created"
       redirect_to(action: 'index')
      # redirect_to(action: 'artists', email: params[:email])
     else

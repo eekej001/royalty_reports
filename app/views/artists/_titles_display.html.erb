@@ -29,12 +29,12 @@
       <td>$<%= title.srp %></td>
       <td><%= title.sales.count %></td>
       <td>
-        <%= link_to :controller => 'artists', :action => "title_edit", :id => title.id, :path_marker => "titles_display" do %>
+        <%= link_to :controller => 'artists', :action => "title_edit", :id => title.id do %>
             <%= image_tag("edit.png", :size => "25x25", :title => "Edit", :alt => "Edit") %>
         <% end %>
       </td>
       <td>
-        <%= link_to :controller => 'artists', :action => "title_delete", :id => title.id, :path_marker => "titles_display" do %>
+        <%= link_to :controller => 'artists', :action => "title_delete", :id => title.id do %>
             <%= image_tag("delete.png", :size => "25x25", :title => "Delete", :alt => "Delete") %>
         <% end %>
       </td>

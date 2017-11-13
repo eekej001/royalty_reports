@@ -8,7 +8,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
  def create
     @title = Title.new(title_params)
     if @title.save
-      flash[:notice] = "Title Successfully Added"
+      flash[:notice] = "#{@title.e_title} Successfully Added"
       c = request.path_parameters[:controller]
       a = request.path_parameters[:action]
 
@@ -94,7 +94,7 @@ class TitlesController < ShopifyApp::AuthenticatedController
  def update
     @title = Title.find(params[:id])
     if @title.update_attributes(title_params)
-      flash[:notice] = "Title updated successfully."
+      flash[:notice] = "#{@title.e_title} updated successfully."
       redirect_to(:action => 'index')
     else  
       render('edit')
