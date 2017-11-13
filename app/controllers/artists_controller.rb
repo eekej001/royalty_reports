@@ -128,6 +128,10 @@ def title_destroy2
       params.require(:artist).permit(:e_name, :j_name, :email, :percent, :r_frequency, :p_frequency) 
     end 
 
+    def title_params
+      params.require(:title).permit(:artist_id, :j_title, :e_title, :srp) 
+    end 
+
 
 
 end

@@ -117,7 +117,7 @@ def delete
   private 
 
     def title_params
-      params.require(:title).permit(:artist_id, :j_title, :e_title, :srp ) 
+      params.require(:title).permit(:artist_id, :j_title, :e_title, :srp) 
     end 
 
  
