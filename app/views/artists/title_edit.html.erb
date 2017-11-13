@@ -11,7 +11,7 @@
 <div class="titles edit">
   <h2>Update <span style="font-weight:bold"><%= @title.e_title %></span></h2>
 
-  <%= form_for(:title, :url => {:action => 'update', :id => @title.id}) do |f| %>
+  <%= form_for(:title, :url => {:action => 'title_update', :id => @title.id}) do |f| %>
 	<table>
 	    <tr>
 	      <td><%= f.label(:artist_id, "Artist") %></td>
