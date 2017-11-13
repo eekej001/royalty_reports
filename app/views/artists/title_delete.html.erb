@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="titles delete">
-  <h2>Delete Title</h2>
+  <h2>Delete <span style="font-weight:bold"><%= @title.e_title %></span></h2>
 
   <%= form_for(:title, :url => {:action => 'title_destroy', :id => @title.id}) do |f| %>
 
