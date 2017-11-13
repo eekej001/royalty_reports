@@ -72,6 +72,10 @@ def title_show
     @title = Title.find(params[:id])
  end
 
+ def title_edit2
+    @title = Title.find(params[:id])
+ end
+
  def title_update
     @title = Title.find(params[:id])
     if @title.update_attributes(title_params)
@@ -87,11 +91,22 @@ def title_show
     @title = Title.find(params[:id])
  end
 
+def title_delete2
+    @title = Title.find(params[:id])
+ end
 
  def title_destroy
     title = Title.find(params[:id]).destroy
+    flash[:notice] = "The title '#{title.e_title}' has been successfully deleted."
+    redirect_to(:action => 'titles_display', :id => title.artist_id)
  end 
 
+
+def title_destroy2
+    title = Title.find(params[:id]).destroy
+    flash[:notice] = "The title '#{title.e_title}' has been successfully deleted."
+    redirect_to(:action => 'title_show', :id => title.id)
+ end 
 
 
 

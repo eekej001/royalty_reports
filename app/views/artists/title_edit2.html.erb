@@ -4,7 +4,7 @@
   <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
 </head>
 
-<%= link_to :controller => 'artists', :action => 'titles_display', :id => @title.id do %>
+<%= link_to :controller => 'artists', :action => 'title_show', :id => @title.id do %>
    <button type="button" class="btn btn-info">Back to Title List</button>
 <% end %>
 
