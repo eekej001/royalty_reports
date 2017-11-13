@@ -23,6 +23,10 @@ def edit
     @artist = Artist.find(params[:id])
  end
 
+ def edit2
+    @artist = Artist.find(params[:id])
+ end
+
  def show
     @artist = Artist.find(params[:id])
  end
@@ -52,10 +56,26 @@ def edit
     end  
   end 
 
+  def update2
+    @artist = Artist.find(params[:id])
+    if @artist.update_attributes(artist_params)
+      flash[:notice] = "#{@artist.e_name}'s information has been successfully updated."
+      redirect_to(:action => 'show', :id => @artist.id)
+    else  
+      render('edit')
+    end  
+  end 
 
-def delete
+
+ def delete
     @artist = Artist.find(params[:id])
  end
+
+ def delete2
+    @artist = Artist.find(params[:id])
+ end
+
+
 
  def destroy
     artist = Artist.find(params[:id]).destroy

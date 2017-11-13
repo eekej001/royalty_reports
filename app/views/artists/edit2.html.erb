@@ -1,0 +1,45 @@
+<head>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
+</head>
+
+<%= link_to :controller => 'artists', :action => 'show', :id => @artist.id do %>
+  <button type="button" class="btn btn-info">Back to Artist List</button>
+<% end %>
+
+<div class="artists edit">
+  <h2>Update <span style="font-weight:bold"><%= @artist.e_name %>'s</span> Information</h2>
+
+  <%= form_for(:artist, :url => {:action => 'update2', :id => @artist.id}) do |f| %>
+		<table summary="Artist Form Fields">
+		  <tr>
+		    <th><%= f.label(:e_name, "English Name") %></th>
+		    <td><%= f.text_field(:e_name) %></td>
+		  </tr>	
+		  <tr>
+		    <th><%= f.label(:j_name, "Japanese Name") %></th>
+		    <td><%= f.text_field(:j_name) %></td>
+		  </tr>
+		  <tr>
+		    <th><%= f.label(:email, "Email") %></th>
+		    <td><%= f.text_field(:email) %></td>
+		  </tr>
+		  <tr>
+		    <th><%= f.label(:percent, "Royalty Percent") %></th>
+		    <td><%= f.number_field(:percent) %></td>
+		  </tr>	
+		  <tr>
+		    <th><%= f.label(:r_frequency, "Report Frequency") %></th>
+		    <td><%= f.number_field(:r_frequency) %></td>
+		  </tr>
+		  <tr>
+		    <th><%= f.label(:p_frequency, "Payment Frequency") %></th>
+		    <td><%= f.number_field(:p_frequency) %></td>
+		  </tr>					  
+		</table>
+    <div class="form-buttons">
+      <%= submit_tag("Update #{@artist.e_name}") %>
+    </div>
+  <% end %>
+</div>   
