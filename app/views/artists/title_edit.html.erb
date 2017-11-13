@@ -1,0 +1,46 @@
+<head>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
+</head>
+
+<%= link_to :controller => 'artists', :action => 'title_show' do %>
+   <button type="button" class="btn btn-info">Back to Title List</button>
+<% end %>
+
+<div class="titles edit">
+  <h2>Update <span style="font-weight:bold"><%= @title.e_title %></span></h2>
+
+  <%= form_for(:title, :url => {:action => 'update', :id => @title.id}) do |f| %>
+	<table>
+	    <tr>
+	      <td><%= f.label(:artist_id, "Artist") %></td>
+	      <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true }, :selected => @title.artist.e_name %><td>
+	    </tr>
+
+
+	    <tr>
+	      <td><%= f.label(:e_title, "English Title") %></td>
+	      <td><%= f.text_field :e_title, :value => @title.e_title %></td>
+	    </tr>
+
+	     <tr>
+	      <td><%= f.label(:j_title, "Japanese Title") %></td>
+	      <td><%= f.text_field :j_title, :value => @title.j_title %></td>
+	    </tr>
+
+	    <tr>
+	      <td><%= f.label(:srp, "SRP") %></td>
+	      <td><%= f.text_field :srp, :value => @title.srp %></td>
+	    </tr>
+
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td><%= submit_tag("Submit") %></td>
+	    </tr>
+  </table>
+  <% end %>
+
+
+
+</div>   

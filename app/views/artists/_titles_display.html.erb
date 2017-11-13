@@ -24,17 +24,17 @@
    </thead>
     <% @titles.each_with_index do |title, index| %>
     <tr>
-      <th scope="row"><%= link_to(title.e_title, {:controller => 'titles', :action => 'show', :id => title.id, :path_marker => "titles_display"}, :class => 'action show') %></th>
+      <th scope="row"><%= link_to(title.e_title, {:controller => 'artists', :action => 'title_show', :id => title.id, :path_marker => "titles_display"}, :class => 'action show') %></th>
       <td><%= title.j_title %></td>
       <td>$<%= title.srp %></td>
       <td><%= title.sales.count %></td>
       <td>
-        <%= link_to :controller => 'titles', :action => "edit", :id => title.id, :path_marker => "titles_display" do %>
+        <%= link_to :controller => 'artists', :action => "title_edit", :id => title.id, :path_marker => "titles_display" do %>
             <%= image_tag("edit.png", :size => "25x25", :title => "Edit", :alt => "Edit") %>
         <% end %>
       </td>
       <td>
-        <%= link_to :controller => 'titles', :action => "delete", :id => title.id, :path_marker => "titles_display" do %>
+        <%= link_to :controller => 'artists', :action => "title_delete", :id => title.id, :path_marker => "titles_display" do %>
             <%= image_tag("delete.png", :size => "25x25", :title => "Delete", :alt => "Delete") %>
         <% end %>
       </td>

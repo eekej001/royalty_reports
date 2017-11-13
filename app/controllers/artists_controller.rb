@@ -39,6 +39,9 @@ def edit
  end
 
 
+ 	
+
+
   def update
     @artist = Artist.find(params[:id])
     if @artist.update_attributes(artist_params)
@@ -59,6 +62,37 @@ def delete
     flash[:notice] = "#{artist.e_name} has been successfully deleted."
     redirect_to(action: 'index')
   end
+
+
+def title_show
+    @title = Title.find(params[:id])
+ end
+
+ def title_edit
+    @title = Title.find(params[:id])
+ end
+
+ def title_update
+    @title = Title.find(params[:id])
+    if @title.update_attributes(title_params)
+      flash[:notice] = "Title updated successfully."
+      redirect_to(:action => 'index')
+    else  
+      render('title_edit')
+    end  
+ end	
+
+
+ def title_delete
+    @title = Title.find(params[:id])
+ end
+
+
+ def title_destroy
+    title = Title.find(params[:id]).destroy
+ end 
+
+
 
 
 

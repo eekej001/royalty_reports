@@ -1,0 +1,54 @@
+<head>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+
+  <%= javascript_include_tag "bootstrap.min", "jquery.slim.min", "tether.min" %>
+</head>
+
+
+<%= link_to :controller => 'artists', :action => 'titles_display', :id => @title.artist_id do %>
+  <button type="button" class="btn btn-info">Back to Title List</button>
+<% end %>
+
+
+
+
+<h1><%= @title.e_title %></h1>
+
+<div>
+  <table class="table table-responsive">
+    <tr>
+      <td>English Title</td>
+      <td><%= @title.e_title %></td>
+    </tr>
+    <tr>
+     <td>Japanese Title</td>
+      <td><%= @title.j_title %></td>
+    </tr>
+    <tr>
+     <td>SRP</td>
+      <td><%= @title.srp %></td>
+    </tr>
+  </table>
+</div> 
+
+</br>
+
+<% if @title.populated == 0 %>
+    <%= link_to :controller => 'titles', :action => 'populate', :id => @title.id do %>
+      <button type="button" class="btn btn-info">Fill Database With Shopify Order Records for this Title</button> 
+     <% end %>
+<% elsif @title.populated == 1 %>
+    <button type="button" class="btn btn-warning" disabled>Database Is Being Populated With Shopify Order Records for this Title</button>        
+<% else %>
+    <button type="button" class="btn btn-success" disabled>Database Has Already Been Filled With Shopify Order Records for this Title</button>
+<% end %>
+</br>
+</br>
+
+ <%= link_to :action => 'edit', :id => @title.id, :path_marker => "titles_show", :class => 'action edit' do %>
+    <button type="button" class="btn btn-outline-info btn-lg">Edit</button>
+ <% end %>
+ </br>
+ <%= link_to :action => 'delete', :id => @title.id, :path_marker => "titles_show", :class => 'action delete' do %>
+    <button type="button" class="btn btn-outline-info btn-lg">Delete</button>
+ <% end %>
