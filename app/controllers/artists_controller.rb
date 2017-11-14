@@ -79,6 +79,8 @@ def edit
 
  def destroy
     artist = Artist.find(params[:id]).destroy
+    Title.destroy_all(:artist_id => artist.id)
+    Sale.destroy_all(:artist_id => artist.id)
     flash[:notice] = "#{artist.e_name} has been successfully deleted."
     redirect_to(action: 'index')
   end
@@ -127,6 +129,7 @@ def title_delete2
 
  def title_destroy
     title = Title.find(params[:id]).destroy
+    Sale.destroy_all(:title_id => title.id)
     flash[:notice] = "The title '#{title.e_title}' has been successfully deleted."
     redirect_to(:action => 'titles_display', :id => title.artist_id)
  end 
