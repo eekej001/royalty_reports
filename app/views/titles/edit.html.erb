@@ -5,17 +5,13 @@
 </head>
 
 <% if @path_marker == "titles_display" %>
-    <%= link_to :controller => 'artists', :action => 'titles_display', :id => @title.artist_id, :path_params => "titles_display" do %>
-       <button type="button" class="btn btn-info">Back to Title List</button>
-    <% end %>
+    <%= link_to :controller => 'titles', :action => 'index' do %>
+    <button type="button" class="btn btn-info">Back to Title List</button>
+  <% end %>
 <% elsif @path_marker == "titles_show"%>
     <%= link_to :controller => 'titles', :action => 'show', :id => @title.id, :path_params => "titles_show" do %>
        <button type="button" class="btn btn-info">Back to Title Details</button>
     <% end %>
-<% else %>
-  <%= link_to :controller => 'titles', :action => 'index' do %>
-    <button type="button" class="btn btn-info">Back to Title List</button>
-  <% end %>
 <% end %>
 
 <div class="titles edit">
