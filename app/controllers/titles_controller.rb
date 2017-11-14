@@ -101,6 +101,16 @@ class TitlesController < ShopifyApp::AuthenticatedController
     end  
   end 
 
+  def update2
+    @title = Title.find(params[:id])
+    if @title.update_attributes(title_params)
+      flash[:notice] = "#{@title.e_title} updated successfully."
+      redirect_to(:action => 'show', :id => @title.id)
+    else  
+      render('edit')
+    end  
+  end 
+
 def delete
     if params[:path_marker]
       @path_marker = params[:path_marker]
