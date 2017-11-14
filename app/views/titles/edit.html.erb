@@ -21,7 +21,11 @@
 <div class="titles edit">
   <h2>Update <span style="font-weight:bold"><%= @title.e_title %></span></h2>
 
+<% if @path_marker == "titles_display" %>
   <%= form_for(:title, :url => {:action => 'update', :id => @title.id}) do |f| %>
+<% elsif @path_marker == "titles_show"%>
+   <%= form_for(:title, :url => {:action => 'update2', :id => @title.id}) do |f| %>
+<% end %>
 	<table>
 	    <tr>
 	      <td><%= f.label(:artist_id, "Artist") %></td>

@@ -21,6 +21,7 @@
 <div class="titles delete">
   <h2>Delete <span style="font-weight:bold"><%= @title.e_title %></span></h2>
 
+  
   <%= form_for(:title, :url => {:action => 'destroy', :id => @title.id}) do |f| %>
 
     <p>Are you sure you want to permanently delete this title?</p>
