@@ -23,9 +23,6 @@
 
 <% if @path_marker == "titles_display" %>
   <%= form_for(:title, :url => {:action => 'update', :id => @title.id}) do |f| %>
-<% elsif @path_marker == "titles_show"%>
-   <%= form_for(:title, :url => {:action => 'update2', :id => @title.id}) do |f| %>
-<% end %>
 	<table>
 	    <tr>
 	      <td><%= f.label(:artist_id, "Artist") %></td>
@@ -54,6 +51,41 @@
 	    </tr>
   </table>
   <% end %>
+
+
+  <% elsif @path_marker == "titles_show"%>
+     <%= form_for(:title, :url => {:action => 'update2', :id => @title.id}) do |f| %>
+     <table>
+	    <tr>
+	      <td><%= f.label(:artist_id, "Artist") %></td>
+	      <td><%= f.select :artist_id, Artist.all.collect {|x| [ x.e_name, x.id ] }, { :include_blank => true }, :selected => @title.artist.e_name %><td>
+	    </tr>
+
+
+	    <tr>
+	      <td><%= f.label(:e_title, "English Title") %></td>
+	      <td><%= f.text_field :e_title, :value => @title.e_title %></td>
+	    </tr>
+
+	     <tr>
+	      <td><%= f.label(:j_title, "Japanese Title") %></td>
+	      <td><%= f.text_field :j_title, :value => @title.j_title %></td>
+	    </tr>
+
+	    <tr>
+	      <td><%= f.label(:srp, "SRP") %></td>
+	      <td><%= f.text_field :srp, :value => @title.srp %></td>
+	    </tr>
+
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td><%= submit_tag("Submit") %></td>
+	    </tr>
+  </table>
+  <% end %>
+
+
+<% end %>
 
 
 
