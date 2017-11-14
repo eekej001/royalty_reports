@@ -26,11 +26,11 @@
    </thead> 
     <% @titles.each_with_index do |title, index| %>
     <tr>
-    <th scope="row"><%= link_to(title.e_title, {:action => 'show', :id => title.id, :path_params => 'titles_display'}, :class => 'action show') %></th>
+    <th scope="row"><%= link_to(title.e_title, {:action => 'show', :id => title.id, :path_marker => 'titles_display'}, :class => 'action show') %></th>
     <td><%= title.j_title %></td>
     <td><%= title.artist.e_name %></td>
     <td>$<%= title.srp %></td>
-    <td><%= link_to(title.sales.count, {:action => 'sales_display', :id => title.id, :path_params => 'titles_display'}, :class => 'action show') %></td>
+    <td><%= link_to(title.sales.count, {:action => 'sales_display', :id => title.id, :path_marker => 'titles_display'}, :class => 'action show') %></td>
     <td><%= link_to :action => "edit", :id => title.id do %>
             <%= image_tag("edit.png", :size => "25x25", :title => "Edit", :alt => "Edit") %>
         <% end %>
