@@ -30,12 +30,12 @@
     <td><%= title.j_title %></td>
     <td><%= title.artist.e_name %></td>
     <td>$<%= title.srp %></td>
-    <td><%= link_to(title.sales.count, {:action => 'sales_display', :id => title.id, :path_marker => 'titles_display'}, :class => 'action show') %></td>
-    <td><%= link_to :action => "edit", :id => title.id do %>
+    <td><%= link_to(title.sales.count, {:action => 'sales_display', :id => title.id}, :class => 'action show') %></td>
+    <td><%= link_to :action => "edit", :id => title.id, :path_marker => 'titles_display' do %>
             <%= image_tag("edit.png", :size => "25x25", :title => "Edit", :alt => "Edit") %>
         <% end %>
     </td>
-    <td><%= link_to :action => "delete", :id => title.id do %>
+    <td><%= link_to :action => "delete", :id => title.id, :path_marker => 'titles_display' do %>
             <%= image_tag("delete.png", :size => "25x25", :title => "Delete", :alt => "Delete") %>
         <% end %>
     </td>
