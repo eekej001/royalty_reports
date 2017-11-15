@@ -26,7 +26,7 @@
    </thead> 
     <% @titles.each_with_index do |title, index| %>
     <tr>
-    <th scope="row"><%= link_to(title.e_title, {:action => 'show', :id => title.id, :path_marker => 'titles_display'}, :class => 'action show') %></th>
+    <th scope="row"><%= link_to(title.e_title, {:action => 'show', :id => title.id}, :class => 'action show') %></th>
     <td><%= title.j_title %></td>
     <td><%= title.artist.e_name %></td>
     <td>$<%= title.srp %></td>
