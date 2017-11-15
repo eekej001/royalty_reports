@@ -4,8 +4,9 @@
     <meta charset="utf-8" />
     <% application_name = ShopifyApp.configuration.application_name %>
     <title><%= application_name.presence || 'Embedded Shopify App Example' %></title>
-    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'application', :media => "all" %>
     <%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
+    <%= javascript_include_tag  "jquery.slim.min", "tether.min", "bootstrap.min", "pagination" %>
     <%= csrf_meta_tags %>
   </head>
 
