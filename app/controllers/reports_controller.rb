@@ -7,7 +7,7 @@ class ReportsController < ShopifyApp::AuthenticatedController
 	  PayPal::SDK.configure(
 	  :mode => "sandbox", # "sandbox" or "live"
 	  :client_id => ENV["CLIENT_ID"],
-	  :client_secret => "EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM")
+	  :client_secret => ENV['SECRET'])
 
 	  @payout = Payout.new(
 	  {
