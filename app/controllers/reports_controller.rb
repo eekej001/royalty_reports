@@ -2,6 +2,45 @@ class ReportsController < ShopifyApp::AuthenticatedController
 
  def index
     @artists = Artist.all
+
+
+	  PayPal::SDK.configure(
+	  :mode => "sandbox", # "sandbox" or "live"
+	  :client_id => ENV["CLIENT_ID"],
+	  :client_secret => "EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM")
+
+	  @payout = Payout.new(
+	  {
+	    :sender_batch_header => {
+	      :sender_batch_id => SecureRandom.hex(8),
+	      :email_subject => 'You have a Payout!',
+	    },
+	    :items => [
+	      {
+	        :recipient_type => 'EMAIL',
+	        :amount => {
+	          :value => '1.0',
+	          :currency => 'USD'
+	        },
+	        :note => 'Thanks for your patronage!',
+	        :receiver => 'customer@emanga.com',
+	        :sender_item_id => "2014031400023",
+	      }
+	    ]
+	  }
+	)
+
+	begin
+	  @payout_batch = @payout.create
+	  logger.info "Created Payout with [#{@payout_batch.batch_header.payout_batch_id}]"
+	rescue ResourceNotFound => err
+	  logger.error @payout.error.inspect
+	end
+
+
+
+
+
  end
 
  def report
