@@ -4,6 +4,7 @@ class ReportsController < ShopifyApp::AuthenticatedController
     @artists = Artist.all
 
       require 'paypal-sdk-rest'
+      include PayPal::SDK::Rest::Payout
 	  PayPal::SDK.configure(
 	  :mode => "sandbox", # "sandbox" or "live"
 	  :client_id => ENV["CLIENT_ID"],
