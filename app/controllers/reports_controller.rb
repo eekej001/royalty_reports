@@ -3,7 +3,7 @@ class ReportsController < ShopifyApp::AuthenticatedController
  def index
     @artists = Artist.all
 
-
+      require 'paypal-sdk-rest'
 	  PayPal::SDK.configure(
 	  :mode => "sandbox", # "sandbox" or "live"
 	  :client_id => ENV["CLIENT_ID"],
