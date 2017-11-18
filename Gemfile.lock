@@ -125,6 +125,9 @@ GEM
     omniauth-shopify-oauth2 (1.1.17)
       oauth2 (~> 1.1.0)
       omniauth-oauth2 (~> 1.2)
+    paypal-sdk-rest (1.6.1)
+      multi_json (~> 1.0)
+      xml-simple
     pry (0.11.1)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -218,6 +221,7 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     will_paginate (3.1.6)
+    xml-simple (1.1.5)
 
 PLATFORMS
   x64-mingw32
@@ -237,6 +241,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2 (>= 0.3.13, < 0.5)
+  paypal-sdk-rest
   rails (= 4.2.7)
   rails_12factor
   rubyzip (= 1.0.0)

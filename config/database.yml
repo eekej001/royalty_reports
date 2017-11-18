@@ -73,7 +73,7 @@ production:
   #adapter: postgresql
   #encoding: unicode
   #pool: 5
-  database: sql3172946
-  url: mysql2://sql3172946:tMgirN8ney@sql3.freemysqlhosting.net:3306/sql3172946
-  username: sql3172946
-  password: tMgirN8ney
+  database: ENV['DATABASE']
+  url: ENV['URL']
+  username: ENV['DB_USERNAME']
+  password: ENV['DB_PASSWORD']
