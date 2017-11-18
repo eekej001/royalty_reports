@@ -73,7 +73,7 @@ production:
   #adapter: postgresql
   #encoding: unicode
   #pool: 5
-  database: ENV['DATABASE']
-  url: ENV['DB_URL']
-  username: ENV['DB_USERNAME']
-  password: ENV['DB_PASSWORD']
+  database: <%= ENV['DATABASE'] %>
+  url: <%= ENV['DB_URL'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
