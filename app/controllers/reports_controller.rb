@@ -5,7 +5,7 @@ class ReportsController < ShopifyApp::AuthenticatedController
 
       require 'paypal-sdk-rest'
       require 'securerandom'
-      require './config/runner.rb'
+      #require './config/runner.rb'
       #include PayPal::SDK::Rest
       #include PayPal::SDK::Core::Logging
 	  PayPal::SDK.configure(
