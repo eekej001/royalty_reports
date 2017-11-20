@@ -1,11 +1,10 @@
-      require 'paypal-sdk-rest'
+class ReportsController < ShopifyApp::AuthenticatedController
+
+	  require 'paypal-sdk-rest'
       require 'securerandom'
       #require './config/runner.rb'
       include PayPal::SDK::Rest
       include PayPal::SDK::Core::Logging
-
-
-class ReportsController < ShopifyApp::AuthenticatedController
 
  def index
     @artists = Artist.all
