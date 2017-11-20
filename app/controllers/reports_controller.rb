@@ -6,8 +6,8 @@ class ReportsController < ShopifyApp::AuthenticatedController
       require 'paypal-sdk-rest'
       require 'securerandom'
       #require './config/runner.rb'
-      #include PayPal::SDK::Rest
-      #include PayPal::SDK::Core::Logging
+      include PayPal::SDK::Rest
+      include PayPal::SDK::Core::Logging
 	  PayPal::SDK.configure(
 	  :mode => "sandbox", # "sandbox" or "live"
 	  :client_id => ENV["CLIENT_ID"],
