@@ -120,6 +120,7 @@ def delete
 
  def destroy
     title = Title.find(params[:id]).destroy
+    Sale.destroy_all(:title_id => title.id)
     flash[:notice] = "The title '#{title.e_title}' has been successfully deleted."
     redirect_to(:action => 'index')
   end
