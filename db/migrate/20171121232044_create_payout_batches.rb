@@ -14,7 +14,7 @@ class CreatePayoutBatches < ActiveRecord::Migration
     change_column :payout_batches, :status, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
     change_column :payout_batches, :sender_batch_id, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
     change_column :payout_batches, :email_subject, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
-    change_column :payout_batches, :string, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
+    change_column :payout_batches, :payoal_id, "VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci"
   end
 
   def self.down
