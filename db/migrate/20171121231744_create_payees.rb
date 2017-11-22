@@ -2,7 +2,6 @@ class CreatePayees < ActiveRecord::Migration
   
  def self.up
     create_table :payees do |t|
-      t.integer :id, null: false
       t.string :email
       t.decimal :balance
       t.integer :currency_id

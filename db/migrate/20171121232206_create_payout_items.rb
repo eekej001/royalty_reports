@@ -1,7 +1,6 @@
 class CreatePayoutItems < ActiveRecord::Migration
   def self.up
     create_table :payout_items do |t|
-      t.integer :id, null: false
       t.string :transaction_id
       t.string :transaction_status
       t.decimal :amount, :default => 0.0, null: false

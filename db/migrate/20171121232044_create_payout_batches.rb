@@ -2,7 +2,6 @@ class CreatePayoutBatches < ActiveRecord::Migration
  
  def self.up
     create_table :payout_batches do |t|
-      t.integer :id, null: false
       t.string :status
       t.string :sender_batch_id
       t.string :email_subject

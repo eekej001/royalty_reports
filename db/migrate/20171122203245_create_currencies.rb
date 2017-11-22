@@ -4,7 +4,6 @@ class CreateCurrencies < ActiveRecord::Migration
 
   def self.up
     create_table :currencies do |t|
-      t.integer :id, null: false
       t.string :code
       t.timestamps null: false
     end
