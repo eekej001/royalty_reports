@@ -3,7 +3,7 @@ class CreatePayees < ActiveRecord::Migration
  def self.up
     create_table :payees do |t|
       t.string :email
-      t.decimal :balance
+      t.decimal :balance, :precision => 5, :scale => 2, 
       t.integer :currency_id
       t.timestamps null: false
     end

@@ -2,7 +2,7 @@ class ReportsController < ShopifyApp::AuthenticatedController
 
  def index
     @artists = Artist.all
-
+=begin
      require 'paypal-sdk-rest'
      require 'securerandom'
 
@@ -46,8 +46,14 @@ class ReportsController < ShopifyApp::AuthenticatedController
 	end
 
 
-
-
+=end
+   @payout_batch = PayoutBatch.new(:email_subject => "Test Payout", :currency_id => 2, :payee_ids => [1])
+   @payee = Payee.find(1)
+   @payout_batch.payout_items.build(amount: @payee.balance, currency_id: @payout_batch.currency_id, payee: @payee)
+   @payout_batch.save
+   notice: 'Payout batch was successfully created.'
+   @payout_batch.post
+   notice: 'PayoutBatch sent to Paypal successfully!'
 
  end
 

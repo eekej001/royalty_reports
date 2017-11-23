@@ -5,9 +5,8 @@ class CreatePayoutBatches < ActiveRecord::Migration
       t.string :status
       t.string :sender_batch_id
       t.string :email_subject
-      t.decimal :amount, :default => 0.0, null: false
+      t.decimal :amount, :precision => 5, :scale => 2, :default => 0.0, null: false
       t.integer :currency_id
-      t.decimal :fees, :default => 0.0, null: false
       t.timestamps null: false
       t.string :paypal_id
     end

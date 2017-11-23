@@ -3,8 +3,8 @@ class CreatePayoutItems < ActiveRecord::Migration
     create_table :payout_items do |t|
       t.string :transaction_id
       t.string :transaction_status
-      t.decimal :amount, :default => 0.0, null: false
-      t.decimal :fees, :default => 0.0, null: false
+      t.decimal :amount, :precision => 5, :scale => 2, :default => 0.0, null: false
+      t.decimal :fees, :precision => 5, :scale => 2, :default => 0.0, null: false
       t.string :note
       t.string :sender_item_id
       t.datetime :time_processed
