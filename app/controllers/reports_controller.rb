@@ -51,9 +51,9 @@ class ReportsController < ShopifyApp::AuthenticatedController
    @payee = Payee.find(1)
    @payout_batch.payout_items.build(amount: @payee.balance, currency_id: @payout_batch.currency_id, payee: @payee)
    @payout_batch.save
-   notice: 'Payout batch was successfully created.'
+   #notice: 'Payout batch was successfully created.'
    @payout_batch.post
-   notice: 'PayoutBatch sent to Paypal successfully!'
+   #notice: 'PayoutBatch sent to Paypal successfully!'
 
  end
 

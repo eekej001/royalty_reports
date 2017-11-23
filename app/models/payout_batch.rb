@@ -1,5 +1,5 @@
 class PayoutBatch < ActiveRecord::Base
-	before_validation :set_unsent_status, on: :create
+  before_validation :set_unsent_status, on: :create
   before_validation :set_sender_batch_it, on: :create
 
   has_many :payout_items, dependent: :destroy
