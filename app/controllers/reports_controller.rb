@@ -48,8 +48,10 @@ class ReportsController < ShopifyApp::AuthenticatedController
 
 =end
    @payout_batch = PayoutBatch.new(:email_subject => "Test Payout", :currency_id => 2, :payee_ids => [1])
-   @payee = Payee.find(1)
+  # @payee = Payee.find(1)
+  Payee.where(id: 1).each do |payee|
    @payout_batch.payout_items.build(amount: @payee.balance, currency_id: @payout_batch.currency_id, payee: @payee)
+  end 
    @payout_batch.save
    #notice: 'Payout batch was successfully created.'
    @payout_batch.post
