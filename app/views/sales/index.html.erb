@@ -23,7 +23,7 @@
      var width_container = 0;
      
 
-
+   var pagination = function() {
     $("div.pagination").children('span').each(function(i) {
          width_container += (parseFloat($(this).css("width")) + 5 )/2;
     });
@@ -46,9 +46,18 @@
 
     $("div.pagination").css("width", width_container);
 
+  }
+  
+  pagination();
+
+  $("a").click(function() {
+
+    pagination();
 
   });
 
+
+  });
 
 </script>
 
