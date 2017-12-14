@@ -54,11 +54,16 @@
 
   var pagi_pos = pagi.offset();
 
+  var mark = 0;
+
   $("a").click(function() {
 
    // $("div.pagination").offset({top: pagi_pos.top, left: (pagi_pos.left + 50) });
    $("div.pagination").css("width", 302);
    console.log(($("div.pagination").css("width")));
+
+   mark += 1;
+   console.log(mark);
 
     //width_container = 0;
 
