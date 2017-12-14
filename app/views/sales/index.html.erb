@@ -50,15 +50,23 @@
   
   pagination();
 
+  var pagi = $("div.pagination");
+
+  var pagi_pos = pagi.offset();
+
   $("a").click(function() {
 
-    width_container = 0;
+    $("div.pagination").offset({top: pagi_pos.top, left: pagi_pos.left});
+
+    //width_container = 0;
 
 
-    //setTimeout(function(){
-      setInterval(function(){
+    /*
+    setTimeout(function(){
+     // setInterval(function(){
       pagination();
     }, 2000);
+    */
 
   });
 
