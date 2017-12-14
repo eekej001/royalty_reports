@@ -56,7 +56,9 @@
 
   $("a").click(function() {
 
-    $("div.pagination").offset({top: pagi_pos.top, left: (pagi_pos.left + 50) });
+   // $("div.pagination").offset({top: pagi_pos.top, left: (pagi_pos.left + 50) });
+   $("div.pagination").css("width", 302px);
+   console.log(($("div.pagination").css("width")));
 
     //width_container = 0;
 
